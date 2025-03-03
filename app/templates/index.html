@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+{% endblock %}
+
+{% block scripts %}
+<script defer src="{{ url_for('static', filename='js/map.js') }}"></script>
+<script defer src="{{ url_for('static', filename='js/settings.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="overlay"></div>
+    <div class="top">
+        <nav class="nav">
+            <img src="{{ url_for('static', filename='images/orizo.png') }}" alt="logo orizo" class="logo">
+            <button class="hamburger-btn" aria-expanded="false" aria-controls="sidenav">
+                <svg stroke="#000" fill="none" class="hamburger" viewBox="-10 -10 120 120" width="40" height="40">
+                  <path class="line" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70">
+                  </path>
+                </svg>
+            </button>
+        </nav>
+        <form hx-post="/route" hx-swap="afterend" class="route-infos">
+            <input required type="text" placeholder="Lieu de départ">
+            <input required type="text" placeholder="Lieu d'arrivée">
+            <input required type="text" placeholder="Date">
+            <!-- todo: coder un time picker custom prck j'ai pas de vie -->
+            <button type="submit" class="send">Rechercher</button>
+        </form>
+    </div>
+    <div id="sidenav">
+        <ul>
+            <li>
+                <a href="#" style="opacity: 0;">Evil fuckery</a>
+            </li>
+            <li>
+                <a href="#">Mon profil</a>
+            </li>
+            <li>
+                <a href="#">Acheter des tickets</a>
+            </li>
+            <li>
+                <a href="#">Paramètres</a>
+            </li>
+        </ul>
+    </div>
+    <div class="bottom">
+        <div id="map"></div>
+    </div>
+</div>
+{% endblock %}
