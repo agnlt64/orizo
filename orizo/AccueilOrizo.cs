@@ -20,5 +20,10 @@ namespace orizo
             frmAdministrer = new Administrer();
             frmAdministrer.Show();
         }
+
+        private void AccueilOrizo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
