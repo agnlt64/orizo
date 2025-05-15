@@ -20,9 +20,64 @@ namespace orizo
             InitializeComponent();
             InitializeWebView();
             btnretour.Visible = false; // Masquer le bouton de retour au départ
-            lstbxconsultation.Visible = false; // Masquer la liste des lignes au départ
+            btnretourconsulter2.Visible = false; // Masquer le bouton de retour au départ
+            lstconsultation.Visible = false; // Masquer la liste des lignes au départ
             btnrechercheconsultation.Visible = false; // Masquer le bouton de recherche au départ
+            lbl1.Visible = false;
+            lbl2.Visible = false;
+
         }
+        //espaces pour les fonctions
+
+        private void MasquerConsultation()
+        {
+            webView.Visible = true; // Masquer la carte
+            btnretour.Visible = false; // Afficher le bouton de retour
+            btnretourconsulter2.Visible = false; // Masquer le bouton de retour au départ
+            btnconsulteriti.Visible = true; // Masquer le bouton de consultation d'itinéraire
+            btnconsulterligne.Visible = true; // Masquer le bouton de consultation de ligne
+            lstconsultation.Visible = false; // Masquer la liste des lignes
+            btnrechercheconsultation.Visible = false; // Masquer le bouton de recherche
+            btnRetourConsulter.Visible = true;
+            lbl1.Visible = false;
+            lbl2.Visible = false;
+        }
+
+        private void MasquerLigne()
+        {
+            webView.Visible = false; // Masquer la carte
+            btnretour.Visible = true; // Afficher le bouton de retour
+            btnretourconsulter2.Visible = false; // Masquer le bouton de retour au départ
+            btnconsulteriti.Visible = false; // Masquer le bouton de consultation d'itinéraire
+            btnconsulterligne.Visible = false; // Masquer le bouton de consultation de ligne
+            lstconsultation.Visible = true; // Afficher la liste des lignes
+            btnrechercheconsultation.Visible = true; // Afficher le bouton de recherche
+            btnRetourConsulter.Visible = false;
+            lbl1.Visible = false;
+            lbl2.Visible = false; // Masquer les labels au départ
+        }
+
+
+        private void MasquerLigne2()
+        {
+
+            if (webView != null) webView.Visible = false;
+            btnretour.Visible = false;
+            btnretourconsulter2.Visible = true; // Masquer le bouton de retour au départ
+            btnconsulteriti.Visible = false;
+            btnconsulterligne.Visible = false;
+            lstconsultation.Visible = false;
+            btnrechercheconsultation.Visible = false;
+            btnRetourConsulter.Visible = false;
+        }
+
+
+
+
+
+        //fin de l'espace pour les fonctions
+
+
         private async void InitializeWebView()
         {
             webView = new WebView2
@@ -49,16 +104,16 @@ namespace orizo
         html, body {
         margin: 0;
         padding: 0;
-        height: 100%;
+        height: 99%;
         width: 100%;
     }
 
     #map {
         height: 70%;
-        width: 98%;
+        width: 90%;
         margin-top: 1%;
         margin-right: 1%;
-        margin-left: 1%;
+        margin-left: 9%;
     }
     </style>
 </head>
@@ -88,12 +143,8 @@ namespace orizo
         {
             if (webView != null)
             {
-                webView.Visible = false; // Masquer la carte
-                btnretour.Visible = true; // Afficher le bouton de retour
-                btnconsulteriti.Visible = false; // Masquer le bouton de consultation d'itinéraire
-                btnconsulterligne.Visible = false; // Masquer le bouton de consultation de ligne
-                lstbxconsultation.Visible = true; // Afficher la liste des lignes
-                btnrechercheconsultation.Visible = true; // Afficher le bouton de recherche
+
+                MasquerLigne();
             }
         }
 
@@ -106,24 +157,47 @@ namespace orizo
         {
 
 
-            webView.Visible = true; // Masquer la carte
-            btnretour.Visible = false; // Afficher le bouton de retour
-            btnconsulteriti.Visible = true; // Masquer le bouton de consultation d'itinéraire
-            btnconsulterligne.Visible = true; // Masquer le bouton de consultation de ligne
-            lstbxconsultation.Visible = false; // Masquer la liste des lignes
-            btnrechercheconsultation.Visible = false; // Masquer le bouton de recherche
+            MasquerConsultation();
+
 
         }
 
         private void btnrechercheconsultation_Click(object sender, EventArgs e)
         {
+            if (lstconsultation.SelectedItem != null)
+            {
+                int indexSelectionne = lstconsultation.SelectedIndex;
 
+                MasquerLigne2(); // Masquer la liste des lignes et afficher le bouton de retour
+
+
+
+
+                // Afficher le bon label en fonction de l'élément sélectionné
+                if (indexSelectionne == 0)
+                {
+                    lbl1.Visible = true; // Premier élément sélectionné
+                }
+                else if (indexSelectionne == 1)
+                {
+                    lbl2.Visible = true; // Deuxième élément sélectionné
+                }
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un nom dans la liste.");
+            }
         }
 
         private void btnRetourConsulter_Click(object sender, EventArgs e)
         {
             Application.OpenForms[0]?.Show();
             this.Close();
+        }
+
+        private void btnretourconsulter2_Click(object sender, EventArgs e)
+        {
+            MasquerLigne();
         }
     }
 }
