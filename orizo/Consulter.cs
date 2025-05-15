@@ -119,5 +119,11 @@ namespace orizo
         {
 
         }
+
+        private void btnRetourConsulter_Click(object sender, EventArgs e)
+        {
+            Application.OpenForms[0]?.Show();
+            this.Close();
+        }
     }
 }

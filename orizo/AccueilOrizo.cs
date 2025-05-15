@@ -12,6 +12,7 @@ namespace orizo
             Consulter frmConsulter;
             frmConsulter = new Consulter();
             frmConsulter.Show();
+            this.Hide();
         }
 
         private void btnAdminAccueil_Click(object sender, EventArgs e)
@@ -19,11 +20,8 @@ namespace orizo
             Administrer frmAdministrer;
             frmAdministrer = new Administrer();
             frmAdministrer.Show();
+            this.Hide();
         }
 
-        private void AccueilOrizo_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -33,13 +33,15 @@
             btnretour = new Button();
             lstbxconsultation = new ListBox();
             btnrechercheconsultation = new Button();
+            btnRetourConsulter = new Button();
             SuspendLayout();
             // 
             // btnconsulterligne
             // 
-            btnconsulterligne.Location = new Point(88, 475);
+            btnconsulterligne.Location = new Point(110, 594);
+            btnconsulterligne.Margin = new Padding(4);
             btnconsulterligne.Name = "btnconsulterligne";
-            btnconsulterligne.Size = new Size(194, 29);
+            btnconsulterligne.Size = new Size(242, 36);
             btnconsulterligne.TabIndex = 0;
             btnconsulterligne.Text = "Consulter une ligne";
             btnconsulterligne.UseVisualStyleBackColor = true;
@@ -47,9 +49,10 @@
             // 
             // btnconsulteriti
             // 
-            btnconsulteriti.Location = new Point(536, 475);
+            btnconsulteriti.Location = new Point(670, 594);
+            btnconsulteriti.Margin = new Padding(4);
             btnconsulteriti.Name = "btnconsulteriti";
-            btnconsulteriti.Size = new Size(194, 29);
+            btnconsulteriti.Size = new Size(242, 36);
             btnconsulteriti.TabIndex = 1;
             btnconsulteriti.Text = "Consulter un itinéraire";
             btnconsulteriti.UseVisualStyleBackColor = true;
@@ -57,9 +60,10 @@
             // 
             // btnretour
             // 
-            btnretour.Location = new Point(57, 59);
+            btnretour.Location = new Point(78, 80);
+            btnretour.Margin = new Padding(4);
             btnretour.Name = "btnretour";
-            btnretour.Size = new Size(94, 29);
+            btnretour.Size = new Size(118, 36);
             btnretour.TabIndex = 2;
             btnretour.Text = "Retour";
             btnretour.UseVisualStyleBackColor = true;
@@ -68,27 +72,41 @@
             // lstbxconsultation
             // 
             lstbxconsultation.FormattingEnabled = true;
+            lstbxconsultation.ItemHeight = 25;
             lstbxconsultation.Items.AddRange(new object[] { "Carlos ", "Patrick ", "Bob" });
-            lstbxconsultation.Location = new Point(269, 136);
+            lstbxconsultation.Location = new Point(336, 170);
+            lstbxconsultation.Margin = new Padding(4);
             lstbxconsultation.Name = "lstbxconsultation";
-            lstbxconsultation.Size = new Size(265, 264);
+            lstbxconsultation.Size = new Size(330, 329);
             lstbxconsultation.TabIndex = 3;
             // 
             // btnrechercheconsultation
             // 
-            btnrechercheconsultation.Location = new Point(269, 440);
+            btnrechercheconsultation.Location = new Point(336, 550);
+            btnrechercheconsultation.Margin = new Padding(4);
             btnrechercheconsultation.Name = "btnrechercheconsultation";
-            btnrechercheconsultation.Size = new Size(265, 29);
+            btnrechercheconsultation.Size = new Size(331, 36);
             btnrechercheconsultation.TabIndex = 4;
             btnrechercheconsultation.Text = "Effectuer une recherche";
             btnrechercheconsultation.UseVisualStyleBackColor = true;
             btnrechercheconsultation.Click += btnrechercheconsultation_Click;
             // 
+            // btnRetourConsulter
+            // 
+            btnRetourConsulter.Location = new Point(12, 12);
+            btnRetourConsulter.Name = "btnRetourConsulter";
+            btnRetourConsulter.Size = new Size(66, 61);
+            btnRetourConsulter.TabIndex = 5;
+            btnRetourConsulter.Text = "<-";
+            btnRetourConsulter.UseVisualStyleBackColor = true;
+            btnRetourConsulter.Click += btnRetourConsulter_Click;
+            // 
             // Consulter
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(833, 555);
+            ClientSize = new Size(1041, 694);
+            Controls.Add(btnRetourConsulter);
             Controls.Add(btnrechercheconsultation);
             Controls.Add(lstbxconsultation);
             Controls.Add(btnretour);
@@ -107,5 +125,6 @@
         private Button btnretour;
         private ListBox lstbxconsultation;
         private Button btnrechercheconsultation;
+        private Button btnRetourConsulter;
     }
 }
