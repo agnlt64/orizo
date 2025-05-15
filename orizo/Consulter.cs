@@ -25,6 +25,7 @@ namespace orizo
             btnrechercheconsultation.Visible = false; // Masquer le bouton de recherche au départ
             lbl1.Visible = false;
             lbl2.Visible = false;
+            lblconsulterligne.Visible = false; // Masquer le label de consultation de ligne au départ
 
         }
         //espaces pour les fonctions
@@ -41,6 +42,7 @@ namespace orizo
             btnRetourConsulter.Visible = true;
             lbl1.Visible = false;
             lbl2.Visible = false;
+            lblconsulterligne.Visible = false; // Masquer le label de consultation de ligne au départ
         }
 
         private void MasquerLigne()
@@ -55,6 +57,7 @@ namespace orizo
             btnRetourConsulter.Visible = false;
             lbl1.Visible = false;
             lbl2.Visible = false; // Masquer les labels au départ
+            lblconsulterligne.Visible = true; // Afficher le label de consultation de ligne
         }
 
 
@@ -69,6 +72,7 @@ namespace orizo
             lstconsultation.Visible = false;
             btnrechercheconsultation.Visible = false;
             btnRetourConsulter.Visible = false;
+            lbl1.Visible = true;
         }
 
 
@@ -177,10 +181,12 @@ namespace orizo
                 if (indexSelectionne == 0)
                 {
                     lbl1.Visible = true; // Premier élément sélectionné
+                    lbl2.Visible = false; // Masquer le deuxième label
                 }
                 else if (indexSelectionne == 1)
                 {
                     lbl2.Visible = true; // Deuxième élément sélectionné
+                    lbl1.Visible = false; // Masquer le premier label
                 }
             }
             else
