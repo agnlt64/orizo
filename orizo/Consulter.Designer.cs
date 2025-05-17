@@ -76,11 +76,12 @@
             // lstconsultation
             // 
             lstconsultation.FormattingEnabled = true;
-            lstconsultation.Items.AddRange(new object[] { "Ligne 1", "Ligne 2", "Ligne 3" });
+            lstconsultation.Items.AddRange(new object[] { "Ligne1 ", "Ligne 2", "Ligne 3" });
             lstconsultation.Location = new Point(269, 136);
             lstconsultation.Name = "lstconsultation";
             lstconsultation.Size = new Size(265, 264);
             lstconsultation.TabIndex = 3;
+            lstconsultation.SelectedIndexChanged += lstconsultation_SelectedIndexChanged;
             // 
             // btnrechercheconsultation
             // 
