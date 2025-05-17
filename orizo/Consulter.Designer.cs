@@ -74,7 +74,7 @@
             // lstConsultation
             // 
             lstConsultation.FormattingEnabled = true;
-            lstConsultation.Items.AddRange(new object[] { "Ligne1 ", "Ligne 2", "Ligne 3" });
+            lstConsultation.Items.AddRange(new object[] { "Ligne 1 ", "Ligne 2", "Ligne 3" });
             lstConsultation.Location = new Point(269, 136);
             lstConsultation.Name = "lstConsultation";
             lstConsultation.Size = new Size(265, 264);

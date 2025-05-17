@@ -57,16 +57,18 @@
             lblItinéraire.Size = new Size(113, 35);
             lblItinéraire.TabIndex = 4;
             lblItinéraire.Text = "Itinéraire";
+            lblItinéraire.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblIndication
             // 
             lblIndication.AutoSize = true;
-            lblIndication.Location = new Point(361, 57);
+            lblIndication.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline);
+            lblIndication.Location = new Point(291, 64);
             lblIndication.Name = "lblIndication";
-            lblIndication.Size = new Size(17, 20);
+            lblIndication.Size = new Size(181, 28);
             lblIndication.TabIndex = 5;
-            lblIndication.Text = "a";
-            
+            lblIndication.Text = "Arrêt 1 à Arrêt 10";
+            lblIndication.TextAlign = ContentAlignment.TopCenter;
             // 
             // dvgTableauItineraire
             // 

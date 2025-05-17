@@ -52,7 +52,7 @@ namespace orizo
                 // Ajoute des lignes correspondant au cas 1
                 dgvConsulterLigne.Rows.Add("Erreur", "Erreur");
             }
-
+            lblIndication.Text = "Ligne " + (indexSelectionne+ 1);
 
         }
 

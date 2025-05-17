@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,10 +39,7 @@ namespace orizo
                 this.Close(); 
                 return;
             }
-
             AfficherDetails();
-
-          
         }
 
 
@@ -106,10 +104,9 @@ namespace orizo
                 MessageBox.Show("Erreur WebView2 : " + ex.Message);
             }
         }
+ //carte
 
 
-
-        //carte
         private bool TryParseHeure(string heureStr, out TimeSpan result)
         {
             return TimeSpan.TryParse(heureStr.Trim(), out result);
@@ -128,12 +125,12 @@ namespace orizo
             var heureReference = new TimeSpan(heureFiltre, minuteFiltre, 0);
 
             var itineraires = new Dictionary<(int, int), List<(string arret, string debut, string fin)>>()
-    {
-        { (0, 0), new List<(string, string, string)> { ("Arrêt 1", "9:00", "9:30"), ("Arrêt 2", "18:00", "19:00") } },
-        { (0, 1), new List<(string, string, string)> { ("Arrêt 1", "19:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
-        { (1, 0), new List<(string, string, string)> { ("Arrêt 1", "18:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
-        { (1, 1), new List<(string, string, string)> { ("Arrêt 1", "17:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } }
-    };
+            {
+                { (0, 0), new List<(string, string, string)> { ("Arrêt 1", "9:00", "9:30"), ("Arrêt 2", "18:00", "19:00") } },
+                { (0, 1), new List<(string, string, string)> { ("Arrêt 1", "19:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
+                { (1, 0), new List<(string, string, string)> { ("Arrêt 1", "18:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
+                { (1, 1), new List<(string, string, string)> { ("Arrêt 1", "17:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } }
+            };
 
             dvgTableauItineraire.Rows.Clear();
 
@@ -159,7 +156,7 @@ namespace orizo
                         {
                             afficher = (debut >= heureReference);
                         }
-                        else // filtrerParArrivee seul
+                        else 
                         {
                             afficher = (fin >= heureReference);
                         }
@@ -179,14 +176,8 @@ namespace orizo
                 MessageBox.Show("Ligne indisponible", "Erreur", MessageBoxButtons.OK);
                 dvgTableauItineraire.Rows.Add("Erreur", "Erreur");
             }
-        }
-
-
-
-
-
-        private void lblindication_Click(object sender, EventArgs e)
-        {
+            
+            lblIndication.Text = "Arrêt " + (indexSelectionneDep + 1) + " à Arrêt" + (indexSelectionneArr + 1);
 
         }
     }
