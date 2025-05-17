@@ -19,13 +19,13 @@
             public Consulter()
             {
                 InitializeComponent();
-                lstconsultationPublic = lstconsultation;
+                lstconsultationPublic = lstConsultation;
                 InitializeWebView();
-                btnretour.Visible = false; // Masquer le bouton de retour au départ
-                btnretourconsulter2.Visible = false; // Masquer le bouton de retour au départ
-                lstconsultation.Visible = false; // Masquer la liste des lignes au départ
-                btnrechercheconsultation.Visible = false; // Masquer le bouton de recherche au départ
-                lblconsulterligne.Visible = false; // Masquer le label de consultation de ligne au départ
+                btnRetourAccueil.Visible = false; // Masquer le bouton de retour au départ
+                btnRetourConsulter2.Visible = false; // Masquer le bouton de retour au départ
+                lstConsultation.Visible = false; // Masquer la liste des lignes au départ
+                btnRechercheConsultation.Visible = false; // Masquer le bouton de recherche au départ
+                lblConsulterLigne.Visible = false; // Masquer le label de consultation de ligne au départ
            
 
             }
@@ -34,27 +34,27 @@
             public void MasquerConsultation()
             {
                 webView.Visible = true; // Masquer la carte
-                btnretour.Visible = false; // Afficher le bouton de retour
-                btnretourconsulter2.Visible = false; // Masquer le bouton de retour au départ
-                btnconsulteriti.Visible = true; // Masquer le bouton de consultation d'itinéraire
-                btnconsulterligne.Visible = true; // Masquer le bouton de consultation de ligne
-                lstconsultation.Visible = false; // Masquer la liste des lignes
-                btnrechercheconsultation.Visible = false; // Masquer le bouton de recherche
+                btnRetourAccueil.Visible = false; // Afficher le bouton de retour
+                btnRetourConsulter2.Visible = false; // Masquer le bouton de retour au départ
+                btnConsulterItineraire.Visible = true; // Masquer le bouton de consultation d'itinéraire
+                btnConsulterLigne.Visible = true; // Masquer le bouton de consultation de ligne
+                lstConsultation.Visible = false; // Masquer la liste des lignes
+                btnRechercheConsultation.Visible = false; // Masquer le bouton de recherche
                 btnRetourConsulter.Visible = true;
-                lblconsulterligne.Visible = false; // Masquer le label de consultation de ligne au départ
+                lblConsulterLigne.Visible = false; // Masquer le label de consultation de ligne au départ
             }
 
             public void MasquerLigne()
             {
                 webView.Visible = false; // Masquer la carte
-                btnretour.Visible = true; // Afficher le bouton de retour
-                btnretourconsulter2.Visible = false; // Masquer le bouton de retour au départ
-                btnconsulteriti.Visible = false; // Masquer le bouton de consultation d'itinéraire
-                btnconsulterligne.Visible = false; // Masquer le bouton de consultation de ligne
-                lstconsultation.Visible = true; // Afficher la liste des lignes
-                btnrechercheconsultation.Visible = true; // Afficher le bouton de recherche
+                btnRetourAccueil.Visible = true; // Afficher le bouton de retour
+                btnRetourConsulter2.Visible = false; // Masquer le bouton de retour au départ
+                btnConsulterItineraire.Visible = false; // Masquer le bouton de consultation d'itinéraire
+                btnConsulterLigne.Visible = false; // Masquer le bouton de consultation de ligne
+                lstConsultation.Visible = true; // Afficher la liste des lignes
+                btnRechercheConsultation.Visible = true; // Afficher le bouton de recherche
                 btnRetourConsulter.Visible = false;
-                lblconsulterligne.Visible = true; // Afficher le label de consultation de ligne
+                lblConsulterLigne.Visible = true; // Afficher le label de consultation de ligne
             }
 
 
@@ -62,12 +62,12 @@
             {
 
                 if (webView != null) webView.Visible = false;
-                btnretour.Visible = false;
-                btnretourconsulter2.Visible = true; // Masquer le bouton de retour au départ
-                btnconsulteriti.Visible = false;
-                btnconsulterligne.Visible = false;
-                lstconsultation.Visible = false;
-                btnrechercheconsultation.Visible = false;
+                btnRetourAccueil.Visible = false;
+                btnRetourConsulter2.Visible = true; // Masquer le bouton de retour au départ
+                btnConsulterItineraire.Visible = false;
+                btnConsulterLigne.Visible = false;
+                lstConsultation.Visible = false;
+                btnRechercheConsultation.Visible = false;
                 btnRetourConsulter.Visible = false;
             }
 
@@ -141,7 +141,7 @@
 
             private void btnconsulterligne_Click(object sender, EventArgs e)
             {
-                int nbrliste = lstconsultation.Items.Count;
+                int nbrliste = lstConsultation.Items.Count;
 
                 if (nbrliste == 0)
                 {
@@ -157,7 +157,7 @@
 
             private void btnconsulteriti_Click(object sender, EventArgs e)
             {
-                int nbrliste = lstconsultation.Items.Count;
+                int nbrliste = lstConsultation.Items.Count;
 
                 if (nbrliste == 0)
                 {
@@ -183,9 +183,9 @@
 
         private void btnrechercheconsultation_Click(object sender, EventArgs e)
         {
-            if (lstconsultation.SelectedItem != null)
+            if (lstConsultation.SelectedItem != null)
             {
-                int indexSelectionne = lstconsultation.SelectedIndex;
+                int indexSelectionne = lstConsultation.SelectedIndex;
                 ConsulterLigne formLigne = new ConsulterLigne(indexSelectionne); // passe l'index directement
                 formLigne.Show();
                 this.Hide(); // facultatif
@@ -214,7 +214,7 @@
             }
         public int IndexSelectionne
         {
-            get { return lstconsultation.SelectedIndex; }
+            get { return lstConsultation.SelectedIndex; }
         }
     }
     }

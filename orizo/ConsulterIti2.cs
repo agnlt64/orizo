@@ -14,10 +14,34 @@ namespace orizo
     public partial class ConsulterIti2 : Form
     {
         private WebView2 webView;
-        public ConsulterIti2()
+        private int indexSelectionneDep;
+        private int indexSelectionneArr;
+        private int heureFiltre;
+        private int minuteFiltre;
+        private bool filtrerParDepart;
+        private bool filtrerParArrivee;
+
+        public ConsulterIti2(int indexSelectionneDep, int indexSelectionneArr, int heure, int minute, bool filtrerDepart, bool filtrerArrivee)
         {
             InitializeComponent();
             InitializeWebView();
+            this.indexSelectionneDep = indexSelectionneDep;
+            this.indexSelectionneArr = indexSelectionneArr;
+            this.heureFiltre = heure;
+            this.minuteFiltre = minute;
+            this.filtrerParDepart = filtrerDepart;
+            this.filtrerParArrivee = filtrerArrivee;
+
+            if (indexSelectionneDep < 0 || indexSelectionneArr < 0)
+            {
+                MessageBox.Show("Veuillez sélectionner un départ et une arrivée valides.", "Champs manquants", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close(); 
+                return;
+            }
+
+            AfficherDetails();
+
+          
         }
 
 
@@ -86,15 +110,80 @@ namespace orizo
 
 
         //carte
-
+        private bool TryParseHeure(string heureStr, out TimeSpan result)
+        {
+            return TimeSpan.TryParse(heureStr.Trim(), out result);
+        }
 
 
         private void btnretour_Click(object sender, EventArgs e)
         {
-            ConsulterIti formIti = new ConsulterIti(); // passe l'index directement
+            ConsulterIti formIti = new ConsulterIti(); 
             formIti.Show();
             this.Hide();
         }
+
+        private void AfficherDetails()
+        {
+            var heureReference = new TimeSpan(heureFiltre, minuteFiltre, 0);
+
+            var itineraires = new Dictionary<(int, int), List<(string arret, string debut, string fin)>>()
+    {
+        { (0, 0), new List<(string, string, string)> { ("Arrêt 1", "9:00", "9:30"), ("Arrêt 2", "18:00", "19:00") } },
+        { (0, 1), new List<(string, string, string)> { ("Arrêt 1", "19:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
+        { (1, 0), new List<(string, string, string)> { ("Arrêt 1", "18:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
+        { (1, 1), new List<(string, string, string)> { ("Arrêt 1", "17:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } }
+    };
+
+            dvgTableauItineraire.Rows.Clear();
+
+            var key = (indexSelectionneDep, indexSelectionneArr);
+
+            if (itineraires.TryGetValue(key, out var stops))
+            {
+                foreach (var (arret, debutStr, finStr) in stops)
+                {
+                    if (TryParseHeure(debutStr, out TimeSpan debut) && TryParseHeure(finStr, out TimeSpan fin))
+                    {
+                        bool afficher;
+
+                        if (!filtrerParDepart && !filtrerParArrivee)
+                        {
+                            afficher = true;
+                        }
+                        else if (filtrerParDepart && filtrerParArrivee)
+                        {
+                            afficher = (debut >= heureReference) && (fin >= heureReference);
+                        }
+                        else if (filtrerParDepart)
+                        {
+                            afficher = (debut >= heureReference);
+                        }
+                        else // filtrerParArrivee seul
+                        {
+                            afficher = (fin >= heureReference);
+                        }
+
+                        if (afficher)
+                            dvgTableauItineraire.Rows.Add(arret, debutStr, finStr);
+                    }
+                }
+
+                if (dvgTableauItineraire.Rows.Count == 0)
+                {
+                    MessageBox.Show("Aucun trajet ne correspond à l'heure choisie.", "Aucun résultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ligne indisponible", "Erreur", MessageBoxButtons.OK);
+                dvgTableauItineraire.Rows.Add("Erreur", "Erreur");
+            }
+        }
+
+
+
+
 
         private void lblindication_Click(object sender, EventArgs e)
         {

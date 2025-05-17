@@ -28,172 +28,172 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cmbdepart = new ComboBox();
-            cmbarrive = new ComboBox();
-            btnretour = new Button();
-            lblchercher = new Label();
-            lbldepart = new Label();
-            lblarrive = new Label();
-            lblheure = new Label();
-            chkdepart = new CheckBox();
-            chkarrive = new CheckBox();
-            btnrecherche = new Button();
-            nudheure = new NumericUpDown();
-            nudminute = new NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)nudheure).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudminute).BeginInit();
+            cmbDepart = new ComboBox();
+            cmbArrive = new ComboBox();
+            btnRetour = new Button();
+            lblChercher = new Label();
+            lblDepart = new Label();
+            lblArrive = new Label();
+            lblHeure = new Label();
+            chkDepart = new CheckBox();
+            chkArrive = new CheckBox();
+            btnRecherche = new Button();
+            nudHeure = new NumericUpDown();
+            nudMinute = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)nudHeure).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudMinute).BeginInit();
             SuspendLayout();
             // 
-            // cmbdepart
+            // cmbDepart
             // 
-            cmbdepart.FormattingEnabled = true;
-            cmbdepart.Items.AddRange(new object[] { "Arrêt 1", "Arrêt 2", "Arrêt 3" });
-            cmbdepart.Location = new Point(216, 124);
-            cmbdepart.Name = "cmbdepart";
-            cmbdepart.Size = new Size(328, 28);
-            cmbdepart.TabIndex = 0;
+            cmbDepart.FormattingEnabled = true;
+            cmbDepart.Items.AddRange(new object[] { "Arrêt 1", "Arrêt 2", "Arrêt 3" });
+            cmbDepart.Location = new Point(216, 124);
+            cmbDepart.Name = "cmbDepart";
+            cmbDepart.Size = new Size(328, 28);
+            cmbDepart.TabIndex = 0;
             // 
-            // cmbarrive
+            // cmbArrive
             // 
-            cmbarrive.FormattingEnabled = true;
-            cmbarrive.Items.AddRange(new object[] { "Arrêt 1", "Arrêt 2", "Arrêt 3" });
-            cmbarrive.Location = new Point(216, 232);
-            cmbarrive.Name = "cmbarrive";
-            cmbarrive.Size = new Size(328, 28);
-            cmbarrive.TabIndex = 1;
+            cmbArrive.FormattingEnabled = true;
+            cmbArrive.Items.AddRange(new object[] { "Arrêt 1", "Arrêt 2", "Arrêt 3" });
+            cmbArrive.Location = new Point(216, 232);
+            cmbArrive.Name = "cmbArrive";
+            cmbArrive.Size = new Size(328, 28);
+            cmbArrive.TabIndex = 1;
             // 
-            // btnretour
+            // btnRetour
             // 
-            btnretour.Location = new Point(12, 12);
-            btnretour.Name = "btnretour";
-            btnretour.Size = new Size(41, 46);
-            btnretour.TabIndex = 2;
-            btnretour.Text = "<-";
-            btnretour.UseVisualStyleBackColor = true;
-            btnretour.Click += btnretour_Click;
+            btnRetour.Location = new Point(12, 12);
+            btnRetour.Name = "btnRetour";
+            btnRetour.Size = new Size(41, 46);
+            btnRetour.TabIndex = 2;
+            btnRetour.Text = "<-";
+            btnRetour.UseVisualStyleBackColor = true;
+            btnRetour.Click += btnretour_Click;
             // 
-            // lblchercher
+            // lblChercher
             // 
-            lblchercher.AutoSize = true;
-            lblchercher.Font = new Font("Segoe UI", 15F);
-            lblchercher.Location = new Point(259, 13);
-            lblchercher.Name = "lblchercher";
-            lblchercher.Size = new Size(253, 35);
-            lblchercher.TabIndex = 3;
-            lblchercher.Text = "Chercher un itinéraire";
+            lblChercher.AutoSize = true;
+            lblChercher.Font = new Font("Segoe UI", 15F);
+            lblChercher.Location = new Point(259, 13);
+            lblChercher.Name = "lblChercher";
+            lblChercher.Size = new Size(253, 35);
+            lblChercher.TabIndex = 3;
+            lblChercher.Text = "Chercher un itinéraire";
             // 
-            // lbldepart
+            // lblDepart
             // 
-            lbldepart.AutoSize = true;
-            lbldepart.Location = new Point(333, 88);
-            lbldepart.Name = "lbldepart";
-            lbldepart.Size = new Size(111, 20);
-            lbldepart.TabIndex = 4;
-            lbldepart.Text = "Arrêt de départ";
+            lblDepart.AutoSize = true;
+            lblDepart.Location = new Point(333, 88);
+            lblDepart.Name = "lblDepart";
+            lblDepart.Size = new Size(111, 20);
+            lblDepart.TabIndex = 4;
+            lblDepart.Text = "Arrêt de départ";
             // 
-            // lblarrive
+            // lblArrive
             // 
-            lblarrive.AutoSize = true;
-            lblarrive.Location = new Point(341, 209);
-            lblarrive.Name = "lblarrive";
-            lblarrive.Size = new Size(103, 20);
-            lblarrive.TabIndex = 5;
-            lblarrive.Text = "Arrêt d'arrivée";
+            lblArrive.AutoSize = true;
+            lblArrive.Location = new Point(341, 209);
+            lblArrive.Name = "lblArrive";
+            lblArrive.Size = new Size(103, 20);
+            lblArrive.TabIndex = 5;
+            lblArrive.Text = "Arrêt d'arrivée";
             // 
-            // lblheure
+            // lblHeure
             // 
-            lblheure.AutoSize = true;
-            lblheure.Font = new Font("Segoe UI", 9F);
-            lblheure.Location = new Point(371, 312);
-            lblheure.Name = "lblheure";
-            lblheure.Size = new Size(20, 20);
-            lblheure.TabIndex = 8;
-            lblheure.Text = "H";
+            lblHeure.AutoSize = true;
+            lblHeure.Font = new Font("Segoe UI", 9F);
+            lblHeure.Location = new Point(371, 312);
+            lblHeure.Name = "lblHeure";
+            lblHeure.Size = new Size(20, 20);
+            lblHeure.TabIndex = 8;
+            lblHeure.Text = "H";
             // 
-            // chkdepart
+            // chkDepart
             // 
-            chkdepart.AutoSize = true;
-            chkdepart.Location = new Point(224, 367);
-            chkdepart.Name = "chkdepart";
-            chkdepart.Size = new Size(140, 24);
-            chkdepart.TabIndex = 9;
-            chkdepart.Text = "Heure de départ";
-            chkdepart.UseVisualStyleBackColor = true;
+            chkDepart.AutoSize = true;
+            chkDepart.Location = new Point(224, 367);
+            chkDepart.Name = "chkDepart";
+            chkDepart.Size = new Size(140, 24);
+            chkDepart.TabIndex = 9;
+            chkDepart.Text = "Heure de départ";
+            chkDepart.UseVisualStyleBackColor = true;
             // 
-            // chkarrive
+            // chkArrive
             // 
-            chkarrive.AutoSize = true;
-            chkarrive.Location = new Point(412, 367);
-            chkarrive.Name = "chkarrive";
-            chkarrive.Size = new Size(132, 24);
-            chkarrive.TabIndex = 10;
-            chkarrive.Text = "Heure d'arrivée";
-            chkarrive.UseVisualStyleBackColor = true;
+            chkArrive.AutoSize = true;
+            chkArrive.Location = new Point(412, 367);
+            chkArrive.Name = "chkArrive";
+            chkArrive.Size = new Size(132, 24);
+            chkArrive.TabIndex = 10;
+            chkArrive.Text = "Heure d'arrivée";
+            chkArrive.UseVisualStyleBackColor = true;
             // 
-            // btnrecherche
+            // btnRecherche
             // 
-            btnrecherche.Location = new Point(216, 409);
-            btnrecherche.Name = "btnrecherche";
-            btnrecherche.Size = new Size(328, 29);
-            btnrecherche.TabIndex = 11;
-            btnrecherche.Text = "Effectuer une recherche";
-            btnrecherche.UseVisualStyleBackColor = true;
-            btnrecherche.Click += btnrecherche_Click;
+            btnRecherche.Location = new Point(216, 409);
+            btnRecherche.Name = "btnRecherche";
+            btnRecherche.Size = new Size(328, 29);
+            btnRecherche.TabIndex = 11;
+            btnRecherche.Text = "Effectuer une recherche";
+            btnRecherche.UseVisualStyleBackColor = true;
+            btnRecherche.Click += btnrecherche_Click;
             // 
-            // nudheure
+            // nudHeure
             // 
-            nudheure.Location = new Point(323, 305);
-            nudheure.Maximum = new decimal(new int[] { 23, 0, 0, 0 });
-            nudheure.Name = "nudheure";
-            nudheure.Size = new Size(41, 27);
-            nudheure.TabIndex = 12;
+            nudHeure.Location = new Point(323, 305);
+            nudHeure.Maximum = new decimal(new int[] { 23, 0, 0, 0 });
+            nudHeure.Name = "nudHeure";
+            nudHeure.Size = new Size(41, 27);
+            nudHeure.TabIndex = 12;
             // 
-            // nudminute
+            // nudMinute
             // 
-            nudminute.Location = new Point(397, 305);
-            nudminute.Maximum = new decimal(new int[] { 59, 0, 0, 0 });
-            nudminute.Name = "nudminute";
-            nudminute.Size = new Size(41, 27);
-            nudminute.TabIndex = 13;
+            nudMinute.Location = new Point(397, 305);
+            nudMinute.Maximum = new decimal(new int[] { 59, 0, 0, 0 });
+            nudMinute.Name = "nudMinute";
+            nudMinute.Size = new Size(41, 27);
+            nudMinute.TabIndex = 13;
             // 
             // ConsulterIti
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(nudminute);
-            Controls.Add(nudheure);
-            Controls.Add(btnrecherche);
-            Controls.Add(chkarrive);
-            Controls.Add(chkdepart);
-            Controls.Add(lblheure);
-            Controls.Add(lblarrive);
-            Controls.Add(lbldepart);
-            Controls.Add(lblchercher);
-            Controls.Add(btnretour);
-            Controls.Add(cmbarrive);
-            Controls.Add(cmbdepart);
+            Controls.Add(nudMinute);
+            Controls.Add(nudHeure);
+            Controls.Add(btnRecherche);
+            Controls.Add(chkArrive);
+            Controls.Add(chkDepart);
+            Controls.Add(lblHeure);
+            Controls.Add(lblArrive);
+            Controls.Add(lblDepart);
+            Controls.Add(lblChercher);
+            Controls.Add(btnRetour);
+            Controls.Add(cmbArrive);
+            Controls.Add(cmbDepart);
             Name = "ConsulterIti";
             Text = "Réseau de transport - Consultation";
-            ((System.ComponentModel.ISupportInitialize)nudheure).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudminute).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudHeure).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudMinute).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private ComboBox cmbdepart;
-        private ComboBox cmbarrive;
-        private Button btnretour;
-        private Label lblchercher;
-        private Label lbldepart;
-        private Label lblarrive;
-        private Label lblheure;
-        private CheckBox chkdepart;
-        private CheckBox chkarrive;
-        private Button btnrecherche;
-        private NumericUpDown nudheure;
-        private NumericUpDown nudminute;
+        private ComboBox cmbDepart;
+        private ComboBox cmbArrive;
+        private Button btnRetour;
+        private Label lblChercher;
+        private Label lblDepart;
+        private Label lblArrive;
+        private Label lblHeure;
+        private CheckBox chkDepart;
+        private CheckBox chkArrive;
+        private Button btnRecherche;
+        private NumericUpDown nudHeure;
+        private NumericUpDown nudMinute;
     }
 }

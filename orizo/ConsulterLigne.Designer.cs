@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnretour = new Button();
-            dgvconsulterligne = new DataGridView();
+            btnRetour = new Button();
+            dgvConsulterLigne = new DataGridView();
             Arrêt = new DataGridViewTextBoxColumn();
             Horaires = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dgvconsulterligne).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvConsulterLigne).BeginInit();
             SuspendLayout();
             // 
-            // btnretour
+            // btnRetour
             // 
-            btnretour.Location = new Point(12, 12);
-            btnretour.Name = "btnretour";
-            btnretour.Size = new Size(41, 46);
-            btnretour.TabIndex = 2;
-            btnretour.Text = "<-";
-            btnretour.UseVisualStyleBackColor = true;
-            btnretour.Click += btnretour_Click;
+            btnRetour.Location = new Point(12, 12);
+            btnRetour.Name = "btnRetour";
+            btnRetour.Size = new Size(41, 46);
+            btnRetour.TabIndex = 2;
+            btnRetour.Text = "<-";
+            btnRetour.UseVisualStyleBackColor = true;
+            btnRetour.Click += btnretour_Click;
             // 
-            // dgvconsulterligne
+            // dgvConsulterLigne
             // 
-            dgvconsulterligne.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvconsulterligne.Columns.AddRange(new DataGridViewColumn[] { Arrêt, Horaires });
-            dgvconsulterligne.Location = new Point(80, 123);
-            dgvconsulterligne.Name = "dgvconsulterligne";
-            dgvconsulterligne.RowHeadersWidth = 51;
-            dgvconsulterligne.Size = new Size(613, 315);
-            dgvconsulterligne.TabIndex = 3;
+            dgvConsulterLigne.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvConsulterLigne.Columns.AddRange(new DataGridViewColumn[] { Arrêt, Horaires });
+            dgvConsulterLigne.Location = new Point(80, 123);
+            dgvConsulterLigne.Name = "dgvConsulterLigne";
+            dgvConsulterLigne.RowHeadersWidth = 51;
+            dgvConsulterLigne.Size = new Size(613, 315);
+            dgvConsulterLigne.TabIndex = 3;
             // 
             // Arrêt
             // 
@@ -74,17 +74,17 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dgvconsulterligne);
-            Controls.Add(btnretour);
+            Controls.Add(dgvConsulterLigne);
+            Controls.Add(btnRetour);
             Name = "ConsulterLigne";
             Text = "Réseau de transport - Consultation";
-            ((System.ComponentModel.ISupportInitialize)dgvconsulterligne).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvConsulterLigne).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private Button btnretour;
-        private DataGridView dgvconsulterligne;
+        private Button btnRetour;
+        private DataGridView dgvConsulterLigne;
         private DataGridViewTextBoxColumn Arrêt;
         private DataGridViewTextBoxColumn Horaires;
     }

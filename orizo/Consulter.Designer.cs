@@ -28,74 +28,74 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnconsulterligne = new Button();
-            btnconsulteriti = new Button();
-            btnretour = new Button();
-            lstconsultation = new ListBox();
-            btnrechercheconsultation = new Button();
+            btnConsulterLigne = new Button();
+            btnConsulterItineraire = new Button();
+            btnRetourAccueil = new Button();
+            lstConsultation = new ListBox();
+            btnRechercheConsultation = new Button();
             btnRetourConsulter = new Button();
-            btnretourconsulter2 = new Button();
-            lblconsulterligne = new Label();
+            btnRetourConsulter2 = new Button();
+            lblConsulterLigne = new Label();
             SuspendLayout();
             // 
-            // btnconsulterligne
+            // btnConsulterLigne
             // 
-            btnconsulterligne.BackColor = Color.Silver;
-            btnconsulterligne.Location = new Point(88, 475);
-            btnconsulterligne.Name = "btnconsulterligne";
-            btnconsulterligne.Size = new Size(194, 29);
-            btnconsulterligne.TabIndex = 0;
-            btnconsulterligne.Text = "Consulter une ligne";
-            btnconsulterligne.UseVisualStyleBackColor = false;
-            btnconsulterligne.Click += btnconsulterligne_Click;
+            btnConsulterLigne.BackColor = Color.Silver;
+            btnConsulterLigne.Location = new Point(88, 475);
+            btnConsulterLigne.Name = "btnConsulterLigne";
+            btnConsulterLigne.Size = new Size(194, 29);
+            btnConsulterLigne.TabIndex = 0;
+            btnConsulterLigne.Text = "Consulter une ligne";
+            btnConsulterLigne.UseVisualStyleBackColor = false;
+            btnConsulterLigne.Click += btnconsulterligne_Click;
             // 
-            // btnconsulteriti
+            // btnConsulterItineraire
             // 
-            btnconsulteriti.BackColor = Color.Silver;
-            btnconsulteriti.Location = new Point(536, 475);
-            btnconsulteriti.Name = "btnconsulteriti";
-            btnconsulteriti.Size = new Size(194, 29);
-            btnconsulteriti.TabIndex = 1;
-            btnconsulteriti.Text = "Consulter un itinéraire";
-            btnconsulteriti.UseVisualStyleBackColor = false;
-            btnconsulteriti.Click += btnconsulteriti_Click;
+            btnConsulterItineraire.BackColor = Color.Silver;
+            btnConsulterItineraire.Location = new Point(536, 475);
+            btnConsulterItineraire.Name = "btnConsulterItineraire";
+            btnConsulterItineraire.Size = new Size(194, 29);
+            btnConsulterItineraire.TabIndex = 1;
+            btnConsulterItineraire.Text = "Consulter un itinéraire";
+            btnConsulterItineraire.UseVisualStyleBackColor = false;
+            btnConsulterItineraire.Click += btnconsulteriti_Click;
             // 
-            // btnretour
+            // btnRetourAccueil
             // 
-            btnretour.BackColor = Color.Silver;
-            btnretour.Location = new Point(12, 12);
-            btnretour.Name = "btnretour";
-            btnretour.Size = new Size(41, 46);
-            btnretour.TabIndex = 2;
-            btnretour.Text = "<-";
-            btnretour.UseVisualStyleBackColor = false;
-            btnretour.Click += btnretour_Click;
+            btnRetourAccueil.BackColor = Color.Silver;
+            btnRetourAccueil.Location = new Point(12, 12);
+            btnRetourAccueil.Name = "btnRetourAccueil";
+            btnRetourAccueil.Size = new Size(41, 46);
+            btnRetourAccueil.TabIndex = 2;
+            btnRetourAccueil.Text = "<-";
+            btnRetourAccueil.UseVisualStyleBackColor = false;
+            btnRetourAccueil.Click += btnretour_Click;
             // 
-            // lstconsultation
+            // lstConsultation
             // 
-            lstconsultation.FormattingEnabled = true;
-            lstconsultation.Items.AddRange(new object[] { "Ligne1 ", "Ligne 2", "Ligne 3" });
-            lstconsultation.Location = new Point(269, 136);
-            lstconsultation.Name = "lstconsultation";
-            lstconsultation.Size = new Size(265, 264);
-            lstconsultation.TabIndex = 3;
-            lstconsultation.SelectedIndexChanged += lstconsultation_SelectedIndexChanged;
+            lstConsultation.FormattingEnabled = true;
+            lstConsultation.Items.AddRange(new object[] { "Ligne1 ", "Ligne 2", "Ligne 3" });
+            lstConsultation.Location = new Point(269, 136);
+            lstConsultation.Name = "lstConsultation";
+            lstConsultation.Size = new Size(265, 264);
+            lstConsultation.TabIndex = 3;
+            lstConsultation.SelectedIndexChanged += lstconsultation_SelectedIndexChanged;
             // 
-            // btnrechercheconsultation
+            // btnRechercheConsultation
             // 
-            btnrechercheconsultation.BackColor = Color.Silver;
-            btnrechercheconsultation.Location = new Point(269, 440);
-            btnrechercheconsultation.Name = "btnrechercheconsultation";
-            btnrechercheconsultation.Size = new Size(265, 29);
-            btnrechercheconsultation.TabIndex = 4;
-            btnrechercheconsultation.Text = "Effectuer une recherche";
-            btnrechercheconsultation.UseVisualStyleBackColor = false;
-            btnrechercheconsultation.Click += btnrechercheconsultation_Click;
+            btnRechercheConsultation.BackColor = Color.Silver;
+            btnRechercheConsultation.Location = new Point(269, 440);
+            btnRechercheConsultation.Name = "btnRechercheConsultation";
+            btnRechercheConsultation.Size = new Size(265, 29);
+            btnRechercheConsultation.TabIndex = 4;
+            btnRechercheConsultation.Text = "Effectuer une recherche";
+            btnRechercheConsultation.UseVisualStyleBackColor = false;
+            btnRechercheConsultation.Click += btnrechercheconsultation_Click;
             // 
             // btnRetourConsulter
             // 
             btnRetourConsulter.BackColor = Color.Silver;
-            btnRetourConsulter.Location = new Point(11, 11);
+            btnRetourConsulter.Location = new Point(12, 12);
             btnRetourConsulter.Margin = new Padding(2);
             btnRetourConsulter.Name = "btnRetourConsulter";
             btnRetourConsulter.Size = new Size(41, 46);
@@ -104,41 +104,41 @@
             btnRetourConsulter.UseVisualStyleBackColor = false;
             btnRetourConsulter.Click += btnRetourConsulter_Click;
             // 
-            // btnretourconsulter2
+            // btnRetourConsulter2
             // 
-            btnretourconsulter2.BackColor = Color.Silver;
-            btnretourconsulter2.Location = new Point(11, 11);
-            btnretourconsulter2.Margin = new Padding(2);
-            btnretourconsulter2.Name = "btnretourconsulter2";
-            btnretourconsulter2.Size = new Size(41, 46);
-            btnretourconsulter2.TabIndex = 8;
-            btnretourconsulter2.Text = "<-";
-            btnretourconsulter2.UseVisualStyleBackColor = false;
-            btnretourconsulter2.Click += btnretourconsulter2_Click;
+            btnRetourConsulter2.BackColor = Color.Silver;
+            btnRetourConsulter2.Location = new Point(12, 12);
+            btnRetourConsulter2.Margin = new Padding(2);
+            btnRetourConsulter2.Name = "btnRetourConsulter2";
+            btnRetourConsulter2.Size = new Size(41, 46);
+            btnRetourConsulter2.TabIndex = 8;
+            btnRetourConsulter2.Text = "<-";
+            btnRetourConsulter2.UseVisualStyleBackColor = false;
+            btnRetourConsulter2.Click += btnretourconsulter2_Click;
             // 
-            // lblconsulterligne
+            // lblConsulterLigne
             // 
-            lblconsulterligne.AutoSize = true;
-            lblconsulterligne.Font = new Font("Segoe UI", 15F);
-            lblconsulterligne.Location = new Point(284, 86);
-            lblconsulterligne.Name = "lblconsulterligne";
-            lblconsulterligne.Size = new Size(229, 35);
-            lblconsulterligne.TabIndex = 9;
-            lblconsulterligne.Text = "Consulter une ligne";
+            lblConsulterLigne.AutoSize = true;
+            lblConsulterLigne.Font = new Font("Segoe UI", 15F);
+            lblConsulterLigne.Location = new Point(284, 86);
+            lblConsulterLigne.Name = "lblConsulterLigne";
+            lblConsulterLigne.Size = new Size(229, 35);
+            lblConsulterLigne.TabIndex = 9;
+            lblConsulterLigne.Text = "Consulter une ligne";
             // 
             // Consulter
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(833, 555);
-            Controls.Add(lblconsulterligne);
-            Controls.Add(btnretourconsulter2);
+            Controls.Add(lblConsulterLigne);
+            Controls.Add(btnRetourConsulter2);
             Controls.Add(btnRetourConsulter);
-            Controls.Add(btnrechercheconsultation);
-            Controls.Add(lstconsultation);
-            Controls.Add(btnretour);
-            Controls.Add(btnconsulteriti);
-            Controls.Add(btnconsulterligne);
+            Controls.Add(btnRechercheConsultation);
+            Controls.Add(lstConsultation);
+            Controls.Add(btnRetourAccueil);
+            Controls.Add(btnConsulterItineraire);
+            Controls.Add(btnConsulterLigne);
             Margin = new Padding(2);
             Name = "Consulter";
             Text = "Réseau de transport - Consultation";
@@ -148,13 +148,13 @@
 
         #endregion
 
-        private Button btnconsulterligne;
-        private Button btnconsulteriti;
-        private Button btnretour;
-        private ListBox lstconsultation;
-        private Button btnrechercheconsultation;
+        private Button btnConsulterLigne;
+        private Button btnConsulterItineraire;
+        private Button btnRetourAccueil;
+        private ListBox lstConsultation;
+        private Button btnRechercheConsultation;
         private Button btnRetourConsulter;
-        private Button btnretourconsulter2;
-        private Label lblconsulterligne;
+        private Button btnRetourConsulter2;
+        private Label lblConsulterLigne;
     }
 }

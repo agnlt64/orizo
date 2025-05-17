@@ -21,7 +21,7 @@ namespace orizo
         {
             InitializeComponent();
             this.indexSelectionne = indexSelectionne;
-            btnretour.Visible = true; // Afficher le bouton de retour
+            btnRetour.Visible = true; // Afficher le bouton de retour
             AfficherDetails();
         }
 
@@ -30,27 +30,27 @@ namespace orizo
      
             if (indexSelectionne == 0)
             {
-                dgvconsulterligne.Rows.Clear();
+                dgvConsulterLigne.Rows.Clear();
 
                 // Ajoute des lignes correspondant au cas 0
-                dgvconsulterligne.Rows.Add("Arrêt 1", "9h - 9h30 ");
-                dgvconsulterligne.Rows.Add("Arrêt 2", "8h - 10h ");
+                dgvConsulterLigne.Rows.Add("Arrêt 1", "9h - 9h30 ");
+                dgvConsulterLigne.Rows.Add("Arrêt 2", "8h - 10h ");
             }
             else if (indexSelectionne == 1)
             {
-                dgvconsulterligne.Rows.Clear();
+                dgvConsulterLigne.Rows.Clear();
 
                 // Ajoute des lignes correspondant au cas 1
-                dgvconsulterligne.Rows.Add("Arrêt 1", "19h - 20h30 ");
-                dgvconsulterligne.Rows.Add("Arrêt 2", "20h - 22h ");
+                dgvConsulterLigne.Rows.Add("Arrêt 1", "19h - 20h30 ");
+                dgvConsulterLigne.Rows.Add("Arrêt 2", "20h - 22h ");
             }
             else
             {
                 MessageBox.Show("Ligne indisponible", "Erreur", MessageBoxButtons.OK);
-                dgvconsulterligne.Rows.Clear();
+                dgvConsulterLigne.Rows.Clear();
 
                 // Ajoute des lignes correspondant au cas 1
-                dgvconsulterligne.Rows.Add("Erreur", "Erreur");
+                dgvConsulterLigne.Rows.Add("Erreur", "Erreur");
             }
 
 
