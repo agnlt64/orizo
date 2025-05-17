@@ -47,7 +47,10 @@ namespace orizo
             else
             {
                 MessageBox.Show("Ligne indisponible", "Erreur", MessageBoxButtons.OK);
+                dgvconsulterligne.Rows.Clear();
 
+                // Ajoute des lignes correspondant au cas 1
+                dgvconsulterligne.Rows.Add("Erreur", "Erreur");
             }
 
 

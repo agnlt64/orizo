@@ -42,19 +42,20 @@
             // picAdmin
             // 
             picAdmin.Image = Properties.Resources.Logo_orizo;
-            picAdmin.Location = new Point(325, 11);
+            picAdmin.Location = new Point(260, 9);
             picAdmin.Margin = new Padding(2);
             picAdmin.Name = "picAdmin";
-            picAdmin.Size = new Size(249, 222);
+            picAdmin.Size = new Size(199, 178);
             picAdmin.SizeMode = PictureBoxSizeMode.Zoom;
             picAdmin.TabIndex = 1;
             picAdmin.TabStop = false;
             // 
             // btnRetourAdministrer
             // 
-            btnRetourAdministrer.Location = new Point(12, 12);
+            btnRetourAdministrer.Location = new Point(10, 10);
+            btnRetourAdministrer.Margin = new Padding(2, 2, 2, 2);
             btnRetourAdministrer.Name = "btnRetourAdministrer";
-            btnRetourAdministrer.Size = new Size(66, 61);
+            btnRetourAdministrer.Size = new Size(41, 46);
             btnRetourAdministrer.TabIndex = 2;
             btnRetourAdministrer.Text = "<-";
             btnRetourAdministrer.UseVisualStyleBackColor = true;
@@ -63,51 +64,57 @@
             // lblAccesAdmin
             // 
             lblAccesAdmin.AutoSize = true;
-            lblAccesAdmin.Location = new Point(363, 255);
+            lblAccesAdmin.Location = new Point(290, 204);
+            lblAccesAdmin.Margin = new Padding(2, 0, 2, 0);
             lblAccesAdmin.Name = "lblAccesAdmin";
-            lblAccesAdmin.Size = new Size(179, 25);
+            lblAccesAdmin.Size = new Size(149, 20);
             lblAccesAdmin.TabIndex = 3;
             lblAccesAdmin.Text = "Accès Administration";
             // 
             // lblIdAdmin
             // 
             lblIdAdmin.AutoSize = true;
-            lblIdAdmin.Location = new Point(401, 335);
+            lblIdAdmin.Location = new Point(321, 268);
+            lblIdAdmin.Margin = new Padding(2, 0, 2, 0);
             lblIdAdmin.Name = "lblIdAdmin";
-            lblIdAdmin.Size = new Size(92, 25);
+            lblIdAdmin.Size = new Size(77, 20);
             lblIdAdmin.TabIndex = 4;
             lblIdAdmin.Text = "Identifiant";
             // 
             // lblMdpAdmin
             // 
             lblMdpAdmin.AutoSize = true;
-            lblMdpAdmin.Location = new Point(386, 456);
+            lblMdpAdmin.Location = new Point(309, 365);
+            lblMdpAdmin.Margin = new Padding(2, 0, 2, 0);
             lblMdpAdmin.Name = "lblMdpAdmin";
-            lblMdpAdmin.Size = new Size(120, 25);
+            lblMdpAdmin.Size = new Size(98, 20);
             lblMdpAdmin.TabIndex = 5;
             lblMdpAdmin.Text = "Mot de passe";
             // 
             // txtIdAdmin
             // 
-            txtIdAdmin.Location = new Point(325, 381);
+            txtIdAdmin.Location = new Point(260, 305);
+            txtIdAdmin.Margin = new Padding(2, 2, 2, 2);
             txtIdAdmin.Name = "txtIdAdmin";
-            txtIdAdmin.Size = new Size(249, 31);
+            txtIdAdmin.Size = new Size(200, 27);
             txtIdAdmin.TabIndex = 6;
             txtIdAdmin.TextChanged += txtIdAdmin_TextChanged;
             // 
             // txtMdpAdmin
             // 
-            txtMdpAdmin.Location = new Point(325, 502);
+            txtMdpAdmin.Location = new Point(260, 402);
+            txtMdpAdmin.Margin = new Padding(2, 2, 2, 2);
             txtMdpAdmin.Name = "txtMdpAdmin";
-            txtMdpAdmin.Size = new Size(249, 31);
+            txtMdpAdmin.Size = new Size(200, 27);
             txtMdpAdmin.TabIndex = 7;
             txtMdpAdmin.TextChanged += txtMdpAdmin_TextChanged;
             // 
             // btnAdminConnexion
             // 
-            btnAdminConnexion.Location = new Point(325, 590);
+            btnAdminConnexion.Location = new Point(260, 472);
+            btnAdminConnexion.Margin = new Padding(2, 2, 2, 2);
             btnAdminConnexion.Name = "btnAdminConnexion";
-            btnAdminConnexion.Size = new Size(249, 60);
+            btnAdminConnexion.Size = new Size(199, 48);
             btnAdminConnexion.TabIndex = 8;
             btnAdminConnexion.Text = "Connexion";
             btnAdminConnexion.UseVisualStyleBackColor = true;
@@ -115,9 +122,9 @@
             // 
             // Administrer
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(918, 742);
+            ClientSize = new Size(734, 594);
             Controls.Add(btnAdminConnexion);
             Controls.Add(txtMdpAdmin);
             Controls.Add(txtIdAdmin);
@@ -126,6 +133,7 @@
             Controls.Add(lblAccesAdmin);
             Controls.Add(btnRetourAdministrer);
             Controls.Add(picAdmin);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "Administrer";
             Text = "Réseau de transport - Administrer";
             ((System.ComponentModel.ISupportInitialize)picAdmin).EndInit();

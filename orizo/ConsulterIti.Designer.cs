@@ -1,6 +1,6 @@
 ﻿namespace orizo
 {
-    partial class ConsulterLigne
+    partial class ConsulterIti
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            cmbdepart = new ComboBox();
+            cmbarrive = new ComboBox();
             btnretour = new Button();
-            dgvconsulterligne = new DataGridView();
-            Arrêt = new DataGridViewTextBoxColumn();
-            Horaires = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dgvconsulterligne).BeginInit();
+            lblchercher = new Label();
+            label1 = new Label();
             SuspendLayout();
+            // 
+            // cmbdepart
+            // 
+            cmbdepart.FormattingEnabled = true;
+            cmbdepart.Location = new Point(216, 124);
+            cmbdepart.Name = "cmbdepart";
+            cmbdepart.Size = new Size(328, 28);
+            cmbdepart.TabIndex = 0;
+            // 
+            // cmbarrive
+            // 
+            cmbarrive.FormattingEnabled = true;
+            cmbarrive.Location = new Point(216, 232);
+            cmbarrive.Name = "cmbarrive";
+            cmbarrive.Size = new Size(328, 28);
+            cmbarrive.TabIndex = 1;
             // 
             // btnretour
             // 
@@ -45,47 +61,47 @@
             btnretour.UseVisualStyleBackColor = true;
             btnretour.Click += btnretour_Click;
             // 
-            // dgvconsulterligne
+            // lblchercher
             // 
-            dgvconsulterligne.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvconsulterligne.Columns.AddRange(new DataGridViewColumn[] { Arrêt, Horaires });
-            dgvconsulterligne.Location = new Point(80, 123);
-            dgvconsulterligne.Name = "dgvconsulterligne";
-            dgvconsulterligne.RowHeadersWidth = 51;
-            dgvconsulterligne.Size = new Size(613, 315);
-            dgvconsulterligne.TabIndex = 3;
+            lblchercher.AutoSize = true;
+            lblchercher.Font = new Font("Segoe UI", 15F);
+            lblchercher.Location = new Point(259, 13);
+            lblchercher.Name = "lblchercher";
+            lblchercher.Size = new Size(253, 35);
+            lblchercher.TabIndex = 3;
+            lblchercher.Text = "Chercher un itinéraire";
             // 
-            // Arrêt
+            // label1
             // 
-            Arrêt.HeaderText = "Arrêt";
-            Arrêt.MinimumWidth = 6;
-            Arrêt.Name = "Arrêt";
-            Arrêt.Width = 125;
+            label1.AutoSize = true;
+            label1.Location = new Point(357, 81);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 20);
+            label1.TabIndex = 4;
+            label1.Text = "label1";
             // 
-            // Horaires
-            // 
-            Horaires.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Horaires.HeaderText = "Horaires";
-            Horaires.MinimumWidth = 6;
-            Horaires.Name = "Horaires";
-            // 
-            // ConsulterLigne
+            // ConsulterIti
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dgvconsulterligne);
+            Controls.Add(label1);
+            Controls.Add(lblchercher);
             Controls.Add(btnretour);
-            Name = "ConsulterLigne";
+            Controls.Add(cmbarrive);
+            Controls.Add(cmbdepart);
+            Name = "ConsulterIti";
             Text = "Réseau de transport - Consultation";
-            ((System.ComponentModel.ISupportInitialize)dgvconsulterligne).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private ComboBox cmbdepart;
+        private ComboBox cmbarrive;
         private Button btnretour;
-        private DataGridView dgvconsulterligne;
-        private DataGridViewTextBoxColumn Arrêt;
-        private DataGridViewTextBoxColumn Horaires;
+        private Label lblchercher;
+        private Label label1;
     }
 }

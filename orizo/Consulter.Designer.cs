@@ -63,9 +63,9 @@
             // btnretour
             // 
             btnretour.BackColor = Color.Silver;
-            btnretour.Location = new Point(26, 33);
+            btnretour.Location = new Point(12, 12);
             btnretour.Name = "btnretour";
-            btnretour.Size = new Size(44, 47);
+            btnretour.Size = new Size(41, 46);
             btnretour.TabIndex = 2;
             btnretour.Text = "<-";
             btnretour.UseVisualStyleBackColor = false;
@@ -95,7 +95,7 @@
             // btnRetourConsulter
             // 
             btnRetourConsulter.BackColor = Color.Silver;
-            btnRetourConsulter.Location = new Point(29, 34);
+            btnRetourConsulter.Location = new Point(11, 11);
             btnRetourConsulter.Margin = new Padding(2);
             btnRetourConsulter.Name = "btnRetourConsulter";
             btnRetourConsulter.Size = new Size(41, 46);
@@ -107,7 +107,7 @@
             // btnretourconsulter2
             // 
             btnretourconsulter2.BackColor = Color.Silver;
-            btnretourconsulter2.Location = new Point(29, 34);
+            btnretourconsulter2.Location = new Point(11, 11);
             btnretourconsulter2.Margin = new Padding(2);
             btnretourconsulter2.Name = "btnretourconsulter2";
             btnretourconsulter2.Size = new Size(41, 46);

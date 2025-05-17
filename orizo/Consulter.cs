@@ -166,8 +166,10 @@
                 }
                 if (webView != null)
                 {
-                    MasquerLigne();
-                }
+                ConsulterIti formIti = new ConsulterIti(); // passe l'index directement
+                formIti.Show();
+                this.Hide(); // facultatif
+            }
             }
 
             private void btnretour_Click(object sender, EventArgs e)
@@ -184,9 +186,6 @@
             if (lstconsultation.SelectedItem != null)
             {
                 int indexSelectionne = lstconsultation.SelectedIndex;
-
-                MasquerLigne2(); // Masquer les éléments actuels
-
                 ConsulterLigne formLigne = new ConsulterLigne(indexSelectionne); // passe l'index directement
                 formLigne.Show();
                 this.Hide(); // facultatif
