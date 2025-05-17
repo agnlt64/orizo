@@ -21,22 +21,33 @@ namespace orizo
         {
             InitializeComponent();
             this.indexSelectionne = indexSelectionne;
-            lbl10.Visible = false; // Masquer le label de consultation de ligne au départ
-            lbl11.Visible = false; // Masquer le label de consultation de ligne au départ
             btnretour.Visible = true; // Afficher le bouton de retour
             AfficherDetails();
         }
 
         private void AfficherDetails()
         {
-            // Exemple d'utilisation
+     
             if (indexSelectionne == 0)
             {
-                lbl10.Visible = true;
+                dgvconsulterligne.Rows.Clear();
+
+                // Ajoute des lignes correspondant au cas 0
+                dgvconsulterligne.Rows.Add("Arrêt 1", "9h - 9h30 ");
+                dgvconsulterligne.Rows.Add("Arrêt 2", "8h - 10h ");
             }
             else if (indexSelectionne == 1)
             {
-                lbl11.Visible = true;
+                dgvconsulterligne.Rows.Clear();
+
+                // Ajoute des lignes correspondant au cas 1
+                dgvconsulterligne.Rows.Add("Arrêt 1", "19h - 20h30 ");
+                dgvconsulterligne.Rows.Add("Arrêt 2", "20h - 22h ");
+            }
+            else
+            {
+                MessageBox.Show("Ligne indisponible", "Erreur", MessageBoxButtons.OK);
+
             }
 
 
@@ -59,14 +70,14 @@ namespace orizo
 
         private void btnretour_Click(object sender, EventArgs e)
         {
-            Consulter formConsulter = new Consulter(); // Recréation
+            Consulter formConsulter = new Consulter(); 
             formConsulter.Show();
-            this.Close(); // ou this.Hide();
+            this.Hide();
         }
 
 
 
-        // Ici tu peux utiliser consulterForm.LstConsultation par exemple
+        
 
 
     }

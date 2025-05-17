@@ -34,8 +34,6 @@
             lstconsultation = new ListBox();
             btnrechercheconsultation = new Button();
             btnRetourConsulter = new Button();
-            lbl1 = new Label();
-            lbl2 = new Label();
             btnretourconsulter2 = new Button();
             lblconsulterligne = new Label();
             SuspendLayout();
@@ -106,24 +104,6 @@
             btnRetourConsulter.UseVisualStyleBackColor = false;
             btnRetourConsulter.Click += btnRetourConsulter_Click;
             // 
-            // lbl1
-            // 
-            lbl1.AutoSize = true;
-            lbl1.Location = new Point(195, 427);
-            lbl1.Name = "lbl1";
-            lbl1.Size = new Size(57, 20);
-            lbl1.TabIndex = 6;
-            lbl1.Text = "Ligne 1";
-            // 
-            // lbl2
-            // 
-            lbl2.AutoSize = true;
-            lbl2.Location = new Point(117, 427);
-            lbl2.Name = "lbl2";
-            lbl2.Size = new Size(57, 20);
-            lbl2.TabIndex = 7;
-            lbl2.Text = "Ligne 2";
-            // 
             // btnretourconsulter2
             // 
             btnretourconsulter2.BackColor = Color.Silver;
@@ -153,8 +133,6 @@
             ClientSize = new Size(833, 555);
             Controls.Add(lblconsulterligne);
             Controls.Add(btnretourconsulter2);
-            Controls.Add(lbl2);
-            Controls.Add(lbl1);
             Controls.Add(btnRetourConsulter);
             Controls.Add(btnrechercheconsultation);
             Controls.Add(lstconsultation);
@@ -176,8 +154,6 @@
         private ListBox lstconsultation;
         private Button btnrechercheconsultation;
         private Button btnRetourConsulter;
-        private Label lbl1;
-        private Label lbl2;
         private Button btnretourconsulter2;
         private Label lblconsulterligne;
     }

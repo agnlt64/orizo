@@ -25,8 +25,6 @@
                 btnretourconsulter2.Visible = false; // Masquer le bouton de retour au départ
                 lstconsultation.Visible = false; // Masquer la liste des lignes au départ
                 btnrechercheconsultation.Visible = false; // Masquer le bouton de recherche au départ
-                lbl1.Visible = false;
-                lbl2.Visible = false;
                 lblconsulterligne.Visible = false; // Masquer le label de consultation de ligne au départ
            
 
@@ -43,8 +41,6 @@
                 lstconsultation.Visible = false; // Masquer la liste des lignes
                 btnrechercheconsultation.Visible = false; // Masquer le bouton de recherche
                 btnRetourConsulter.Visible = true;
-                lbl1.Visible = false;
-                lbl2.Visible = false;
                 lblconsulterligne.Visible = false; // Masquer le label de consultation de ligne au départ
             }
 
@@ -58,8 +54,6 @@
                 lstconsultation.Visible = true; // Afficher la liste des lignes
                 btnrechercheconsultation.Visible = true; // Afficher le bouton de recherche
                 btnRetourConsulter.Visible = false;
-                lbl1.Visible = false;
-                lbl2.Visible = false; // Masquer les labels au départ
                 lblconsulterligne.Visible = true; // Afficher le label de consultation de ligne
             }
 
@@ -75,7 +69,6 @@
                 lstconsultation.Visible = false;
                 btnrechercheconsultation.Visible = false;
                 btnRetourConsulter.Visible = false;
-                lbl1.Visible = true;
             }
 
 
@@ -200,7 +193,7 @@
             }
             else
             {
-                MessageBox.Show("Veuillez sélectionner une ligne.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez sélectionner une ligne.", "Alerte", MessageBoxButtons.OK);
             }
         }
 
