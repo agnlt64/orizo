@@ -24,6 +24,14 @@ namespace orizo
             this.Hide();
         }
 
-        
+        private void btnrecherche_Click(object sender, EventArgs e)
+        {
+            //si 2 meme selectionner erreur
+            ConsulterIti2 formIti2 = new ConsulterIti2(); // passe l'index directement
+            formIti2.Show();
+            this.Hide();
+        }
+
+       
     }
 }

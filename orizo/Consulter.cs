@@ -168,7 +168,7 @@
                 {
                 ConsulterIti formIti = new ConsulterIti(); // passe l'index directement
                 formIti.Show();
-                this.Hide(); // facultatif
+                this.Hide();
             }
             }
 
