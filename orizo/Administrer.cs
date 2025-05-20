@@ -36,6 +36,10 @@ namespace orizo
             if (txtIdAdmin.Text == identifiantCorrect && txtMdpAdmin.Text == motDePasseCorrect)
             {
                 MessageBox.Show("Connexion réussie !");
+                AdministrerMenuSuite frmAdministrerMenuSuite;
+                frmAdministrerMenuSuite = new AdministrerMenuSuite();
+                frmAdministrerMenuSuite.Show();
+                this.Hide();
             }
             else
             {
