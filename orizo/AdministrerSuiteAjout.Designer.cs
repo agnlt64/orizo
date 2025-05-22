@@ -63,6 +63,7 @@
             btnRetourAdministrerAjout.TabIndex = 12;
             btnRetourAdministrerAjout.Text = "<-";
             btnRetourAdministrerAjout.UseVisualStyleBackColor = true;
+            btnRetourAdministrerAjout.Click += btnRetourAdministrerAjout_Click;
             // 
             // lblAdminSuiteAjout
             // 

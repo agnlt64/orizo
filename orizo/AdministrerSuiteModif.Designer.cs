@@ -54,6 +54,7 @@
             btnRetourAdministrerModif.TabIndex = 16;
             btnRetourAdministrerModif.Text = "<-";
             btnRetourAdministrerModif.UseVisualStyleBackColor = true;
+            btnRetourAdministrerModif.Click += btnRetourAdministrerModif_Click;
             // 
             // btnAdminModifierLigne
             // 

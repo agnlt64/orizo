@@ -54,6 +54,7 @@
             btnRetourAdministrerSup.TabIndex = 20;
             btnRetourAdministrerSup.Text = "<-";
             btnRetourAdministrerSup.UseVisualStyleBackColor = true;
+            btnRetourAdministrerSup.Click += btnRetourAdministrerSup_Click;
             // 
             // btnAdminSupLigne
             // 
@@ -74,6 +75,7 @@
             btnAdminSupArret.TabIndex = 18;
             btnAdminSupArret.Text = "Supprimer un arrêt";
             btnAdminSupArret.UseVisualStyleBackColor = true;
+            btnAdminSupArret.Click += btnAdminSupArret_Click;
             // 
             // AdministrerSuiteSup
             // 

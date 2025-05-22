@@ -21,7 +21,7 @@ namespace orizo
         {
             Administrer frmAdministrer = new Administrer();
             frmAdministrer.Show();  // Corrected line
-            this.Hide();
+            this.Close();
         }
 
         private void btnAdminAjouterData_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace orizo
             AdministrerSuiteAjout frmAdministrerSuiteAjout;
             frmAdministrerSuiteAjout = new AdministrerSuiteAjout();
             frmAdministrerSuiteAjout.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnAdminModifData_Click(object sender, EventArgs e)
@@ -37,7 +37,7 @@ namespace orizo
             AdministrerSuiteModif frmAdministrerSuiteModif;
             frmAdministrerSuiteModif = new AdministrerSuiteModif();
             frmAdministrerSuiteModif.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btnAdminSupData_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace orizo
             AdministrerSuiteSup frmAdministrerSuiteSup;
             frmAdministrerSuiteSup = new AdministrerSuiteSup();
             frmAdministrerSuiteSup.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

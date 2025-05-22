@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace orizo
 {
-    public partial class AdministrerSuiteModif: Form
+    public partial class AdministrerSuiteModif : Form
     {
         public AdministrerSuiteModif()
         {
             InitializeComponent();
+        }
+
+        private void btnRetourAdministrerModif_Click(object sender, EventArgs e)
+        {
+            AdministrerMenuSuite frmAdministrerMenuSuite = new AdministrerMenuSuite();
+            frmAdministrerMenuSuite.Show();  // Corrected line
+            this.Close();
         }
     }
 }
