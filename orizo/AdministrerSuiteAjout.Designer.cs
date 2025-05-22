@@ -43,6 +43,7 @@
             btnAdminAjoutLigne.TabIndex = 11;
             btnAdminAjoutLigne.Text = "Ajouter une ligne";
             btnAdminAjoutLigne.UseVisualStyleBackColor = true;
+            btnAdminAjoutLigne.Click += btnAdminAjoutLigne_Click;
             // 
             // btnAdminAjoutArret
             // 
@@ -53,6 +54,7 @@
             btnAdminAjoutArret.TabIndex = 10;
             btnAdminAjoutArret.Text = "Ajouter un arrêt";
             btnAdminAjoutArret.UseVisualStyleBackColor = true;
+            btnAdminAjoutArret.Click += btnAdminAjoutArret_Click;
             // 
             // btnRetourAdministrerAjout
             // 
