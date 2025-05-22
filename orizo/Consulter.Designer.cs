@@ -139,8 +139,11 @@
             Controls.Add(btnRetourAccueil);
             Controls.Add(btnConsulterItineraire);
             Controls.Add(btnConsulterLigne);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(2);
+            MaximizeBox = false;
             Name = "Consulter";
+            SizeGripStyle = SizeGripStyle.Hide;
             Text = "Réseau de transport - Consultation";
             ResumeLayout(false);
             PerformLayout();

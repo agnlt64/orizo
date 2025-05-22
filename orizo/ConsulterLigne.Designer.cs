@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ListViewItem listViewItem4 = new ListViewItem("Ligne");
+            ListViewItem listViewItem5 = new ListViewItem("Départ");
+            ListViewItem listViewItem6 = new ListViewItem("Arrivée");
             btnRetour = new Button();
-            dgvConsulterLigne = new DataGridView();
-            Arrêt = new DataGridViewTextBoxColumn();
-            Horaires = new DataGridViewTextBoxColumn();
             lblConsulterLigne = new Label();
             lblIndication = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvConsulterLigne).BeginInit();
+            lswTableau = new ListView();
             SuspendLayout();
             // 
             // btnRetour
@@ -46,30 +46,6 @@
             btnRetour.Text = "<-";
             btnRetour.UseVisualStyleBackColor = true;
             btnRetour.Click += btnretour_Click;
-            // 
-            // dgvConsulterLigne
-            // 
-            dgvConsulterLigne.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConsulterLigne.Columns.AddRange(new DataGridViewColumn[] { Arrêt, Horaires });
-            dgvConsulterLigne.Location = new Point(80, 123);
-            dgvConsulterLigne.Name = "dgvConsulterLigne";
-            dgvConsulterLigne.RowHeadersWidth = 51;
-            dgvConsulterLigne.Size = new Size(613, 315);
-            dgvConsulterLigne.TabIndex = 3;
-            // 
-            // Arrêt
-            // 
-            Arrêt.HeaderText = "Arrêt";
-            Arrêt.MinimumWidth = 6;
-            Arrêt.Name = "Arrêt";
-            Arrêt.Width = 125;
-            // 
-            // Horaires
-            // 
-            Horaires.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Horaires.HeaderText = "Horaires";
-            Horaires.MinimumWidth = 6;
-            Horaires.Name = "Horaires";
             // 
             // lblConsulterLigne
             // 
@@ -92,28 +68,38 @@
             lblIndication.Text = "Ligne 1";
             lblIndication.TextAlign = ContentAlignment.TopCenter;
             // 
+            // lswTableau
+            // 
+            lswTableau.Items.AddRange(new ListViewItem[] { listViewItem4, listViewItem5, listViewItem6 });
+            lswTableau.Location = new Point(158, 117);
+            lswTableau.Name = "lswTableau";
+            lswTableau.Size = new Size(506, 321);
+            lswTableau.TabIndex = 12;
+            lswTableau.UseCompatibleStateImageBehavior = false;
+            // 
             // ConsulterLigne
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lswTableau);
             Controls.Add(lblIndication);
             Controls.Add(lblConsulterLigne);
-            Controls.Add(dgvConsulterLigne);
             Controls.Add(btnRetour);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MinimizeBox = false;
             Name = "ConsulterLigne";
+            SizeGripStyle = SizeGripStyle.Hide;
             Text = "Réseau de transport - Consultation";
-            ((System.ComponentModel.ISupportInitialize)dgvConsulterLigne).EndInit();
+            Load += ConsulterLigne_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Button btnRetour;
-        private DataGridView dgvConsulterLigne;
-        private DataGridViewTextBoxColumn Arrêt;
-        private DataGridViewTextBoxColumn Horaires;
         private Label lblConsulterLigne;
         private Label lblIndication;
+        private ListView lswTableau;
     }
 }

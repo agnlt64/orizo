@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ListViewItem listViewItem1 = new ListViewItem("Ligne");
+            ListViewItem listViewItem2 = new ListViewItem("Départ");
+            ListViewItem listViewItem3 = new ListViewItem("Arrivée");
             btnRetour = new Button();
             lblItinéraire = new Label();
             lblIndication = new Label();
-            dvgTableauItineraire = new DataGridView();
-            Ligne = new DataGridViewTextBoxColumn();
-            Départ = new DataGridViewTextBoxColumn();
-            Arrivée = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dvgTableauItineraire).BeginInit();
+            lswTableau = new ListView();
             SuspendLayout();
             // 
             // btnRetour
@@ -70,49 +69,30 @@
             lblIndication.Text = "Arrêt 1 à Arrêt 10";
             lblIndication.TextAlign = ContentAlignment.TopCenter;
             // 
-            // dvgTableauItineraire
+            // lswTableau
             // 
-            dvgTableauItineraire.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dvgTableauItineraire.Columns.AddRange(new DataGridViewColumn[] { Ligne, Départ, Arrivée });
-            dvgTableauItineraire.Location = new Point(412, 117);
-            dvgTableauItineraire.Name = "dvgTableauItineraire";
-            dvgTableauItineraire.RowHeadersWidth = 51;
-            dvgTableauItineraire.Size = new Size(376, 321);
-            dvgTableauItineraire.TabIndex = 6;
-            // 
-            // Ligne
-            // 
-            Ligne.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Ligne.HeaderText = "Ligne";
-            Ligne.MinimumWidth = 6;
-            Ligne.Name = "Ligne";
-            // 
-            // Départ
-            // 
-            Départ.HeaderText = "Départ";
-            Départ.MinimumWidth = 6;
-            Départ.Name = "Départ";
-            Départ.Width = 125;
-            // 
-            // Arrivée
-            // 
-            Arrivée.HeaderText = "Arrivée";
-            Arrivée.MinimumWidth = 6;
-            Arrivée.Name = "Arrivée";
-            Arrivée.Width = 125;
+            lswTableau.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2, listViewItem3 });
+            lswTableau.Location = new Point(412, 117);
+            lswTableau.Name = "lswTableau";
+            lswTableau.Size = new Size(376, 321);
+            lswTableau.TabIndex = 7;
+            lswTableau.UseCompatibleStateImageBehavior = false;
+            lswTableau.SelectedIndexChanged += listView1_SelectedIndexChanged_1;
             // 
             // ConsulterIti2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(dvgTableauItineraire);
+            Controls.Add(lswTableau);
             Controls.Add(lblIndication);
             Controls.Add(lblItinéraire);
             Controls.Add(btnRetour);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MinimizeBox = false;
             Name = "ConsulterIti2";
+            SizeGripStyle = SizeGripStyle.Hide;
             Text = "ConsulterIti2";
-            ((System.ComponentModel.ISupportInitialize)dvgTableauItineraire).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,9 +102,6 @@
         private Button btnRetour;
         private Label lblItinéraire;
         private Label lblIndication;
-        private DataGridView dvgTableauItineraire;
-        private DataGridViewTextBoxColumn Ligne;
-        private DataGridViewTextBoxColumn Départ;
-        private DataGridViewTextBoxColumn Arrivée;
+        private ListView lswTableau;
     }
 }

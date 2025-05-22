@@ -173,7 +173,10 @@
             Controls.Add(btnRetour);
             Controls.Add(cmbArrive);
             Controls.Add(cmbDepart);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MinimizeBox = false;
             Name = "ConsulterIti";
+            SizeGripStyle = SizeGripStyle.Hide;
             Text = "Réseau de transport - Consultation";
             ((System.ComponentModel.ISupportInitialize)nudHeure).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudMinute).EndInit();
