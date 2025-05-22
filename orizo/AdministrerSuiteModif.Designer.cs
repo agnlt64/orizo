@@ -65,6 +65,7 @@
             btnAdminModifierLigne.TabIndex = 15;
             btnAdminModifierLigne.Text = "Modifier une ligne";
             btnAdminModifierLigne.UseVisualStyleBackColor = true;
+            btnAdminModifierLigne.Click += btnAdminModifierLigne_Click;
             // 
             // btnAdminModifierArret
             // 
@@ -75,6 +76,7 @@
             btnAdminModifierArret.TabIndex = 14;
             btnAdminModifierArret.Text = "Modifier un arrêt";
             btnAdminModifierArret.UseVisualStyleBackColor = true;
+            btnAdminModifierArret.Click += btnAdminModifierArret_Click;
             // 
             // AdministrerSuiteModif
             // 

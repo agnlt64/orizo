@@ -65,6 +65,7 @@
             btnAdminSupLigne.TabIndex = 19;
             btnAdminSupLigne.Text = "Supprimer une ligne";
             btnAdminSupLigne.UseVisualStyleBackColor = true;
+            btnAdminSupLigne.Click += btnAdminSupLigne_Click;
             // 
             // btnAdminSupArret
             // 
