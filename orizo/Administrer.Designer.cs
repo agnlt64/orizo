@@ -1,6 +1,6 @@
 ﻿namespace orizo
 {
-    partial class Administrer
+    public partial class Administrer : Form
     {
         /// <summary>
         /// Required designer variable.
