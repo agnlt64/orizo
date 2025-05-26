@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Web.WebView2.WinForms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace orizo
 {
@@ -36,10 +37,13 @@ namespace orizo
             if (indexSelectionneDep < 0 || indexSelectionneArr < 0)
             {
                 MessageBox.Show("Veuillez sélectionner un départ et une arrivée valides.", "Champs manquants", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Close(); 
+                this.Close();
                 return;
             }
             AfficherDetails();
+            // Création du tableau avec [lignes, colonnes]
+            
+
         }
 
 
@@ -104,7 +108,7 @@ namespace orizo
                 MessageBox.Show("Erreur WebView2 : " + ex.Message);
             }
         }
- //carte
+        //carte
 
 
         private bool TryParseHeure(string heureStr, out TimeSpan result)
@@ -115,7 +119,7 @@ namespace orizo
 
         private void btnretour_Click(object sender, EventArgs e)
         {
-            ConsulterIti formIti = new ConsulterIti(); 
+            ConsulterIti formIti = new ConsulterIti();
             formIti.Show();
             this.Hide();
         }
@@ -125,14 +129,24 @@ namespace orizo
             var heureReference = new TimeSpan(heureFiltre, minuteFiltre, 0);
 
             var itineraires = new Dictionary<(int, int), List<(string arret, string debut, string fin)>>()
-            {
-                { (0, 0), new List<(string, string, string)> { ("Arrêt 1", "9:00", "9:30"), ("Arrêt 2", "18:00", "19:00") } },
-                { (0, 1), new List<(string, string, string)> { ("Arrêt 1", "19:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
-                { (1, 0), new List<(string, string, string)> { ("Arrêt 1", "18:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
-                { (1, 1), new List<(string, string, string)> { ("Arrêt 1", "17:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } }
-            };
+    {
+        { (0, 0), new List<(string, string, string)> { ("Arrêt 1", "9:00", "9:30"), ("Arrêt 2", "18:00", "19:00") } },
+        { (0, 1), new List<(string, string, string)> { ("Arrêt 1", "19:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
+        { (1, 0), new List<(string, string, string)> { ("Arrêt 1", "18:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
+        { (1, 1), new List<(string, string, string)> { ("Arrêt 1", "17:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } }
+    };
 
-            dvgTableauItineraire.Rows.Clear();
+            // Nettoyage et configuration ListView
+            lswTableau.Items.Clear();
+            lswTableau.Columns.Clear();
+            lswTableau.View = View.Details;
+            lswTableau.FullRowSelect = true;
+            lswTableau.GridLines = true;
+
+            // Ajouter colonnes
+            lswTableau.Columns.Add("Arrêt");
+            lswTableau.Columns.Add("Départ");
+            lswTableau.Columns.Add("Arrivée");
 
             var key = (indexSelectionneDep, indexSelectionneArr);
 
@@ -145,28 +159,25 @@ namespace orizo
                         bool afficher;
 
                         if (!filtrerParDepart && !filtrerParArrivee)
-                        {
                             afficher = true;
-                        }
                         else if (filtrerParDepart && filtrerParArrivee)
-                        {
                             afficher = (debut >= heureReference) && (fin >= heureReference);
-                        }
                         else if (filtrerParDepart)
-                        {
                             afficher = (debut >= heureReference);
-                        }
-                        else 
-                        {
+                        else
                             afficher = (fin >= heureReference);
-                        }
 
                         if (afficher)
-                            dvgTableauItineraire.Rows.Add(arret, debutStr, finStr);
+                        {
+                            var item = new ListViewItem(arret);
+                            item.SubItems.Add(debutStr);
+                            item.SubItems.Add(finStr);
+                            lswTableau.Items.Add(item);
+                        }
                     }
                 }
 
-                if (dvgTableauItineraire.Rows.Count == 0)
+                if (lswTableau.Items.Count == 0)
                 {
                     MessageBox.Show("Aucun trajet ne correspond à l'heure choisie.", "Aucun résultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -174,10 +185,36 @@ namespace orizo
             else
             {
                 MessageBox.Show("Ligne indisponible", "Erreur", MessageBoxButtons.OK);
-                dvgTableauItineraire.Rows.Add("Erreur", "Erreur");
+                var itemErreur = new ListViewItem("Erreur");
+                itemErreur.SubItems.Add("Erreur");
+                itemErreur.SubItems.Add("Erreur");
+                lswTableau.Items.Add(itemErreur);
             }
+
+            // Ajustement automatique des colonnes pour remplir l’espace
+            int colCount = lswTableau.Columns.Count;
+            if (colCount > 0)
+            {
+                int colWidth = lswTableau.ClientSize.Width / colCount;
+                foreach (ColumnHeader col in lswTableau.Columns)
+                {
+                    col.Width = colWidth;
+                }
+            }
+
+            lblIndication.Text = "Arrêt " + (indexSelectionneDep + 1) + " à Arrêt " + (indexSelectionneArr + 1);
             
-            lblIndication.Text = "Arrêt " + (indexSelectionneDep + 1) + " à Arrêt" + (indexSelectionneArr + 1);
+        }
+
+
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
 
         }
     }
