@@ -59,6 +59,7 @@
             btnRetourAjoutLigne.TabIndex = 18;
             btnRetourAjoutLigne.Text = "<-";
             btnRetourAjoutLigne.UseVisualStyleBackColor = true;
+            btnRetourAjoutLigne.Click += btnRetourAjoutLigne_Click;
             // 
             // lblAjouterLigne
             // 

@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "AdministrerModifLigne";
+            btnRetourModifLigne = new Button();
+            SuspendLayout();
+            // 
+            // btnRetourModifLigne
+            // 
+            btnRetourModifLigne.Location = new Point(11, 11);
+            btnRetourModifLigne.Margin = new Padding(2);
+            btnRetourModifLigne.Name = "btnRetourModifLigne";
+            btnRetourModifLigne.Size = new Size(60, 58);
+            btnRetourModifLigne.TabIndex = 19;
+            btnRetourModifLigne.Text = "<-";
+            btnRetourModifLigne.UseVisualStyleBackColor = true;
+            btnRetourModifLigne.Click += btnRetourModifLigne_Click;
+            // 
+            // AdministrerModifLigne
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1494, 870);
+            Controls.Add(btnRetourModifLigne);
+            Name = "AdministrerModifLigne";
+            Text = "AdministrerModifLigne";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button btnRetourModifLigne;
     }
 }

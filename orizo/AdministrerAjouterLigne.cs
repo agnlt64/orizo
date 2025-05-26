@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace orizo
 {
-    public partial class AdministrerAjouterLigne: Form
+    public partial class AdministrerAjouterLigne : Form
     {
         public AdministrerAjouterLigne()
         {
             InitializeComponent();
+        }
+
+        private void btnRetourAjoutLigne_Click(object sender, EventArgs e)
+        {
+            AdministrerSuiteAjout frmAdministrerSuiteAjout = new AdministrerSuiteAjout();
+            frmAdministrerSuiteAjout.Show();
+            this.Close();
         }
     }
 }
