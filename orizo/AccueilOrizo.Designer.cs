@@ -38,10 +38,10 @@
             // picAccueil
             // 
             picAccueil.Image = Properties.Resources.Logo_orizo;
-            picAccueil.Location = new Point(310, 10);
+            picAccueil.Location = new Point(271, 8);
             picAccueil.Margin = new Padding(2);
             picAccueil.Name = "picAccueil";
-            picAccueil.Size = new Size(290, 242);
+            picAccueil.Size = new Size(254, 182);
             picAccueil.SizeMode = PictureBoxSizeMode.Zoom;
             picAccueil.TabIndex = 0;
             picAccueil.TabStop = false;
@@ -50,19 +50,19 @@
             // 
             lblAccueilChoix.AutoSize = true;
             lblAccueilChoix.Font = new Font("Segoe UI", 15F);
-            lblAccueilChoix.Location = new Point(263, 284);
+            lblAccueilChoix.Location = new Point(230, 213);
             lblAccueilChoix.Margin = new Padding(2, 0, 2, 0);
             lblAccueilChoix.Name = "lblAccueilChoix";
-            lblAccueilChoix.Size = new Size(384, 35);
+            lblAccueilChoix.Size = new Size(303, 28);
             lblAccueilChoix.TabIndex = 2;
             lblAccueilChoix.Text = "Veuillez choisir l'option souhaitée";
             // 
             // btnConsulterAccueil
             // 
-            btnConsulterAccueil.Location = new Point(347, 350);
+            btnConsulterAccueil.Location = new Point(304, 262);
             btnConsulterAccueil.Margin = new Padding(2);
             btnConsulterAccueil.Name = "btnConsulterAccueil";
-            btnConsulterAccueil.Size = new Size(218, 57);
+            btnConsulterAccueil.Size = new Size(191, 43);
             btnConsulterAccueil.TabIndex = 3;
             btnConsulterAccueil.Text = "Consulter le réseau";
             btnConsulterAccueil.UseVisualStyleBackColor = true;
@@ -70,10 +70,10 @@
             // 
             // btnAdminAccueil
             // 
-            btnAdminAccueil.Location = new Point(347, 459);
+            btnAdminAccueil.Location = new Point(304, 344);
             btnAdminAccueil.Margin = new Padding(2);
             btnAdminAccueil.Name = "btnAdminAccueil";
-            btnAdminAccueil.Size = new Size(218, 57);
+            btnAdminAccueil.Size = new Size(191, 43);
             btnAdminAccueil.TabIndex = 4;
             btnAdminAccueil.Text = "Administrer le réseau";
             btnAdminAccueil.UseVisualStyleBackColor = true;
@@ -81,17 +81,17 @@
             // 
             // AccueilOrizo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(btnAdminAccueil);
             Controls.Add(btnConsulterAccueil);
             Controls.Add(lblAccueilChoix);
             Controls.Add(picAccueil);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "AccueilOrizo";
             Text = "Réseau de transport";
+            FormClosing += AccueilOrizo_FormClosing;
             ((System.ComponentModel.ISupportInitialize)picAccueil).EndInit();
             ResumeLayout(false);
             PerformLayout();
