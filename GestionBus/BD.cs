@@ -76,5 +76,33 @@ namespace GestionBus
             }
             return lignes;
         }
+
+        public static List<BusArret> GetArrets()
+        {
+            List<BusArret> arrets = [];
+
+            string query = "SELECT * FROM Arret";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            try
+            {
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32("IDArret");
+                        string nom = reader.GetString("NomArret");
+                        double latitude = reader.GetDouble("CoordXArret");
+                        double longitude = reader.GetDouble("CoordYArret");
+                        BusArret arret = new(id, nom, latitude, longitude);
+                        arrets.Add(arret);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error retrieving stops: {ex.Message}");
+            }
+            return arrets;
+        }
     }
 }

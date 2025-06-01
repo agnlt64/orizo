@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestionBus;
 
 namespace orizo
 {
@@ -15,6 +16,21 @@ namespace orizo
         public ConsulterIti()
         {
             InitializeComponent();
+
+            ChargerArrets();
+        }
+
+        private void ChargerArrets()
+        {
+            List<BusArret> arrets = BD.GetArrets();
+            cmbDepart.Items.Clear();
+            cmbArrive.Items.Clear();
+
+            foreach (BusArret arret in arrets)
+            {
+                cmbDepart.Items.Add(arret.Nom);
+                cmbArrive.Items.Add(arret.Nom);
+            }
         }
 
         private void btnretour_Click(object sender, EventArgs e)
