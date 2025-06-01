@@ -36,7 +36,6 @@ namespace GestionBus
                 {
                     conn.Close();
                     conn.Dispose();
-                    MessageBox.Show("Disconnected from the database successfully.");
                     return true;
                 }
                 catch (MySqlException ex)
@@ -46,6 +45,36 @@ namespace GestionBus
                 }
             }
             return false;
+        }
+
+        public static List<LigneBus> GetLignes()
+        {
+            List<LigneBus> lignes = [];
+            
+            string query = "SELECT * FROM Ligne";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            try
+            {
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32("IDLigne");
+                        string nom = reader.GetString("NomLigne");
+                        string color = reader.GetString("CouleurLigne");
+                        int nbPassagesJour = reader.GetInt32("NbPassagesJour");
+                        TimeSpan heureDepart = reader.GetTimeSpan("HeureDepart");
+                        string couleur = reader.GetString("CouleurLigne");
+                        LigneBus ligne = new(id, nom, couleur, nbPassagesJour, heureDepart);
+                        lignes.Add(ligne);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error retrieving lines: {ex.Message}");
+            }
+            return lignes;
         }
     }
 }
