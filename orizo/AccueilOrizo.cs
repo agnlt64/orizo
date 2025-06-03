@@ -10,6 +10,7 @@ namespace orizo
             if (!BD.Connect())
             {
                 MessageBox.Show("Erreur de connexion à la base de données.");
+                Close();
                 Application.Exit();
             }
         }

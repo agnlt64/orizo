@@ -50,7 +50,7 @@ namespace GestionBus
         public static List<LigneBus> GetLignes()
         {
             List<LigneBus> lignes = [];
-            
+
             string query = "SELECT * FROM Ligne";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             try
@@ -77,9 +77,9 @@ namespace GestionBus
             return lignes;
         }
 
-        public static List<BusArret> GetArrets()
+        public static List<ArretBus> GetArrets()
         {
-            List<BusArret> arrets = [];
+            List<ArretBus> arrets = [];
 
             string query = "SELECT * FROM Arret";
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -93,7 +93,7 @@ namespace GestionBus
                         string nom = reader.GetString("NomArret");
                         double latitude = reader.GetDouble("CoordXArret");
                         double longitude = reader.GetDouble("CoordYArret");
-                        BusArret arret = new(id, nom, latitude, longitude);
+                        ArretBus arret = new(id, nom, latitude, longitude);
                         arrets.Add(arret);
                     }
                 }
@@ -103,6 +103,100 @@ namespace GestionBus
                 MessageBox.Show($"Error retrieving stops: {ex.Message}");
             }
             return arrets;
+        }
+
+        public static bool AjouterArret(ArretBus arret)
+        {
+            string query = "INSERT INTO Arret (NomArret, CoordXArret, CoordYArret) VALUES (@nom, @lat, @long)";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@nom", arret.Nom);
+            cmd.Parameters.AddWithValue("@lat", arret.Latitude);
+            cmd.Parameters.AddWithValue("@long", arret.Longitude);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error adding stop: {ex.Message}");
+            }
+            return false;
+        }
+
+        public static bool AjouterLigne(LigneBus ligne)
+        {
+            string query = "INSERT INTO Ligne (NomLigne, CouleurLigne, NbPassagesJour, HeureDepart) VALUES (@nom, @couleur, @nbPassages, @heureDepart)";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@nom", ligne.Nom);
+            cmd.Parameters.AddWithValue("@couleur", ligne.Couleur);
+            cmd.Parameters.AddWithValue("@nbPassages", ligne.NbPassages);
+            cmd.Parameters.AddWithValue("@heureDepart", ligne.HeureDepart);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error adding line: {ex.Message}");
+            }
+            return false;
+        }
+
+        public static bool ModifierArret(ArretBus original, string nom, double latitude, double longitude)
+        {
+            string query = "UPDATE Arret SET NomArret = @nom, CoordXArret = @lat, CoordYArret = @long WHERE IDArret = @id";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", original.Id);
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@lat", latitude);
+            cmd.Parameters.AddWithValue("@long", longitude);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error modifying stop: {ex.Message}");
+            }
+            return false;
+        }
+
+        public static bool SupprimerLigne(LigneBus ligne)
+        {
+            string query = "DELETE FROM Ligne WHERE IDLigne = @id";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", ligne.Id);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error deleting line: {ex.Message}");
+            }
+            return false;
+        }
+
+        public static bool SupprimerArret(ArretBus arret)
+        {
+            string query = "DELETE FROM Arret WHERE IDArret = @id";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", arret.Id);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error deleting stop: {ex.Message}");
+            }
+            return false;
         }
     }
 }

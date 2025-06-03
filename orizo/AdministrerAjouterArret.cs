@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GestionBus;
 
 namespace orizo
 {
@@ -45,7 +37,11 @@ namespace orizo
 
         private void btnAjouterArret_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Arrêt ajouté à la base", "Alerte");
+            ArretBus arret = new ArretBus(0, txtNom.Text, Convert.ToDouble(txtLatitude.Text), Convert.ToDouble(txtLongitude.Text));
+            if (BD.AjouterArret(arret))
+                MessageBox.Show("Arrêt ajouté à la base", "Alerte");
+            else
+                MessageBox.Show("Erreur lors de l'ajout de l'arrêt", "Alerte");
         }
     }
 }

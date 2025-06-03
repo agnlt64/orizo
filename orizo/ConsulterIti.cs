@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using GestionBus;
+﻿using GestionBus;
 
 namespace orizo
 {
@@ -22,11 +13,11 @@ namespace orizo
 
         private void ChargerArrets()
         {
-            List<BusArret> arrets = BD.GetArrets();
+            List<ArretBus> arrets = BD.GetArrets();
             cmbDepart.Items.Clear();
             cmbArrive.Items.Clear();
 
-            foreach (BusArret arret in arrets)
+            foreach (ArretBus arret in arrets)
             {
                 cmbDepart.Items.Add(arret.Nom);
                 cmbArrive.Items.Add(arret.Nom);

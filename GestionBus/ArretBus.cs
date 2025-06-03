@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace GestionBus
 {
-    public class BusArret
+    public class ArretBus
     {
         int id;
         string nom;
@@ -18,7 +13,7 @@ namespace GestionBus
         public double Latitude => latitude;
         public double Longitude => longitude;
 
-        public BusArret(int id, string nom, double latitude, double longitude)
+        public ArretBus(int id, string nom, double latitude, double longitude)
         {
             this.id = id;
             this.nom = nom;

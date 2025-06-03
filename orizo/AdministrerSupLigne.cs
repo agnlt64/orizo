@@ -1,31 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GestionBus;
 
 namespace orizo
 {
     public partial class AdministrerSupLigne : Form
     {
+        private List<LigneBus> lignes;
+
         public AdministrerSupLigne()
         {
             InitializeComponent();
+            lignes = BD.GetLignes();
+            ChargerLignes();
             btnSupLigne.Enabled = false;
+        }
+
+        private void ChargerLignes()
+        {
+            lstSupLigne.Items.Clear();
+            foreach (LigneBus ligne in lignes)
+            {
+                lstSupLigne.Items.Add(ligne.Nom);
+            }
         }
 
         private void btnSupLigne_Click(object sender, EventArgs e)
         {
             if (lstSupLigne.SelectedIndex != -1)
             {
-                string arretSelectionne = lstSupLigne.SelectedItem.ToString();
+                LigneBus ligneSelectionnee = lignes[lstSupLigne.SelectedIndex];
 
                 DialogResult confirmation = MessageBox.Show(
-                    $"Voulez-vous vraiment supprimer l'arrêt : \"{arretSelectionne}\" ?",
+                    $"Voulez-vous vraiment supprimer la ligne : \"{ligneSelectionnee.Nom}\" ?",
                     "Alerte",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
@@ -33,14 +38,27 @@ namespace orizo
 
                 if (confirmation == DialogResult.Yes)
                 {
-                    lstSupLigne.Items.RemoveAt(lstSupLigne.SelectedIndex);
+                    if (BD.SupprimerLigne(ligneSelectionnee))
+                    {
+                        lignes = BD.GetLignes();
+                        ChargerLignes();
 
-                    MessageBox.Show(
-                        "Arrêt supprimé",
-                        "Alerte",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
+                        MessageBox.Show(
+                            "Ligne supprimée",
+                            "Alerte",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Une erreur est survenue lors de la suppression de la ligne.",
+                            "Erreur",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
                 }
 
                 btnSupLigne.Enabled = lstSupLigne.SelectedIndex != -1;

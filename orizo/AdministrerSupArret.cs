@@ -1,31 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GestionBus;
 
 namespace orizo
 {
     public partial class AdministrerSupArret : Form
     {
+        private List<ArretBus> arrets;
+
         public AdministrerSupArret()
         {
             InitializeComponent();
+            arrets = BD.GetArrets();
+            ChargerArrets();
             btnSupArret.Enabled = false;
+        }
+
+        private void ChargerArrets()
+        {
+            lstSupArret.Items.Clear();
+            foreach (ArretBus arret in arrets)
+            {
+                lstSupArret.Items.Add(arret.Nom);
+            }
         }
 
         private void btnSupArret_Click(object sender, EventArgs e)
         {
             if (lstSupArret.SelectedIndex != -1)
             {
-                string arretSelectionne = lstSupArret.SelectedItem.ToString();
+                ArretBus arretSelectionne = arrets[lstSupArret.SelectedIndex];
 
                 DialogResult confirmation = MessageBox.Show(
-                    $"Voulez-vous vraiment supprimer l'arrêt : \"{arretSelectionne}\" ?",
+                    $"Voulez-vous vraiment supprimer l'arrêt : \"{arretSelectionne.Nom}\" ?",
                     "Alerte",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
@@ -33,14 +38,27 @@ namespace orizo
 
                 if (confirmation == DialogResult.Yes)
                 {
-                    lstSupArret.Items.RemoveAt(lstSupArret.SelectedIndex);
+                    if (BD.SupprimerArret(arretSelectionne))
+                    {
+                        arrets = BD.GetArrets();
+                        ChargerArrets();
 
-                    MessageBox.Show(
-                        "Arrêt supprimé",
-                        "Alerte",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
+                        MessageBox.Show(
+                            "Arrêt supprimé",
+                            "Alerte",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Une erreur est survenue lors de la suppression de l'arrêt.",
+                            "Erreur",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    }
                 }
 
                 btnSupArret.Enabled = lstSupArret.SelectedIndex != -1;
@@ -55,7 +73,7 @@ namespace orizo
         private void btnRetourSupArret_Click(object sender, EventArgs e)
         {
             AdministrerSuiteSup frmAdministrerSuiteSup = new AdministrerSuiteSup();
-            frmAdministrerSuiteSup.Show();  // Corrected line
+            frmAdministrerSuiteSup.Show();
             this.Close();
         }
     }
