@@ -4,16 +4,20 @@ namespace orizo
 {
     public partial class ConsulterIti : Form
     {
+        private Graphe graphe;
+        List<ArretBus> arrets;
+
         public ConsulterIti()
         {
             InitializeComponent();
 
             ChargerArrets();
+            ConstruireGraphe();
         }
 
         private void ChargerArrets()
         {
-            List<ArretBus> arrets = BD.GetArrets();
+            arrets = BD.GetArrets();
             cmbDepart.Items.Clear();
             cmbArrive.Items.Clear();
 
@@ -22,6 +26,11 @@ namespace orizo
                 cmbDepart.Items.Add(arret.Nom);
                 cmbArrive.Items.Add(arret.Nom);
             }
+        }
+
+        private void ConstruireGraphe()
+        {
+            // TODO constuire le graphe à partir des arrets
         }
 
         private void btnretour_Click(object sender, EventArgs e)
@@ -46,7 +55,7 @@ namespace orizo
             bool filtrerDepart = chkDepart.Checked;
             bool filtrerArrivee = chkArrive.Checked;
 
-            ConsulterIti2 formIti2 = new ConsulterIti2(IndexSelectionneDep, IndexSelectionneArr,heure, minute, filtrerDepart, filtrerArrivee);
+            ConsulterIti2 formIti2 = new ConsulterIti2(IndexSelectionneDep, IndexSelectionneArr, heure, minute, filtrerDepart, filtrerArrivee);
             formIti2.Show();
             this.Hide();
         }
