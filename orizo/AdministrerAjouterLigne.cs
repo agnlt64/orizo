@@ -35,5 +35,23 @@ namespace orizo
                 MessageBox.Show("Erreur lors de l'ajout de la ligne", "Alerte");
             }
         }
+
+        private void lblFrequenceAjout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                button2.BackColor = colorDialog1.Color;
+            }
+        }
     }
 }

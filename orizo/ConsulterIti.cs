@@ -4,7 +4,7 @@ namespace orizo
 {
     public partial class ConsulterIti : Form
     {
-        private Graphe graphe;
+        // private Graphe graphe;
         List<ArretBus> arrets;
 
         public ConsulterIti()

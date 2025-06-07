@@ -41,10 +41,10 @@
             // 
             // btnRetourAjoutArret
             // 
-            btnRetourAjoutArret.Location = new Point(11, 11);
+            btnRetourAjoutArret.Location = new Point(9, 9);
             btnRetourAjoutArret.Margin = new Padding(2);
             btnRetourAjoutArret.Name = "btnRetourAjoutArret";
-            btnRetourAjoutArret.Size = new Size(60, 58);
+            btnRetourAjoutArret.Size = new Size(48, 46);
             btnRetourAjoutArret.TabIndex = 17;
             btnRetourAjoutArret.Text = "<-";
             btnRetourAjoutArret.UseVisualStyleBackColor = true;
@@ -52,10 +52,10 @@
             // 
             // btnAjouterArret
             // 
-            btnAjouterArret.Location = new Point(304, 604);
+            btnAjouterArret.Location = new Point(174, 460);
             btnAjouterArret.Margin = new Padding(2);
             btnAjouterArret.Name = "btnAjouterArret";
-            btnAjouterArret.Size = new Size(272, 71);
+            btnAjouterArret.Size = new Size(218, 57);
             btnAjouterArret.TabIndex = 18;
             btnAjouterArret.Text = "Enregistrer";
             btnAjouterArret.UseVisualStyleBackColor = true;
@@ -65,72 +65,76 @@
             // 
             lblAjouterArret.AutoSize = true;
             lblAjouterArret.Font = new Font("Segoe UI", 15F);
-            lblAjouterArret.Location = new Point(328, 54);
+            lblAjouterArret.Location = new Point(188, 57);
             lblAjouterArret.Margin = new Padding(2, 0, 2, 0);
             lblAjouterArret.Name = "lblAjouterArret";
-            lblAjouterArret.Size = new Size(226, 41);
+            lblAjouterArret.Size = new Size(190, 35);
             lblAjouterArret.TabIndex = 19;
             lblAjouterArret.Text = "Ajouter un arrêt";
             // 
             // lblLongitudeAjout
             // 
             lblLongitudeAjout.AutoSize = true;
-            lblLongitudeAjout.Font = new Font("Segoe UI", 15F);
-            lblLongitudeAjout.Location = new Point(328, 418);
+            lblLongitudeAjout.Font = new Font("Segoe UI", 11F);
+            lblLongitudeAjout.Location = new Point(215, 356);
             lblLongitudeAjout.Margin = new Padding(2, 0, 2, 0);
             lblLongitudeAjout.Name = "lblLongitudeAjout";
-            lblLongitudeAjout.Size = new Size(208, 41);
+            lblLongitudeAjout.Size = new Size(136, 25);
             lblLongitudeAjout.TabIndex = 20;
-            lblLongitudeAjout.Text = "longitude GPS";
+            lblLongitudeAjout.Text = "Longitude GPS";
             // 
             // lblLatitudeAjout
             // 
             lblLatitudeAjout.AutoSize = true;
-            lblLatitudeAjout.Font = new Font("Segoe UI", 15F);
-            lblLatitudeAjout.Location = new Point(344, 271);
+            lblLatitudeAjout.Font = new Font("Segoe UI", 11F);
+            lblLatitudeAjout.Location = new Point(224, 264);
             lblLatitudeAjout.Margin = new Padding(2, 0, 2, 0);
+            lblLatitudeAjout.MaximumSize = new Size(585, 607);
             lblLatitudeAjout.Name = "lblLatitudeAjout";
-            lblLatitudeAjout.Size = new Size(180, 41);
+            lblLatitudeAjout.Size = new Size(119, 25);
             lblLatitudeAjout.TabIndex = 21;
-            lblLatitudeAjout.Text = "latitude GPS";
+            lblLatitudeAjout.Text = "Latitude GPS";
             // 
             // lblNomArret
             // 
             lblNomArret.AutoSize = true;
-            lblNomArret.Font = new Font("Segoe UI", 15F);
-            lblNomArret.Location = new Point(393, 150);
+            lblNomArret.Font = new Font("Segoe UI", 11F);
+            lblNomArret.Location = new Point(252, 148);
             lblNomArret.Margin = new Padding(2, 0, 2, 0);
             lblNomArret.Name = "lblNomArret";
-            lblNomArret.Size = new Size(79, 41);
+            lblNomArret.Size = new Size(53, 25);
             lblNomArret.TabIndex = 22;
-            lblNomArret.Text = "nom";
+            lblNomArret.Text = "Nom";
             // 
             // txtNom
             // 
-            txtNom.Location = new Point(304, 206);
+            txtNom.Location = new Point(174, 185);
+            txtNom.Margin = new Padding(2, 2, 2, 2);
             txtNom.Name = "txtNom";
-            txtNom.Size = new Size(272, 31);
+            txtNom.Size = new Size(218, 27);
             txtNom.TabIndex = 23;
             // 
             // txtLatitude
             // 
-            txtLatitude.Location = new Point(304, 343);
+            txtLatitude.Location = new Point(174, 305);
+            txtLatitude.Margin = new Padding(2, 2, 2, 2);
             txtLatitude.Name = "txtLatitude";
-            txtLatitude.Size = new Size(272, 31);
+            txtLatitude.Size = new Size(218, 27);
             txtLatitude.TabIndex = 24;
             // 
             // txtLongitude
             // 
-            txtLongitude.Location = new Point(304, 495);
+            txtLongitude.Location = new Point(174, 392);
+            txtLongitude.Margin = new Padding(2, 2, 2, 2);
             txtLongitude.Name = "txtLongitude";
-            txtLongitude.Size = new Size(272, 31);
+            txtLongitude.Size = new Size(218, 27);
             txtLongitude.TabIndex = 25;
             // 
             // AdministrerAjouterArret
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(915, 711);
+            ClientSize = new Size(567, 560);
             Controls.Add(txtLongitude);
             Controls.Add(txtLatitude);
             Controls.Add(txtNom);
@@ -140,6 +144,9 @@
             Controls.Add(lblAjouterArret);
             Controls.Add(btnAjouterArret);
             Controls.Add(btnRetourAjoutArret);
+            Margin = new Padding(2, 2, 2, 2);
+            MaximumSize = new Size(585, 607);
+            MinimumSize = new Size(585, 607);
             Name = "AdministrerAjouterArret";
             Text = "AdministrerAjouterArret";
             ResumeLayout(false);

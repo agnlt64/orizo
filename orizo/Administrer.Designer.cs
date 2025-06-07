@@ -42,7 +42,7 @@
             // picAdmin
             // 
             picAdmin.Image = Properties.Resources.Logo_orizo;
-            picAdmin.Location = new Point(260, 9);
+            picAdmin.Location = new Point(183, 19);
             picAdmin.Margin = new Padding(2);
             picAdmin.Name = "picAdmin";
             picAdmin.Size = new Size(199, 178);
@@ -53,7 +53,7 @@
             // btnRetourAdministrer
             // 
             btnRetourAdministrer.Location = new Point(10, 10);
-            btnRetourAdministrer.Margin = new Padding(2, 2, 2, 2);
+            btnRetourAdministrer.Margin = new Padding(2);
             btnRetourAdministrer.Name = "btnRetourAdministrer";
             btnRetourAdministrer.Size = new Size(41, 46);
             btnRetourAdministrer.TabIndex = 2;
@@ -64,17 +64,18 @@
             // lblAccesAdmin
             // 
             lblAccesAdmin.AutoSize = true;
-            lblAccesAdmin.Location = new Point(290, 204);
+            lblAccesAdmin.Font = new Font("Segoe UI", 12F);
+            lblAccesAdmin.Location = new Point(185, 254);
             lblAccesAdmin.Margin = new Padding(2, 0, 2, 0);
             lblAccesAdmin.Name = "lblAccesAdmin";
-            lblAccesAdmin.Size = new Size(149, 20);
+            lblAccesAdmin.Size = new Size(196, 28);
             lblAccesAdmin.TabIndex = 3;
             lblAccesAdmin.Text = "Accès Administration";
             // 
             // lblIdAdmin
             // 
             lblIdAdmin.AutoSize = true;
-            lblIdAdmin.Location = new Point(321, 268);
+            lblIdAdmin.Location = new Point(183, 329);
             lblIdAdmin.Margin = new Padding(2, 0, 2, 0);
             lblIdAdmin.Name = "lblIdAdmin";
             lblIdAdmin.Size = new Size(77, 20);
@@ -84,7 +85,7 @@
             // lblMdpAdmin
             // 
             lblMdpAdmin.AutoSize = true;
-            lblMdpAdmin.Location = new Point(309, 365);
+            lblMdpAdmin.Location = new Point(183, 399);
             lblMdpAdmin.Margin = new Padding(2, 0, 2, 0);
             lblMdpAdmin.Name = "lblMdpAdmin";
             lblMdpAdmin.Size = new Size(98, 20);
@@ -93,8 +94,8 @@
             // 
             // txtIdAdmin
             // 
-            txtIdAdmin.Location = new Point(260, 305);
-            txtIdAdmin.Margin = new Padding(2, 2, 2, 2);
+            txtIdAdmin.Location = new Point(183, 351);
+            txtIdAdmin.Margin = new Padding(2);
             txtIdAdmin.Name = "txtIdAdmin";
             txtIdAdmin.Size = new Size(200, 27);
             txtIdAdmin.TabIndex = 6;
@@ -102,8 +103,8 @@
             // 
             // txtMdpAdmin
             // 
-            txtMdpAdmin.Location = new Point(260, 402);
-            txtMdpAdmin.Margin = new Padding(2, 2, 2, 2);
+            txtMdpAdmin.Location = new Point(183, 421);
+            txtMdpAdmin.Margin = new Padding(2);
             txtMdpAdmin.Name = "txtMdpAdmin";
             txtMdpAdmin.Size = new Size(200, 27);
             txtMdpAdmin.TabIndex = 7;
@@ -111,8 +112,8 @@
             // 
             // btnAdminConnexion
             // 
-            btnAdminConnexion.Location = new Point(260, 472);
-            btnAdminConnexion.Margin = new Padding(2, 2, 2, 2);
+            btnAdminConnexion.Location = new Point(183, 478);
+            btnAdminConnexion.Margin = new Padding(2);
             btnAdminConnexion.Name = "btnAdminConnexion";
             btnAdminConnexion.Size = new Size(199, 48);
             btnAdminConnexion.TabIndex = 8;
@@ -124,7 +125,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(734, 594);
+            ClientSize = new Size(567, 560);
             Controls.Add(btnAdminConnexion);
             Controls.Add(txtMdpAdmin);
             Controls.Add(txtIdAdmin);
@@ -133,7 +134,9 @@
             Controls.Add(lblAccesAdmin);
             Controls.Add(btnRetourAdministrer);
             Controls.Add(picAdmin);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
+            MaximumSize = new Size(585, 607);
+            MinimumSize = new Size(585, 607);
             Name = "Administrer";
             Text = "Réseau de transport - Administrer";
             ((System.ComponentModel.ISupportInitialize)picAdmin).EndInit();

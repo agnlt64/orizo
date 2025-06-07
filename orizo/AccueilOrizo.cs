@@ -39,5 +39,10 @@ namespace orizo
                 e.Cancel = true; // Annule la fermeture du formulaire si la déconnexion échoue
             }
         }
+
+        private void lblAccueilChoix_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

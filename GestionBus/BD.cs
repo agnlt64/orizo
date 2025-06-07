@@ -6,7 +6,6 @@ namespace GestionBus
     public static class BD
     {
         private static MySqlConnection conn;
-
         public static bool Connect()
         {
             string server = "10.1.139.236";
