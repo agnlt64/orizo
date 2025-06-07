@@ -40,26 +40,28 @@
             btnRecherche = new Button();
             nudHeure = new NumericUpDown();
             nudMinute = new NumericUpDown();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)nudHeure).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudMinute).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // cmbDepart
             // 
             cmbDepart.FormattingEnabled = true;
             cmbDepart.Items.AddRange(new object[] { "Arrêt 1", "Arrêt 2", "Arrêt 3" });
-            cmbDepart.Location = new Point(216, 124);
+            cmbDepart.Location = new Point(19, 45);
             cmbDepart.Name = "cmbDepart";
-            cmbDepart.Size = new Size(328, 28);
+            cmbDepart.Size = new Size(366, 28);
             cmbDepart.TabIndex = 0;
             // 
             // cmbArrive
             // 
             cmbArrive.FormattingEnabled = true;
             cmbArrive.Items.AddRange(new object[] { "Arrêt 1", "Arrêt 2", "Arrêt 3" });
-            cmbArrive.Location = new Point(216, 232);
+            cmbArrive.Location = new Point(19, 123);
             cmbArrive.Name = "cmbArrive";
-            cmbArrive.Size = new Size(328, 28);
+            cmbArrive.Size = new Size(366, 28);
             cmbArrive.TabIndex = 1;
             // 
             // btnRetour
@@ -76,7 +78,7 @@
             // 
             lblChercher.AutoSize = true;
             lblChercher.Font = new Font("Segoe UI", 15F);
-            lblChercher.Location = new Point(259, 13);
+            lblChercher.Location = new Point(154, 42);
             lblChercher.Name = "lblChercher";
             lblChercher.Size = new Size(253, 35);
             lblChercher.TabIndex = 3;
@@ -85,37 +87,40 @@
             // lblDepart
             // 
             lblDepart.AutoSize = true;
-            lblDepart.Location = new Point(333, 88);
+            lblDepart.Font = new Font("Segoe UI", 11F);
+            lblDepart.Location = new Point(19, 17);
             lblDepart.Name = "lblDepart";
-            lblDepart.Size = new Size(111, 20);
+            lblDepart.Size = new Size(140, 25);
             lblDepart.TabIndex = 4;
             lblDepart.Text = "Arrêt de départ";
             // 
             // lblArrive
             // 
             lblArrive.AutoSize = true;
-            lblArrive.Location = new Point(341, 209);
+            lblArrive.Font = new Font("Segoe UI", 11F);
+            lblArrive.Location = new Point(19, 95);
             lblArrive.Name = "lblArrive";
-            lblArrive.Size = new Size(103, 20);
+            lblArrive.Size = new Size(179, 25);
             lblArrive.TabIndex = 5;
-            lblArrive.Text = "Arrêt d'arrivée";
+            lblArrive.Text = "Arrêt de destination";
             // 
             // lblHeure
             // 
             lblHeure.AutoSize = true;
-            lblHeure.Font = new Font("Segoe UI", 9F);
-            lblHeure.Location = new Point(371, 312);
+            lblHeure.Font = new Font("Segoe UI", 11F);
+            lblHeure.Location = new Point(273, 320);
             lblHeure.Name = "lblHeure";
-            lblHeure.Size = new Size(20, 20);
+            lblHeure.Size = new Size(25, 25);
             lblHeure.TabIndex = 8;
             lblHeure.Text = "H";
             // 
             // chkDepart
             // 
             chkDepart.AutoSize = true;
-            chkDepart.Location = new Point(224, 367);
+            chkDepart.Font = new Font("Segoe UI", 11F);
+            chkDepart.Location = new Point(88, 384);
             chkDepart.Name = "chkDepart";
-            chkDepart.Size = new Size(140, 24);
+            chkDepart.Size = new Size(171, 29);
             chkDepart.TabIndex = 9;
             chkDepart.Text = "Heure de départ";
             chkDepart.UseVisualStyleBackColor = true;
@@ -123,18 +128,19 @@
             // chkArrive
             // 
             chkArrive.AutoSize = true;
-            chkArrive.Location = new Point(412, 367);
+            chkArrive.Font = new Font("Segoe UI", 11F);
+            chkArrive.Location = new Point(322, 384);
             chkArrive.Name = "chkArrive";
-            chkArrive.Size = new Size(132, 24);
+            chkArrive.Size = new Size(163, 29);
             chkArrive.TabIndex = 10;
             chkArrive.Text = "Heure d'arrivée";
             chkArrive.UseVisualStyleBackColor = true;
             // 
             // btnRecherche
             // 
-            btnRecherche.Location = new Point(216, 409);
+            btnRecherche.Location = new Point(79, 432);
             btnRecherche.Name = "btnRecherche";
-            btnRecherche.Size = new Size(328, 29);
+            btnRecherche.Size = new Size(406, 45);
             btnRecherche.TabIndex = 11;
             btnRecherche.Text = "Effectuer une recherche";
             btnRecherche.UseVisualStyleBackColor = true;
@@ -142,44 +148,57 @@
             // 
             // nudHeure
             // 
-            nudHeure.Location = new Point(323, 305);
+            nudHeure.Location = new Point(202, 320);
             nudHeure.Maximum = new decimal(new int[] { 23, 0, 0, 0 });
             nudHeure.Name = "nudHeure";
-            nudHeure.Size = new Size(41, 27);
+            nudHeure.Size = new Size(65, 27);
             nudHeure.TabIndex = 12;
             // 
             // nudMinute
             // 
-            nudMinute.Location = new Point(397, 305);
+            nudMinute.Location = new Point(304, 320);
             nudMinute.Maximum = new decimal(new int[] { 59, 0, 0, 0 });
             nudMinute.Name = "nudMinute";
-            nudMinute.Size = new Size(41, 27);
+            nudMinute.Size = new Size(64, 27);
             nudMinute.TabIndex = 13;
+            // 
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(lblArrive);
+            panel1.Controls.Add(cmbDepart);
+            panel1.Controls.Add(cmbArrive);
+            panel1.Controls.Add(lblDepart);
+            panel1.Location = new Point(79, 113);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(406, 170);
+            panel1.TabIndex = 14;
             // 
             // ConsulterIti
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(551, 506);
+            Controls.Add(panel1);
             Controls.Add(nudMinute);
             Controls.Add(nudHeure);
             Controls.Add(btnRecherche);
             Controls.Add(chkArrive);
             Controls.Add(chkDepart);
             Controls.Add(lblHeure);
-            Controls.Add(lblArrive);
-            Controls.Add(lblDepart);
             Controls.Add(lblChercher);
             Controls.Add(btnRetour);
-            Controls.Add(cmbArrive);
-            Controls.Add(cmbDepart);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximumSize = new Size(569, 553);
             MinimizeBox = false;
+            MinimumSize = new Size(569, 553);
             Name = "ConsulterIti";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "Réseau de transport - Consultation";
             ((System.ComponentModel.ISupportInitialize)nudHeure).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudMinute).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,5 +217,6 @@
         private Button btnRecherche;
         private NumericUpDown nudHeure;
         private NumericUpDown nudMinute;
+        private Panel panel1;
     }
 }

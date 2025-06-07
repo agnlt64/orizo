@@ -36,10 +36,10 @@
             // 
             // btnRetourSupArret
             // 
-            btnRetourSupArret.Location = new Point(11, 11);
+            btnRetourSupArret.Location = new Point(9, 9);
             btnRetourSupArret.Margin = new Padding(2);
             btnRetourSupArret.Name = "btnRetourSupArret";
-            btnRetourSupArret.Size = new Size(60, 58);
+            btnRetourSupArret.Size = new Size(48, 46);
             btnRetourSupArret.TabIndex = 11;
             btnRetourSupArret.Text = "<-";
             btnRetourSupArret.UseVisualStyleBackColor = true;
@@ -47,10 +47,10 @@
             // 
             // btnSupArret
             // 
-            btnSupArret.Location = new Point(370, 541);
+            btnSupArret.Location = new Point(131, 466);
             btnSupArret.Margin = new Padding(2);
             btnSupArret.Name = "btnSupArret";
-            btnSupArret.Size = new Size(272, 71);
+            btnSupArret.Size = new Size(309, 43);
             btnSupArret.TabIndex = 12;
             btnSupArret.Text = "Supprimer";
             btnSupArret.UseVisualStyleBackColor = true;
@@ -60,33 +60,36 @@
             // 
             lblSupArret.AutoSize = true;
             lblSupArret.Font = new Font("Segoe UI", 15F);
-            lblSupArret.Location = new Point(386, 73);
+            lblSupArret.Location = new Point(171, 71);
             lblSupArret.Margin = new Padding(2, 0, 2, 0);
             lblSupArret.Name = "lblSupArret";
-            lblSupArret.Size = new Size(267, 41);
+            lblSupArret.Size = new Size(225, 35);
             lblSupArret.TabIndex = 13;
             lblSupArret.Text = "Supprimer un arrêt";
             // 
             // lstSupArret
             // 
             lstSupArret.FormattingEnabled = true;
-            lstSupArret.ItemHeight = 25;
             lstSupArret.Items.AddRange(new object[] { "arret 1", "Arret 2", "arret 3" });
-            lstSupArret.Location = new Point(320, 117);
+            lstSupArret.Location = new Point(131, 143);
+            lstSupArret.Margin = new Padding(2, 2, 2, 2);
             lstSupArret.Name = "lstSupArret";
-            lstSupArret.Size = new Size(385, 379);
+            lstSupArret.Size = new Size(309, 304);
             lstSupArret.TabIndex = 14;
             lstSupArret.SelectedIndexChanged += lstSupArret_SelectedIndexChanged;
             // 
             // AdministrerSupArret
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1061, 678);
+            ClientSize = new Size(567, 560);
             Controls.Add(lstSupArret);
             Controls.Add(lblSupArret);
             Controls.Add(btnSupArret);
             Controls.Add(btnRetourSupArret);
+            Margin = new Padding(2, 2, 2, 2);
+            MaximumSize = new Size(585, 607);
+            MinimumSize = new Size(585, 607);
             Name = "AdministrerSupArret";
             Text = "AdministrerSupArret";
             ResumeLayout(false);

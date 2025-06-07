@@ -36,10 +36,10 @@
             // 
             // btnAdminAjoutLigne
             // 
-            btnAdminAjoutLigne.Location = new Point(287, 309);
+            btnAdminAjoutLigne.Location = new Point(81, 337);
             btnAdminAjoutLigne.Margin = new Padding(2);
             btnAdminAjoutLigne.Name = "btnAdminAjoutLigne";
-            btnAdminAjoutLigne.Size = new Size(272, 71);
+            btnAdminAjoutLigne.Size = new Size(218, 57);
             btnAdminAjoutLigne.TabIndex = 11;
             btnAdminAjoutLigne.Text = "Ajouter une ligne";
             btnAdminAjoutLigne.UseVisualStyleBackColor = true;
@@ -47,10 +47,10 @@
             // 
             // btnAdminAjoutArret
             // 
-            btnAdminAjoutArret.Location = new Point(287, 172);
+            btnAdminAjoutArret.Location = new Point(81, 267);
             btnAdminAjoutArret.Margin = new Padding(2);
             btnAdminAjoutArret.Name = "btnAdminAjoutArret";
-            btnAdminAjoutArret.Size = new Size(272, 71);
+            btnAdminAjoutArret.Size = new Size(218, 57);
             btnAdminAjoutArret.TabIndex = 10;
             btnAdminAjoutArret.Text = "Ajouter un arrêt";
             btnAdminAjoutArret.UseVisualStyleBackColor = true;
@@ -58,10 +58,10 @@
             // 
             // btnRetourAdministrerAjout
             // 
-            btnRetourAdministrerAjout.Location = new Point(11, 11);
+            btnRetourAdministrerAjout.Location = new Point(9, 9);
             btnRetourAdministrerAjout.Margin = new Padding(2);
             btnRetourAdministrerAjout.Name = "btnRetourAdministrerAjout";
-            btnRetourAdministrerAjout.Size = new Size(60, 58);
+            btnRetourAdministrerAjout.Size = new Size(48, 46);
             btnRetourAdministrerAjout.TabIndex = 12;
             btnRetourAdministrerAjout.Text = "<-";
             btnRetourAdministrerAjout.UseVisualStyleBackColor = true;
@@ -71,22 +71,25 @@
             // 
             lblAdminSuiteAjout.AutoSize = true;
             lblAdminSuiteAjout.Font = new Font("Segoe UI", 15F);
-            lblAdminSuiteAjout.Location = new Point(296, 64);
+            lblAdminSuiteAjout.Location = new Point(84, 110);
             lblAdminSuiteAjout.Margin = new Padding(2, 0, 2, 0);
             lblAdminSuiteAjout.Name = "lblAdminSuiteAjout";
-            lblAdminSuiteAjout.Size = new Size(254, 41);
+            lblAdminSuiteAjout.Size = new Size(211, 35);
             lblAdminSuiteAjout.TabIndex = 13;
             lblAdminSuiteAjout.Text = "Ajout de données";
             // 
             // AdministrerSuiteAjout
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(859, 510);
+            ClientSize = new Size(378, 454);
             Controls.Add(lblAdminSuiteAjout);
             Controls.Add(btnRetourAdministrerAjout);
             Controls.Add(btnAdminAjoutLigne);
             Controls.Add(btnAdminAjoutArret);
+            Margin = new Padding(2, 2, 2, 2);
+            MaximumSize = new Size(396, 501);
+            MinimumSize = new Size(396, 501);
             Name = "AdministrerSuiteAjout";
             Text = "AdministrerSuiteAjout";
             ResumeLayout(false);

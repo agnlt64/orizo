@@ -37,12 +37,12 @@
             // lstSupLigne
             // 
             lstSupLigne.FormattingEnabled = true;
-            lstSupLigne.ItemHeight = 25;
             lstSupLigne.Items.AddRange(new object[] { "Ligne 1", "Ligne 2", "Ligne 3" });
-            lstSupLigne.Location = new Point(320, 117);
+            lstSupLigne.Location = new Point(133, 131);
+            lstSupLigne.Margin = new Padding(2, 2, 2, 2);
             lstSupLigne.Name = "lstSupLigne";
             lstSupLigne.RightToLeft = RightToLeft.No;
-            lstSupLigne.Size = new Size(385, 379);
+            lstSupLigne.Size = new Size(309, 324);
             lstSupLigne.TabIndex = 18;
             lstSupLigne.SelectedIndexChanged += lstSupLigne_SelectedIndexChanged;
             // 
@@ -50,19 +50,19 @@
             // 
             lblSupLigne.AutoSize = true;
             lblSupLigne.Font = new Font("Segoe UI", 15F);
-            lblSupLigne.Location = new Point(386, 73);
+            lblSupLigne.Location = new Point(166, 58);
             lblSupLigne.Margin = new Padding(2, 0, 2, 0);
             lblSupLigne.Name = "lblSupLigne";
-            lblSupLigne.Size = new Size(287, 41);
+            lblSupLigne.Size = new Size(240, 35);
             lblSupLigne.TabIndex = 17;
             lblSupLigne.Text = "Supprimer une ligne";
             // 
             // btnSupLigne
             // 
-            btnSupLigne.Location = new Point(370, 541);
+            btnSupLigne.Location = new Point(133, 476);
             btnSupLigne.Margin = new Padding(2);
             btnSupLigne.Name = "btnSupLigne";
-            btnSupLigne.Size = new Size(272, 71);
+            btnSupLigne.Size = new Size(309, 44);
             btnSupLigne.TabIndex = 16;
             btnSupLigne.Text = "Supprimer";
             btnSupLigne.UseVisualStyleBackColor = true;
@@ -70,10 +70,10 @@
             // 
             // btnRetourSupLigne
             // 
-            btnRetourSupLigne.Location = new Point(11, 11);
+            btnRetourSupLigne.Location = new Point(9, 9);
             btnRetourSupLigne.Margin = new Padding(2);
             btnRetourSupLigne.Name = "btnRetourSupLigne";
-            btnRetourSupLigne.Size = new Size(60, 58);
+            btnRetourSupLigne.Size = new Size(48, 46);
             btnRetourSupLigne.TabIndex = 15;
             btnRetourSupLigne.Text = "<-";
             btnRetourSupLigne.UseVisualStyleBackColor = true;
@@ -81,13 +81,16 @@
             // 
             // AdministrerSupLigne
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1061, 678);
+            ClientSize = new Size(567, 560);
             Controls.Add(lstSupLigne);
             Controls.Add(lblSupLigne);
             Controls.Add(btnSupLigne);
             Controls.Add(btnRetourSupLigne);
+            Margin = new Padding(2, 2, 2, 2);
+            MaximumSize = new Size(585, 607);
+            MinimumSize = new Size(585, 607);
             Name = "AdministrerSupLigne";
             Text = "AdministrerSupLigne";
             ResumeLayout(false);

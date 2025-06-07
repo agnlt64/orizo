@@ -40,10 +40,10 @@
             // 
             // btnConsulterLigne
             // 
-            btnConsulterLigne.BackColor = Color.Silver;
-            btnConsulterLigne.Location = new Point(88, 475);
+            btnConsulterLigne.BackColor = Color.White;
+            btnConsulterLigne.Location = new Point(156, 394);
             btnConsulterLigne.Name = "btnConsulterLigne";
-            btnConsulterLigne.Size = new Size(194, 29);
+            btnConsulterLigne.Size = new Size(265, 41);
             btnConsulterLigne.TabIndex = 0;
             btnConsulterLigne.Text = "Consulter une ligne";
             btnConsulterLigne.UseVisualStyleBackColor = false;
@@ -51,10 +51,10 @@
             // 
             // btnConsulterItineraire
             // 
-            btnConsulterItineraire.BackColor = Color.Silver;
-            btnConsulterItineraire.Location = new Point(536, 475);
+            btnConsulterItineraire.BackColor = Color.White;
+            btnConsulterItineraire.Location = new Point(156, 485);
             btnConsulterItineraire.Name = "btnConsulterItineraire";
-            btnConsulterItineraire.Size = new Size(194, 29);
+            btnConsulterItineraire.Size = new Size(265, 35);
             btnConsulterItineraire.TabIndex = 1;
             btnConsulterItineraire.Text = "Consulter un itinéraire";
             btnConsulterItineraire.UseVisualStyleBackColor = false;
@@ -75,18 +75,18 @@
             // 
             lstConsultation.FormattingEnabled = true;
             lstConsultation.Items.AddRange(new object[] { "Ligne 1 ", "Ligne 2", "Ligne 3" });
-            lstConsultation.Location = new Point(269, 136);
+            lstConsultation.Location = new Point(156, 115);
             lstConsultation.Name = "lstConsultation";
-            lstConsultation.Size = new Size(265, 264);
+            lstConsultation.Size = new Size(265, 244);
             lstConsultation.TabIndex = 3;
             lstConsultation.SelectedIndexChanged += lstconsultation_SelectedIndexChanged;
             // 
             // btnRechercheConsultation
             // 
-            btnRechercheConsultation.BackColor = Color.Silver;
-            btnRechercheConsultation.Location = new Point(269, 440);
+            btnRechercheConsultation.BackColor = Color.White;
+            btnRechercheConsultation.Location = new Point(156, 441);
             btnRechercheConsultation.Name = "btnRechercheConsultation";
-            btnRechercheConsultation.Size = new Size(265, 29);
+            btnRechercheConsultation.Size = new Size(265, 38);
             btnRechercheConsultation.TabIndex = 4;
             btnRechercheConsultation.Text = "Effectuer une recherche";
             btnRechercheConsultation.UseVisualStyleBackColor = false;
@@ -120,7 +120,7 @@
             // 
             lblConsulterLigne.AutoSize = true;
             lblConsulterLigne.Font = new Font("Segoe UI", 15F);
-            lblConsulterLigne.Location = new Point(284, 86);
+            lblConsulterLigne.Location = new Point(171, 52);
             lblConsulterLigne.Name = "lblConsulterLigne";
             lblConsulterLigne.Size = new Size(229, 35);
             lblConsulterLigne.TabIndex = 9;
@@ -130,7 +130,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(833, 555);
+            ClientSize = new Size(567, 555);
             Controls.Add(lblConsulterLigne);
             Controls.Add(btnRetourConsulter2);
             Controls.Add(btnRetourConsulter);

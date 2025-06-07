@@ -54,7 +54,7 @@ namespace orizo
         {
             string nouveauNom = txtNomModif.Text;
             double nouvelleLatitude = Convert.ToDouble(txtLatitudeModif.Text);
-            double nouvelleLongitude= Convert.ToDouble(txtLongitudeModif.Text);
+            double nouvelleLongitude = Convert.ToDouble(txtLongitudeModif.Text);
             ArretBus arretSelectionne = arrets[lstModifArret.SelectedIndex];
 
             if (BD.ModifierArret(arretSelectionne, nouveauNom, nouvelleLatitude, nouvelleLongitude))
@@ -67,6 +67,11 @@ namespace orizo
             {
                 MessageBox.Show("Une erreur est survenue lors de la modification de l'arrêt.");
             }
+        }
+
+        private void lblLatitudeModif_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

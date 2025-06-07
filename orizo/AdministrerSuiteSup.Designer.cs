@@ -38,19 +38,19 @@
             // 
             lblAdminSuiteSup.AutoSize = true;
             lblAdminSuiteSup.Font = new Font("Segoe UI", 15F);
-            lblAdminSuiteSup.Location = new Point(272, 63);
+            lblAdminSuiteSup.Location = new Point(50, 95);
             lblAdminSuiteSup.Margin = new Padding(2, 0, 2, 0);
             lblAdminSuiteSup.Name = "lblAdminSuiteSup";
-            lblAdminSuiteSup.Size = new Size(334, 41);
+            lblAdminSuiteSup.Size = new Size(279, 35);
             lblAdminSuiteSup.TabIndex = 21;
             lblAdminSuiteSup.Text = "Supprimer des données";
             // 
             // btnRetourAdministrerSup
             // 
-            btnRetourAdministrerSup.Location = new Point(11, 11);
+            btnRetourAdministrerSup.Location = new Point(9, 9);
             btnRetourAdministrerSup.Margin = new Padding(2);
             btnRetourAdministrerSup.Name = "btnRetourAdministrerSup";
-            btnRetourAdministrerSup.Size = new Size(60, 58);
+            btnRetourAdministrerSup.Size = new Size(48, 46);
             btnRetourAdministrerSup.TabIndex = 20;
             btnRetourAdministrerSup.Text = "<-";
             btnRetourAdministrerSup.UseVisualStyleBackColor = true;
@@ -58,10 +58,10 @@
             // 
             // btnAdminSupLigne
             // 
-            btnAdminSupLigne.Location = new Point(287, 309);
+            btnAdminSupLigne.Location = new Point(77, 327);
             btnAdminSupLigne.Margin = new Padding(2);
             btnAdminSupLigne.Name = "btnAdminSupLigne";
-            btnAdminSupLigne.Size = new Size(272, 71);
+            btnAdminSupLigne.Size = new Size(218, 57);
             btnAdminSupLigne.TabIndex = 19;
             btnAdminSupLigne.Text = "Supprimer une ligne";
             btnAdminSupLigne.UseVisualStyleBackColor = true;
@@ -69,10 +69,10 @@
             // 
             // btnAdminSupArret
             // 
-            btnAdminSupArret.Location = new Point(287, 172);
+            btnAdminSupArret.Location = new Point(77, 247);
             btnAdminSupArret.Margin = new Padding(2);
             btnAdminSupArret.Name = "btnAdminSupArret";
-            btnAdminSupArret.Size = new Size(272, 71);
+            btnAdminSupArret.Size = new Size(218, 57);
             btnAdminSupArret.TabIndex = 18;
             btnAdminSupArret.Text = "Supprimer un arrêt";
             btnAdminSupArret.UseVisualStyleBackColor = true;
@@ -80,13 +80,16 @@
             // 
             // AdministrerSuiteSup
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(906, 509);
+            ClientSize = new Size(378, 454);
             Controls.Add(lblAdminSuiteSup);
             Controls.Add(btnRetourAdministrerSup);
             Controls.Add(btnAdminSupLigne);
             Controls.Add(btnAdminSupArret);
+            Margin = new Padding(2, 2, 2, 2);
+            MaximumSize = new Size(396, 501);
+            MinimumSize = new Size(396, 501);
             Name = "AdministrerSuiteSup";
             Text = "AdministrerSuiteSup";
             ResumeLayout(false);

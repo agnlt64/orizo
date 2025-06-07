@@ -38,19 +38,19 @@
             // 
             lblAdminSuiteModif.AutoSize = true;
             lblAdminSuiteModif.Font = new Font("Segoe UI", 15F);
-            lblAdminSuiteModif.Location = new Point(272, 63);
+            lblAdminSuiteModif.Location = new Point(56, 97);
             lblAdminSuiteModif.Margin = new Padding(2, 0, 2, 0);
             lblAdminSuiteModif.Name = "lblAdminSuiteModif";
-            lblAdminSuiteModif.Size = new Size(308, 41);
+            lblAdminSuiteModif.Size = new Size(257, 35);
             lblAdminSuiteModif.TabIndex = 17;
             lblAdminSuiteModif.Text = "Modifier des données";
             // 
             // btnRetourAdministrerModif
             // 
-            btnRetourAdministrerModif.Location = new Point(11, 11);
+            btnRetourAdministrerModif.Location = new Point(9, 9);
             btnRetourAdministrerModif.Margin = new Padding(2);
             btnRetourAdministrerModif.Name = "btnRetourAdministrerModif";
-            btnRetourAdministrerModif.Size = new Size(60, 58);
+            btnRetourAdministrerModif.Size = new Size(48, 46);
             btnRetourAdministrerModif.TabIndex = 16;
             btnRetourAdministrerModif.Text = "<-";
             btnRetourAdministrerModif.UseVisualStyleBackColor = true;
@@ -58,10 +58,10 @@
             // 
             // btnAdminModifierLigne
             // 
-            btnAdminModifierLigne.Location = new Point(287, 309);
+            btnAdminModifierLigne.Location = new Point(78, 340);
             btnAdminModifierLigne.Margin = new Padding(2);
             btnAdminModifierLigne.Name = "btnAdminModifierLigne";
-            btnAdminModifierLigne.Size = new Size(272, 71);
+            btnAdminModifierLigne.Size = new Size(218, 57);
             btnAdminModifierLigne.TabIndex = 15;
             btnAdminModifierLigne.Text = "Modifier une ligne";
             btnAdminModifierLigne.UseVisualStyleBackColor = true;
@@ -69,10 +69,10 @@
             // 
             // btnAdminModifierArret
             // 
-            btnAdminModifierArret.Location = new Point(287, 172);
+            btnAdminModifierArret.Location = new Point(78, 262);
             btnAdminModifierArret.Margin = new Padding(2);
             btnAdminModifierArret.Name = "btnAdminModifierArret";
-            btnAdminModifierArret.Size = new Size(272, 71);
+            btnAdminModifierArret.Size = new Size(218, 57);
             btnAdminModifierArret.TabIndex = 14;
             btnAdminModifierArret.Text = "Modifier un arrêt";
             btnAdminModifierArret.UseVisualStyleBackColor = true;
@@ -80,13 +80,16 @@
             // 
             // AdministrerSuiteModif
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(852, 519);
+            ClientSize = new Size(378, 454);
             Controls.Add(lblAdminSuiteModif);
             Controls.Add(btnRetourAdministrerModif);
             Controls.Add(btnAdminModifierLigne);
             Controls.Add(btnAdminModifierArret);
+            Margin = new Padding(2, 2, 2, 2);
+            MaximumSize = new Size(396, 501);
+            MinimumSize = new Size(396, 501);
             Name = "AdministrerSuiteModif";
             Text = "AdministrerSuiteModif";
             ResumeLayout(false);
