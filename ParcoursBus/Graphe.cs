@@ -1,38 +1,47 @@
-﻿
-namespace GestionBus
+﻿using GestionBus;
+using MySql.Data.MySqlClient;
+
+namespace ParcoursBus
 {
     // type alias pour les voisins
     using Voisins = List<(ArretBus, double)>;
 
-    class Arete
+    public class Arete
     {
         public ArretBus Depart { get; }
         public ArretBus Arrivee { get; }
         public double Poids { get; }
+        public int IdLigne { get; }
 
-        public Arete(ArretBus depart, ArretBus arrivee, double poids)
+        public Arete(ArretBus depart, ArretBus arrivee, double poids, int idLigne)
         {
             Depart = depart;
             Arrivee = arrivee;
             Poids = poids;
+            IdLigne = idLigne;
         }
     }
 
-    class AlgoParcours
+    public class Graphe
     {
         private List<ArretBus> arrets = [];
-        // Adjacency list: for each ArretBus, a list of (neighbor, weight)
+        private List<Arete> aretes = new();
+
+        public List<ArretBus> Arrets => arrets; // propriété pour accéder à la liste des arrêts
+
+        // liste d'adjacence (arret, voisins)
         private Dictionary<ArretBus, Voisins> adjacence = new();
 
-        public AlgoParcours()
+        public Graphe()
         {
             arrets = new List<ArretBus>();
             adjacence = new Dictionary<ArretBus, Voisins>();
         }
 
-        public AlgoParcours(List<ArretBus> arrets, List<Arete> aretes)
+        public Graphe(List<ArretBus> arrets, List<Arete> aretes)
         {
             this.arrets = arrets;
+            this.aretes = aretes;
             adjacence = new Dictionary<ArretBus, Voisins>();
             // liste d'adjacence initialisée pour chaque arret
             foreach (var arret in arrets)
@@ -64,8 +73,21 @@ namespace GestionBus
             return adjacence.TryGetValue(arret, out var voisins) ? voisins : null;
         }
 
+        public int? GetLigneEntre(ArretBus depart, ArretBus arrivee)
+        {
+            var arete = aretes.FirstOrDefault(a => a.Depart.Equals(depart) && a.Arrivee.Equals(arrivee));
+            return arete?.IdLigne;
+        }
+
+        public double? GetPoidsEntre(ArretBus depart, ArretBus arrivee)
+        {
+            var arete = aretes.FirstOrDefault(a => a.Depart.Equals(depart) && a.Arrivee.Equals(arrivee));
+            return arete?.Poids;
+        }
+
         public List<ArretBus>? Dijkstra(ArretBus depart, ArretBus arrivee)
         {
+            Console.WriteLine($"Calcul du chemin de {depart.Nom} à {arrivee.Nom}");
             Dictionary<ArretBus, double> distances = [];
             Dictionary<ArretBus, ArretBus?> precedent = [];
             HashSet<ArretBus> nonVisites = [.. arrets];
@@ -98,6 +120,11 @@ namespace GestionBus
                     }
                 }
             }
+            Console.WriteLine("Distances calculées :");
+            foreach (var kvp in distances)
+            {
+                Console.WriteLine($"{kvp.Key.Nom}: {kvp.Value} minutes");
+            }
 
             List<ArretBus> chemin = [];
             ArretBus? temp = arrivee;
@@ -117,6 +144,60 @@ namespace GestionBus
             if (depart == null || arrivee == null) return null;
 
             return Dijkstra(depart, arrivee);
+        }
+
+        public static Graphe ConstruireDepuisBDD()
+        {
+            // Récupérer tous les arrêts
+            var arrets = BD.GetArrets();
+
+            // Création d'un dictionnaire pour accès rapide par ID
+            var arretsDict = arrets.ToDictionary(a => a.Id);
+
+            var aretes = new List<Arete>();
+
+            // Charger les liaisons depuis LigneArret
+            string requeteLignes = @"
+                SELECT IDLigne, IDArret, OrdrePassage, EcartArretPrecedent
+                FROM LigneArret
+                ORDER BY IDLigne, OrdrePassage;
+            ";
+
+            using (var cmd = new MySqlCommand(requeteLignes, BD.GetConnection()))
+            using (var reader = cmd.ExecuteReader())
+            {
+                int? idLigneCourante = null;
+                int? arretPrecedent = null;
+
+                while (reader.Read())
+                {
+                    int idLigne = reader.GetInt32("IDLigne");
+                    int idArret = reader.GetInt32("IDArret");
+                    TimeSpan ecart = reader.GetTimeSpan("EcartArretPrecedent");
+
+                    if (idLigneCourante != idLigne)
+                    {
+                        idLigneCourante = idLigne;
+                        arretPrecedent = null;
+                    }
+
+                    if (arretPrecedent.HasValue)
+                    {
+                        if (arretsDict.ContainsKey(arretPrecedent.Value) && arretsDict.ContainsKey(idArret))
+                        {
+                            var depart = arretsDict[arretPrecedent.Value];
+                            var arrivee = arretsDict[idArret];
+                            double poids = ecart.TotalMinutes;
+
+                            aretes.Add(new Arete(depart, arrivee, poids, idLigne));
+                        }
+                    }
+
+                    arretPrecedent = idArret;
+                }
+            }
+
+            return new Graphe(arrets, aretes);
         }
     }
 }

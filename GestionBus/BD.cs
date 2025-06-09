@@ -46,6 +46,11 @@ namespace GestionBus
             return false;
         }
 
+        public static MySqlConnection GetConnection()
+        {
+            return conn;
+        }
+
         public static List<LigneBus> GetLignes()
         {
             List<LigneBus> lignes = [];

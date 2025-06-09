@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GestionBus\GestionBus.csproj" />
+    <ProjectReference Include="..\ParcoursBus\ParcoursBus.csproj" />
   </ItemGroup>
 
   <ItemGroup>

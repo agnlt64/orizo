@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "orizo", "orizo\orizo.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionBus", "GestionBus\GestionBus.csproj", "{0DE47C83-2643-465C-804C-0FA50C03D5A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParcoursBus", "ParcoursBus\ParcoursBus.csproj", "{A93F7792-A1D1-454A-9605-E1163A36609A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0DE47C83-2643-465C-804C-0FA50C03D5A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DE47C83-2643-465C-804C-0FA50C03D5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DE47C83-2643-465C-804C-0FA50C03D5A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A93F7792-A1D1-454A-9605-E1163A36609A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A93F7792-A1D1-454A-9605-E1163A36609A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A93F7792-A1D1-454A-9605-E1163A36609A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A93F7792-A1D1-454A-9605-E1163A36609A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

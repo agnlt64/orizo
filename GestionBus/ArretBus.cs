@@ -20,5 +20,16 @@ namespace GestionBus
             this.latitude = latitude;
             this.longitude = longitude;
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is not ArretBus other) return false;
+            return Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
     }
 }

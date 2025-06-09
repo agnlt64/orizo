@@ -1,40 +1,35 @@
 ﻿using Microsoft.Web.WebView2.WinForms;
+using ParcoursBus;
+using GestionBus;
 
 namespace orizo
 {
     public partial class ConsulterIti2 : Form
     {
         private WebView2 webView;
-        private int indexSelectionneDep;
-        private int indexSelectionneArr;
+        private string depart;
+        private string arrivee;
         private int heureFiltre;
         private int minuteFiltre;
         private bool filtrerParDepart;
         private bool filtrerParArrivee;
+        private Graphe graphe;
 
-        public ConsulterIti2(int indexSelectionneDep, int indexSelectionneArr, int heure, int minute, bool filtrerDepart, bool filtrerArrivee)
+        public ConsulterIti2(string depart, string arrivee, int heure, int minute, bool filtrerDepart, bool filtrerArrivee)
         {
             InitializeComponent();
             InitializeWebView();
-            this.indexSelectionneDep = indexSelectionneDep;
-            this.indexSelectionneArr = indexSelectionneArr;
+            this.depart = depart;
+            this.arrivee = arrivee;
             this.heureFiltre = heure;
             this.minuteFiltre = minute;
             this.filtrerParDepart = filtrerDepart;
             this.filtrerParArrivee = filtrerArrivee;
+            this.graphe = Graphe.ConstruireDepuisBDD();
+            graphe.AfficherArrets();
 
-            if (indexSelectionneDep < 0 || indexSelectionneArr < 0)
-            {
-                MessageBox.Show("Veuillez sélectionner un départ et une arrivée valides.", "Champs manquants", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Close();
-                return;
-            }
             AfficherDetails();
-            // Création du tableau avec [lignes, colonnes]
-            
-
         }
-
 
         // carte 
 
@@ -71,7 +66,7 @@ namespace orizo
         #map {
             height: 100%;
             width: 48%;
-            margin-top: 15%;
+            margin-top: 8%;
             margin-left: 1%;
         }
         </style>
@@ -89,8 +84,6 @@ namespace orizo
     </html>";
                 webView.NavigateToString(htmlContent);
 
-
-
             }
             catch (Exception ex)
             {
@@ -98,13 +91,6 @@ namespace orizo
             }
         }
         //carte
-
-
-        private bool TryParseHeure(string heureStr, out TimeSpan result)
-        {
-            return TimeSpan.TryParse(heureStr.Trim(), out result);
-        }
-
 
         private void btnretour_Click(object sender, EventArgs e)
         {
@@ -115,15 +101,20 @@ namespace orizo
 
         private void AfficherDetails()
         {
-            var heureReference = new TimeSpan(heureFiltre, minuteFiltre, 0);
+            // Récupérer tous les arrêts pour retrouver les objets ArretBus
+            var arrets = BD.GetArrets();
+            ArretBus? arretDepart = null;
+            ArretBus? arretArrivee = null;
 
-            var itineraires = new Dictionary<(int, int), List<(string arret, string debut, string fin)>>()
-    {
-        { (0, 0), new List<(string, string, string)> { ("Arrêt 1", "9:00", "9:30"), ("Arrêt 2", "18:00", "19:00") } },
-        { (0, 1), new List<(string, string, string)> { ("Arrêt 1", "19:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
-        { (1, 0), new List<(string, string, string)> { ("Arrêt 1", "18:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } },
-        { (1, 1), new List<(string, string, string)> { ("Arrêt 1", "17:00", "20:30"), ("Arrêt 2", "20:00", "22:00") } }
-    };
+            arretDepart = graphe.Arrets.FirstOrDefault(a => a.Nom == depart);
+            arretArrivee = graphe.Arrets.FirstOrDefault(a => a.Nom == arrivee);
+
+            // Calculer le chemin avec Dijkstra
+            List<ArretBus>? chemin = null;
+            if (arretDepart != null && arretArrivee != null)
+            {
+                chemin = graphe.Dijkstra(arretDepart, arretArrivee);
+            }
 
             // Nettoyage et configuration ListView
             lswTableau.Items.Clear();
@@ -133,51 +124,71 @@ namespace orizo
             lswTableau.GridLines = true;
 
             // Ajouter colonnes
+            lswTableau.Columns.Add("Ordre");
             lswTableau.Columns.Add("Arrêt");
-            lswTableau.Columns.Add("Départ");
-            lswTableau.Columns.Add("Arrivée");
+            lswTableau.Columns.Add("Latitude");
+            lswTableau.Columns.Add("Longitude");
 
-            var key = (indexSelectionneDep, indexSelectionneArr);
-
-            if (itineraires.TryGetValue(key, out var stops))
+            if (chemin != null && chemin.Count > 0)
             {
-                foreach (var (arret, debutStr, finStr) in stops)
+                int ordre = 1;
+                foreach (var arret in chemin)
                 {
-                    if (TryParseHeure(debutStr, out TimeSpan debut) && TryParseHeure(finStr, out TimeSpan fin))
-                    {
-                        bool afficher;
-
-                        if (!filtrerParDepart && !filtrerParArrivee)
-                            afficher = true;
-                        else if (filtrerParDepart && filtrerParArrivee)
-                            afficher = (debut >= heureReference) && (fin >= heureReference);
-                        else if (filtrerParDepart)
-                            afficher = (debut >= heureReference);
-                        else
-                            afficher = (fin >= heureReference);
-
-                        if (afficher)
-                        {
-                            var item = new ListViewItem(arret);
-                            item.SubItems.Add(debutStr);
-                            item.SubItems.Add(finStr);
-                            lswTableau.Items.Add(item);
-                        }
-                    }
+                    var item = new ListViewItem(ordre.ToString());
+                    item.SubItems.Add(arret.Nom);
+                    item.SubItems.Add(arret.Latitude.ToString("F6"));
+                    item.SubItems.Add(arret.Longitude.ToString("F6"));
+                    lswTableau.Items.Add(item);
+                    ordre++;
                 }
 
-                if (lswTableau.Items.Count == 0)
+                if (chemin.Count > 1)
                 {
-                    MessageBox.Show("Aucun trajet ne correspond à l'heure choisie.", "Aucun résultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    double tempsTotal = 0;
+                    for (int i = 0; i < chemin.Count - 1; i++)
+                    {
+                        var arretA = chemin[i];
+                        var arretB = chemin[i + 1];
+                        double? poids = graphe.GetPoidsEntre(arretA, arretB);
+                        if (poids.HasValue)
+                            tempsTotal += poids.Value;
+                    }
+
+                    // Affichage du temps total (arrondir si besoin)
+                    lblIndication.Text = $"Itinéraire de {arretDepart?.Nom} à {arretArrivee?.Nom} ({chemin.Count} arrêts) - Temps total : {tempsTotal:F0} min";
+                }
+                else
+                {
+                    lblIndication.Text = $"Itinéraire de {arretDepart?.Nom} à {arretArrivee?.Nom} ({chemin.Count} arrêts)";
                 }
             }
             else
             {
-                MessageBox.Show("Ligne indisponible", "Erreur", MessageBoxButtons.OK);
-                var itemErreur = new ListViewItem("Erreur");
-                itemErreur.SubItems.Add("Erreur");
-                itemErreur.SubItems.Add("Erreur");
-                lswTableau.Items.Add(itemErreur);
+                MessageBox.Show($"Aucun itinéraire trouvé entre les arrêts {depart} et {arrivee}.", "Aucun résultat", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // afficher les lignes entre les arrêts
+            if (chemin != null && chemin.Count > 1)
+            {
+                for (int i = 0; i < chemin.Count - 1; i++)
+                {
+                    var arretA = chemin[i];
+                    var arretB = chemin[i + 1];
+                    int? idLigne = graphe.GetLigneEntre(arretA, arretB);
+
+                    // Affichez arretA, arretB, et idLigne (ou récupérez le nom de la ligne via BD.GetLignes())
+                    // Par exemple :
+                    var ligne = BD.GetLignes().FirstOrDefault(l => l.Id == idLigne);
+                    string nomLigne = ligne != null ? ligne.Nom : idLigne?.ToString() ?? "Inconnu";
+
+                    // Ajoutez à votre ListView ou autre affichage
+                    var item = new ListViewItem(new[] {
+                        arretA.Nom + " → " + arretB.Nom,
+                        nomLigne
+                    });
+                    lswTableau.Items.Add(item);
+                }
             }
 
             // Ajustement automatique des colonnes pour remplir l’espace
@@ -190,21 +201,6 @@ namespace orizo
                     col.Width = colWidth;
                 }
             }
-
-            lblIndication.Text = "Arrêt " + (indexSelectionneDep + 1) + " à Arrêt " + (indexSelectionneArr + 1);
-            
-        }
-
-
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
