@@ -101,66 +101,55 @@ namespace orizo
 
         private void AfficherDetails()
         {
-            // Récupérer tous les arrêts pour retrouver les objets ArretBus
             var arrets = BD.GetArrets();
-            ArretBus? arretDepart = null;
-            ArretBus? arretArrivee = null;
+            ArretBus? arretDepart = graphe.Arrets.FirstOrDefault(a => a.Nom == depart);
+            ArretBus? arretArrivee = graphe.Arrets.FirstOrDefault(a => a.Nom == arrivee);
 
-            arretDepart = graphe.Arrets.FirstOrDefault(a => a.Nom == depart);
-            arretArrivee = graphe.Arrets.FirstOrDefault(a => a.Nom == arrivee);
-
-            // Calculer le chemin avec Dijkstra
             List<ArretBus>? chemin = null;
             if (arretDepart != null && arretArrivee != null)
             {
                 chemin = graphe.Dijkstra(arretDepart, arretArrivee);
             }
 
-            // Nettoyage et configuration ListView
             lswTableau.Items.Clear();
             lswTableau.Columns.Clear();
             lswTableau.View = View.Details;
             lswTableau.FullRowSelect = true;
             lswTableau.GridLines = true;
 
-            // Ajouter colonnes
-            lswTableau.Columns.Add("Ordre");
+            // Deux colonnes : Arrêt et Ligne
             lswTableau.Columns.Add("Arrêt");
-            lswTableau.Columns.Add("Latitude");
-            lswTableau.Columns.Add("Longitude");
+            lswTableau.Columns.Add("Ligne");
 
             if (chemin != null && chemin.Count > 0)
             {
-                int ordre = 1;
-                foreach (var arret in chemin)
+                for (int i = 0; i < chemin.Count; i++)
                 {
-                    var item = new ListViewItem(ordre.ToString());
-                    item.SubItems.Add(arret.Nom);
-                    item.SubItems.Add(arret.Latitude.ToString("F6"));
-                    item.SubItems.Add(arret.Longitude.ToString("F6"));
-                    lswTableau.Items.Add(item);
-                    ordre++;
-                }
+                    string nomArret = chemin[i].Nom;
+                    string nomLigne = "";
 
-                if (chemin.Count > 1)
-                {
-                    double tempsTotal = 0;
-                    for (int i = 0; i < chemin.Count - 1; i++)
+                    if (i < chemin.Count - 1)
                     {
-                        var arretA = chemin[i];
-                        var arretB = chemin[i + 1];
-                        double? poids = graphe.GetPoidsEntre(arretA, arretB);
-                        if (poids.HasValue)
-                            tempsTotal += poids.Value;
+                        int? idLigne = graphe.GetLigneEntre(chemin[i], chemin[i + 1]);
+                        var ligne = BD.GetLignes().FirstOrDefault(l => l.Id == idLigne);
+                        nomLigne = ligne != null ? ligne.Nom : idLigne?.ToString() ?? "Inconnu";
                     }
 
-                    // Affichage du temps total (arrondir si besoin)
-                    lblIndication.Text = $"Itinéraire de {arretDepart?.Nom} à {arretArrivee?.Nom} ({chemin.Count} arrêts) - Temps total : {tempsTotal:F0} min";
+                    var item = new ListViewItem(nomArret);
+                    item.SubItems.Add(nomLigne);
+                    lswTableau.Items.Add(item);
                 }
-                else
+
+                // Calcul du temps total
+                double tempsTotal = 0;
+                for (int i = 0; i < chemin.Count - 1; i++)
                 {
-                    lblIndication.Text = $"Itinéraire de {arretDepart?.Nom} à {arretArrivee?.Nom} ({chemin.Count} arrêts)";
+                    double? poids = graphe.GetPoidsEntre(chemin[i], chemin[i + 1]);
+                    if (poids.HasValue)
+                        tempsTotal += poids.Value;
                 }
+
+                lblItinéraire.Text = $"Itinéraire de {arretDepart?.Nom} à {arretArrivee?.Nom} ({chemin.Count} arrêts) - Temps total : {tempsTotal:F0} min";
             }
             else
             {
@@ -168,30 +157,7 @@ namespace orizo
                 return;
             }
 
-            // afficher les lignes entre les arrêts
-            if (chemin != null && chemin.Count > 1)
-            {
-                for (int i = 0; i < chemin.Count - 1; i++)
-                {
-                    var arretA = chemin[i];
-                    var arretB = chemin[i + 1];
-                    int? idLigne = graphe.GetLigneEntre(arretA, arretB);
-
-                    // Affichez arretA, arretB, et idLigne (ou récupérez le nom de la ligne via BD.GetLignes())
-                    // Par exemple :
-                    var ligne = BD.GetLignes().FirstOrDefault(l => l.Id == idLigne);
-                    string nomLigne = ligne != null ? ligne.Nom : idLigne?.ToString() ?? "Inconnu";
-
-                    // Ajoutez à votre ListView ou autre affichage
-                    var item = new ListViewItem(new[] {
-                        arretA.Nom + " → " + arretB.Nom,
-                        nomLigne
-                    });
-                    lswTableau.Items.Add(item);
-                }
-            }
-
-            // Ajustement automatique des colonnes pour remplir l’espace
+            // Ajustement automatique des colonnes
             int colCount = lswTableau.Columns.Count;
             if (colCount > 0)
             {

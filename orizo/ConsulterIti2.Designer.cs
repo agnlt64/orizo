@@ -52,7 +52,7 @@
             // 
             lblItinéraire.AutoSize = true;
             lblItinéraire.Font = new Font("Segoe UI", 15F);
-            lblItinéraire.Location = new Point(281, 7);
+            lblItinéraire.Location = new Point(177, 9);
             lblItinéraire.Name = "lblItinéraire";
             lblItinéraire.Size = new Size(89, 28);
             lblItinéraire.TabIndex = 4;
@@ -62,10 +62,10 @@
             // lswTableau
             // 
             lswTableau.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2, listViewItem3 });
-            lswTableau.Location = new Point(360, 88);
+            lswTableau.Location = new Point(581, 72);
             lswTableau.Margin = new Padding(3, 2, 3, 2);
             lswTableau.Name = "lswTableau";
-            lswTableau.Size = new Size(574, 463);
+            lswTableau.Size = new Size(353, 444);
             lswTableau.TabIndex = 7;
             lswTableau.UseCompatibleStateImageBehavior = false;
             // 
@@ -83,14 +83,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(958, 562);
+            ClientSize = new Size(958, 529);
             Controls.Add(lswTableau);
             Controls.Add(lblIndication);
             Controls.Add(lblItinéraire);
             Controls.Add(btnRetour);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
-            MinimizeBox = false;
+            MaximizeBox = false;
             Name = "ConsulterIti2";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "ConsulterIti2";
