@@ -109,6 +109,34 @@ namespace GestionBus
             return arrets;
         }
 
+        public static List<ArretBus> GetArrets(int idxLigne)
+        {
+            List<ArretBus> arrets = [];
+            string query = "select a.IDArret, a.NomArret, a.CoordXArret, a.CoordYArret from LigneArret la join Ligne l on la.IDLigne = l.IDLigne JOIN Arret a ON la.IDArret = a.IDArret where la.IDLigne = @idLigne";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idLigne", idxLigne);
+            try
+            {
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32("IDArret");
+                        string nom = reader.GetString("NomArret");
+                        double latitude = reader.GetDouble("CoordXArret");
+                        double longitude = reader.GetDouble("CoordYArret");
+                        ArretBus arret = new(id, nom, latitude, longitude);
+                        arrets.Add(arret);
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error retrieving stops for line {idxLigne}: {ex.Message}");
+            }
+            return arrets;
+        }
+
         public static bool AjouterArret(ArretBus arret)
         {
             string query = "INSERT INTO Arret (NomArret, CoordXArret, CoordYArret) VALUES (@nom, @lat, @long)";

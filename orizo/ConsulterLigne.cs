@@ -1,16 +1,23 @@
-﻿
+﻿using GestionBus;
+
 namespace orizo
 {
     public partial class ConsulterLigne : Form
     {
         private int indexSelectionne;
+        private string nomLigne;
+        private List<ArretBus> arrets;
 
 
-        public ConsulterLigne(int indexSelectionne)
+        public ConsulterLigne(int indexSelectionne, string nomLigne)
         {
             InitializeComponent();
             this.indexSelectionne = indexSelectionne;
+            this.nomLigne = nomLigne;
             btnRetour.Visible = true; // Afficher le bouton de retour
+
+            // +1 parce que les IDs de la BDD commencent à 1
+            arrets = BD.GetArrets(indexSelectionne + 1);
             AfficherDetails();
         }
 
@@ -24,24 +31,12 @@ namespace orizo
             lswTableau.GridLines = true;
 
             // Ajouter les colonnes
+            lswTableau.Columns.Add("Ordre de passage");
             lswTableau.Columns.Add("Arrêt");
-            lswTableau.Columns.Add("Horaires");
 
-            // Ajouter les lignes selon l'index
-            if (indexSelectionne == 0)
+            for (int i = 0; i < arrets.Count; i++)
             {
-                lswTableau.Items.Add(new ListViewItem(new[] { "Arrêt 1", "9h - 9h30" }));
-                lswTableau.Items.Add(new ListViewItem(new[] { "Arrêt 2", "8h - 10h" }));
-            }
-            else if (indexSelectionne == 1)
-            {
-                lswTableau.Items.Add(new ListViewItem(new[] { "Arrêt 1", "19h - 20h30" }));
-                lswTableau.Items.Add(new ListViewItem(new[] { "Arrêt 2", "20h - 22h" }));
-            }
-            else
-            {
-                MessageBox.Show("Ligne indisponible", "Erreur", MessageBoxButtons.OK);
-                lswTableau.Items.Add(new ListViewItem(new[] { "Erreur", "Erreur" }));
+                lswTableau.Items.Add(new ListViewItem([(i + 1).ToString(), arrets[i].Nom]));
             }
 
             // Ajuster la largeur des colonnes (1/2 pour chacune ici)
@@ -52,9 +47,8 @@ namespace orizo
                 lswTableau.Columns[1].Width = totalWidth / 2;
             }
 
-            lblIndication.Text = "Ligne " + (indexSelectionne + 1);
+            lblIndication.Text = $"Ligne {nomLigne}";
         }
-
 
         private void btnretour_Click(object sender, EventArgs e)
         {

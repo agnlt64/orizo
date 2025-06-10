@@ -7,6 +7,7 @@ namespace orizo
     {
         private WebView2? webView;
         public ListBox lstconsultationPublic;
+        private List<LigneBus> lignes;
 
         public Consulter()
         {
@@ -20,6 +21,7 @@ namespace orizo
             lblConsulterLigne.Visible = false; // Masquer le label de consultation de ligne au départ
 
             ChargerLignes();
+            lignes = BD.GetLignes();
         }
         //espaces pour les fonctions
 
@@ -138,17 +140,19 @@ namespace orizo
 
         private void btnconsulterligne_Click(object sender, EventArgs e)
         {
-            int nbrliste = lstConsultation.Items.Count;
-
-            if (nbrliste == 0)
-            {
-                MessageBox.Show("Aucun arrêt n'est présent dans la base de données", "Alerte", MessageBoxButtons.OK );
-                return; // Sortir de la fonction pour ne pas continuer
-            }
-
             if (webView != null)
             {
                 MasquerLigne();
+                return;
+            }
+
+            string? nomLigne = lstConsultation.SelectedItem?.ToString();
+            LigneBus? ligne = lignes.FirstOrDefault(a => a.Nom == nomLigne);
+
+            if (ligne == null)
+            {
+                MessageBox.Show("Veuillez sélectionner une ligne valide.", "Alerte", MessageBoxButtons.OK);
+                return;
             }
         }
 
@@ -159,11 +163,11 @@ namespace orizo
             if (nbrliste == 0)
             {
                 MessageBox.Show("Aucune ligne n'est présent dans la base de données", "Alerte", MessageBoxButtons.OK);
-                return; // Sortir de la fonction pour ne pas continuer
+                return;
             }
             if (webView != null)
             {
-                ConsulterIti formIti = new ConsulterIti(); // passe l'index directement
+                ConsulterIti formIti = new ConsulterIti();
                 formIti.Show();
                 this.Hide();
             }
@@ -179,7 +183,7 @@ namespace orizo
             if (lstConsultation.SelectedItem != null)
             {
                 int indexSelectionne = lstConsultation.SelectedIndex;
-                ConsulterLigne formLigne = new ConsulterLigne(indexSelectionne); // passe l'index directement
+                ConsulterLigne formLigne = new ConsulterLigne(indexSelectionne, (string)lstConsultation.SelectedItem); // passe l'index directement
                 formLigne.Show();
                 this.Hide(); // facultatif
             }

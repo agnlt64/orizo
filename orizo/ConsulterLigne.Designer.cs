@@ -39,9 +39,10 @@
             // 
             // btnRetour
             // 
-            btnRetour.Location = new Point(12, 12);
+            btnRetour.Location = new Point(10, 9);
+            btnRetour.Margin = new Padding(3, 2, 3, 2);
             btnRetour.Name = "btnRetour";
-            btnRetour.Size = new Size(41, 46);
+            btnRetour.Size = new Size(36, 34);
             btnRetour.TabIndex = 2;
             btnRetour.Text = "<-";
             btnRetour.UseVisualStyleBackColor = true;
@@ -51,9 +52,9 @@
             // 
             lblConsulterLigne.AutoSize = true;
             lblConsulterLigne.Font = new Font("Segoe UI", 15F);
-            lblConsulterLigne.Location = new Point(152, 35);
+            lblConsulterLigne.Location = new Point(133, 26);
             lblConsulterLigne.Name = "lblConsulterLigne";
-            lblConsulterLigne.Size = new Size(229, 35);
+            lblConsulterLigne.Size = new Size(180, 28);
             lblConsulterLigne.TabIndex = 10;
             lblConsulterLigne.Text = "Consulter une ligne";
             // 
@@ -61,9 +62,9 @@
             // 
             lblIndication.AutoSize = true;
             lblIndication.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Underline);
-            lblIndication.Location = new Point(232, 86);
+            lblIndication.Location = new Point(142, 63);
             lblIndication.Name = "lblIndication";
-            lblIndication.Size = new Size(81, 28);
+            lblIndication.Size = new Size(65, 21);
             lblIndication.TabIndex = 11;
             lblIndication.Text = "Ligne 1";
             lblIndication.TextAlign = ContentAlignment.TopCenter;
@@ -71,25 +72,27 @@
             // lswTableau
             // 
             lswTableau.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2, listViewItem3 });
-            lswTableau.Location = new Point(95, 135);
+            lswTableau.Location = new Point(83, 101);
+            lswTableau.Margin = new Padding(3, 2, 3, 2);
             lswTableau.Name = "lswTableau";
-            lswTableau.Size = new Size(349, 340);
+            lswTableau.Size = new Size(306, 256);
             lswTableau.TabIndex = 12;
             lswTableau.UseCompatibleStateImageBehavior = false;
             // 
             // ConsulterLigne
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(551, 506);
+            ClientSize = new Size(484, 386);
             Controls.Add(lswTableau);
             Controls.Add(lblIndication);
             Controls.Add(lblConsulterLigne);
             Controls.Add(btnRetour);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximumSize = new Size(569, 553);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximumSize = new Size(500, 425);
             MinimizeBox = false;
-            MinimumSize = new Size(569, 553);
+            MinimumSize = new Size(500, 425);
             Name = "ConsulterLigne";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "Réseau de transport - Consultation";
