@@ -16,8 +16,7 @@ namespace orizo
             this.nomLigne = nomLigne;
             btnRetour.Visible = true; // Afficher le bouton de retour
 
-            // +1 parce que les IDs de la BDD commencent à 1
-            arrets = BD.GetArrets(indexSelectionne + 1);
+            arrets = BD.GetArrets(indexSelectionne);
             AfficherDetails();
         }
 

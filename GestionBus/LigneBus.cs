@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GestionBus
+﻿namespace GestionBus
 {
     public class LigneBus
     {
@@ -16,7 +10,7 @@ namespace GestionBus
 
         public string Nom => nom;
         public string Couleur => couleur;
-        public int Id => id;
+        public int Id { get => id; set { id = value; } }
         public int NbPassages => nbPassages;
         public TimeSpan HeureDepart => heureDepart;
         

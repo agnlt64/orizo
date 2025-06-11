@@ -157,7 +157,7 @@ namespace GestionBus
             return false;
         }
 
-        public static bool AjouterLigne(LigneBus ligne)
+        public static bool AjouterLigne(ref LigneBus ligne)
         {
             string query = "INSERT INTO Ligne (NomLigne, CouleurLigne, NbPassagesJour, HeureDepart) VALUES (@nom, @couleur, @nbPassages, @heureDepart)";
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -168,11 +168,32 @@ namespace GestionBus
             try
             {
                 cmd.ExecuteNonQuery();
+                ligne.Id = (int)cmd.LastInsertedId;
                 return true;
             }
             catch (MySqlException ex)
             {
                 MessageBox.Show($"Error adding line: {ex.Message}");
+            }
+            return false;
+        }
+
+        public static bool AjouterLigneArret(int idLigne, int idArret, int ordre, TimeSpan ecart)
+        {
+            string query = "INSERT INTO LigneArret (IDLigne, IDArret, OrdrePassage, EcartArretPrecedent) VALUES (@idLigne, @idArret, @ordre, @ecart)";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@idLigne", idLigne);
+            cmd.Parameters.AddWithValue("@idArret", idArret);
+            cmd.Parameters.AddWithValue("@ordre", ordre);
+            cmd.Parameters.AddWithValue("@ecart", ecart);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error adding stop to line: {ex.Message}");
             }
             return false;
         }
@@ -199,8 +220,21 @@ namespace GestionBus
 
         public static bool SupprimerLigne(LigneBus ligne)
         {
-            string query = "DELETE FROM Ligne WHERE IDLigne = @id";
+            string query = "DELETE FROM LigneArret WHERE IDLigne = @id";
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", ligne.Id);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error deleting line: {ex.Message}");
+                return false;
+            }
+
+            query = "DELETE FROM Ligne WHERE IDLigne = @id";
+            cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@id", ligne.Id);
             try
             {
@@ -211,6 +245,7 @@ namespace GestionBus
             {
                 MessageBox.Show($"Error deleting line: {ex.Message}");
             }
+
             return false;
         }
 

@@ -182,8 +182,10 @@ namespace orizo
         {
             if (lstConsultation.SelectedItem != null)
             {
-                int indexSelectionne = lstConsultation.SelectedIndex;
-                ConsulterLigne formLigne = new ConsulterLigne(indexSelectionne, (string)lstConsultation.SelectedItem); // passe l'index directement
+                string nomLigne = (string)lstConsultation.SelectedItem;
+                LigneBus ligne = lignes.FirstOrDefault(a => a.Nom == nomLigne)!;
+                Console.WriteLine($"Ligne sélectionnée : {ligne.Nom} (ID: {ligne.Id})");
+                ConsulterLigne formLigne = new ConsulterLigne(ligne.Id, ligne.Nom);
                 formLigne.Show();
                 this.Hide(); // facultatif
             }

@@ -92,6 +92,7 @@ namespace ParcoursBus
             Dictionary<ArretBus, ArretBus?> precedent = [];
             HashSet<ArretBus> nonVisites = [.. arrets];
 
+            // initialisation des distances et précédents
             foreach (ArretBus arret in arrets)
             {
                 distances[arret] = double.PositiveInfinity;
@@ -101,17 +102,21 @@ namespace ParcoursBus
 
             while (nonVisites.Count > 0)
             {
+                // trouver l'arrêt avec la distance minimale parmi les non visités
                 var courant = nonVisites.OrderBy(a => distances[a]).First();
                 nonVisites.Remove(courant);
 
                 if (courant == arrivee) break;
 
+                // si le sommet courant n'a pas de voisins, on passe au suivant
                 Voisins? voisins = GetVoisins(courant);
                 if (voisins == null) continue;
 
                 foreach (var (voisin, poids) in voisins)
                 {
                     if (!nonVisites.Contains(voisin)) continue;
+                    // calcul de la distance avec lle poids de l'arete
+                    // si la distance est plus courte, on met à jour
                     double distance = distances[courant] + poids;
                     if (distance < distances[voisin])
                     {
@@ -128,11 +133,13 @@ namespace ParcoursBus
 
             List<ArretBus> chemin = [];
             ArretBus? temp = arrivee;
+            // reconstruction du chemin à partir des précédents
             while (temp != null)
             {
                 chemin.Insert(0, temp);
                 temp = precedent[temp];
             }
+            // si le premier arrêt du chemin n'est pas le départ, il n'y a pas de chemin valide
             if (chemin.First() != depart) return null;
             return chemin;
         }

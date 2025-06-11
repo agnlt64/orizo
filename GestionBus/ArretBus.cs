@@ -7,13 +7,13 @@ namespace GestionBus
         string nom;
         double latitude;
         double longitude;
-        double ecart;
+        TimeSpan ecart;
 
         public int Id => id;
         public string Nom => nom;
         public double Latitude => latitude;
         public double Longitude => longitude;
-        public double Ecart => ecart;
+        public TimeSpan Ecart { get => ecart; set => ecart = value; }
 
         public ArretBus(int id, string nom, double latitude, double longitude)
         {
@@ -23,7 +23,7 @@ namespace GestionBus
             this.longitude = longitude;
         }
 
-        public ArretBus(int id, string nom, double latitude, double longitude, double ecart) : this(id, nom, latitude, longitude)
+        public ArretBus(int id, string nom, double latitude, double longitude, TimeSpan ecart) : this(id, nom, latitude, longitude)
         {
             this.ecart = ecart;
         }
