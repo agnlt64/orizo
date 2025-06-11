@@ -35,6 +35,8 @@
             lblItinéraire = new Label();
             lswTableau = new ListView();
             lblIndication = new Label();
+            lblDepart = new Label();
+            lblArrivee = new Label();
             SuspendLayout();
             // 
             // btnRetour
@@ -79,11 +81,33 @@
             lblIndication.TabIndex = 5;
             lblIndication.TextAlign = ContentAlignment.TopCenter;
             // 
+            // lblDepart
+            // 
+            lblDepart.AutoSize = true;
+            lblDepart.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDepart.Location = new Point(28, 59);
+            lblDepart.Name = "lblDepart";
+            lblDepart.Size = new Size(118, 20);
+            lblDepart.TabIndex = 8;
+            lblDepart.Text = "Heure de départ";
+            // 
+            // lblArrivee
+            // 
+            lblArrivee.AutoSize = true;
+            lblArrivee.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblArrivee.Location = new Point(28, 90);
+            lblArrivee.Name = "lblArrivee";
+            lblArrivee.Size = new Size(110, 20);
+            lblArrivee.TabIndex = 9;
+            lblArrivee.Text = "Heure d'arrivée";
+            // 
             // ConsulterIti2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 529);
+            Controls.Add(lblArrivee);
+            Controls.Add(lblDepart);
             Controls.Add(lswTableau);
             Controls.Add(lblIndication);
             Controls.Add(lblItinéraire);
@@ -104,5 +128,7 @@
         private Label lblItinéraire;
         private ListView lswTableau;
         private Label lblIndication;
+        private Label lblDepart;
+        private Label lblArrivee;
     }
 }

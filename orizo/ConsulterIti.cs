@@ -14,6 +14,10 @@ namespace orizo
             InitializeComponent();
 
             ChargerArrets();
+            TimeSpan timeSpan = DateTime.Now.TimeOfDay;
+            nudHeure.Value = timeSpan.Hours;
+            nudMinute.Value = timeSpan.Minutes;
+            chkDepart.Checked = true;
         }
 
         private void ChargerArrets()

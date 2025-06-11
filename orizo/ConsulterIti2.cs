@@ -66,8 +66,8 @@ namespace orizo
         #map {
             height: 100%;
             width: 48%;
-            margin-top: 8%;
-            margin-left: 1%;
+            margin-top: 12%;
+            margin-left: 3%;
         }
         </style>
     </head>
@@ -101,6 +101,7 @@ namespace orizo
 
         private void AfficherDetails()
         {
+            // calculer le chemin entre les arrêts de bus
             var arrets = BD.GetArrets();
             ArretBus? arretDepart = graphe.Arrets.FirstOrDefault(a => a.Nom == depart);
             ArretBus? arretArrivee = graphe.Arrets.FirstOrDefault(a => a.Nom == arrivee);
@@ -120,6 +121,8 @@ namespace orizo
             // Deux colonnes : Arrêt et Ligne
             lswTableau.Columns.Add("Arrêt");
             lswTableau.Columns.Add("Ligne");
+
+            double tempsTotal = 0;
 
             if (chemin != null && chemin.Count > 0)
             {
@@ -141,7 +144,6 @@ namespace orizo
                 }
 
                 // Calcul du temps total
-                double tempsTotal = 0;
                 for (int i = 0; i < chemin.Count - 1; i++)
                 {
                     double? poids = graphe.GetPoidsEntre(chemin[i], chemin[i + 1]);
@@ -166,6 +168,22 @@ namespace orizo
                 {
                     col.Width = colWidth;
                 }
+            }
+
+            // afficher les horaires
+            if (filtrerParDepart)
+            {
+                TimeSpan heureArrivee = new TimeSpan(heureFiltre, minuteFiltre, 0);
+                heureArrivee += TimeSpan.FromMinutes(tempsTotal);
+                lblDepart.Text = $"Départ : {depart} à {heureFiltre:D2}:{minuteFiltre:D2}";
+                lblArrivee.Text = $"Arrivée : {arrivee} à {heureArrivee.Hours:D2}:{heureArrivee.Minutes:D2}";
+            }
+            else if (filtrerParArrivee)
+            {
+                TimeSpan heureDepart = new TimeSpan(heureFiltre, minuteFiltre, 0);
+                heureDepart -= TimeSpan.FromMinutes(tempsTotal);
+                lblDepart.Text = $"Départ : {depart} à {heureDepart.Hours:D2}:{heureDepart.Minutes:D2}";
+                lblArrivee.Text = $"Arrivée : {arrivee} à {heureFiltre:D2}:{minuteFiltre:D2}";
             }
         }
     }
