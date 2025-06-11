@@ -251,8 +251,21 @@ namespace GestionBus
 
         public static bool SupprimerArret(ArretBus arret)
         {
-            string query = "DELETE FROM Arret WHERE IDArret = @id";
+            string query = "DELETE FROM LigneArret WHERE IDArret = @id";
             MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", arret.Id);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show($"Error deleting stop: {ex.Message}");
+                return false;
+            }
+
+            query = "DELETE FROM Arret WHERE IDArret = @id";
+            cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@id", arret.Id);
             try
             {
@@ -263,6 +276,7 @@ namespace GestionBus
             {
                 MessageBox.Show($"Error deleting stop: {ex.Message}");
             }
+
             return false;
         }
     }
