@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             btnRetourModifLigne = new Button();
-            label8 = new Label();
             label7 = new Label();
             checkBox10 = new CheckBox();
             checkBox9 = new CheckBox();
@@ -42,16 +41,14 @@
             checkBox2 = new CheckBox();
             btnCouleur = new Button();
             panel2 = new Panel();
-            checkBox1 = new CheckBox();
-            button1 = new Button();
-            numericUpDown1 = new NumericUpDown();
-            comboBox1 = new ComboBox();
-            numericUpDown2 = new NumericUpDown();
+            btnAjouterArret = new Button();
+            nudHeuresEcartArret = new NumericUpDown();
+            cmbArrets = new ComboBox();
+            nudMinEcartArret = new NumericUpDown();
             label5 = new Label();
             label4 = new Label();
             label6 = new Label();
             lstArrets = new ListBox();
-            label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
@@ -60,26 +57,20 @@
             lblNbPassageAjout = new Label();
             lblHeurePremierAjout = new Label();
             nudNbPassageAjout = new NumericUpDown();
-            nudFreqHeureAjout = new NumericUpDown();
             lblHeure1er = new Label();
-            nudFreqAjoutMin = new NumericUpDown();
-            lblHeureFreq = new Label();
-            lblFrequenceAjout = new Label();
-            btnAjouter = new Button();
+            btnModifierLigne = new Button();
             lblCouleurAjout = new Label();
             lblNomLigne = new Label();
             lblAjouterLigne = new Label();
             colorDialog1 = new ColorDialog();
             cmbNomLigne = new ComboBox();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudHeuresEcartArret).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudMinEcartArret).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudMin1erAjout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudHeure1erAjout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNbPassageAjout).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudFreqHeureAjout).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudFreqAjoutMin).BeginInit();
             SuspendLayout();
             // 
             // btnRetourModifLigne
@@ -92,16 +83,6 @@
             btnRetourModifLigne.Text = "<-";
             btnRetourModifLigne.UseVisualStyleBackColor = true;
             btnRetourModifLigne.Click += btnRetourModifLigne_Click;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(360, 546);
-            label8.Name = "label8";
-            label8.Size = new Size(171, 60);
-            label8.TabIndex = 82;
-            label8.Text = "Nombre d'arrêts : // \r\nTemps de trajet (Ligne) : // \r\nTemps de trajet (Journée) : // \r\nBus nécessaires (minimum) : //";
-            label8.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -228,11 +209,10 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(checkBox1);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(numericUpDown1);
-            panel2.Controls.Add(comboBox1);
-            panel2.Controls.Add(numericUpDown2);
+            panel2.Controls.Add(btnAjouterArret);
+            panel2.Controls.Add(nudHeuresEcartArret);
+            panel2.Controls.Add(cmbArrets);
+            panel2.Controls.Add(nudMinEcartArret);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(label6);
@@ -242,57 +222,49 @@
             panel2.Size = new Size(225, 214);
             panel2.TabIndex = 70;
             // 
-            // checkBox1
+            // btnAjouterArret
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(43, 146);
-            checkBox1.Margin = new Padding(3, 2, 3, 2);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(130, 19);
-            checkBox1.TabIndex = 48;
-            checkBox1.Text = "Calcul automatique";
-            checkBox1.UseVisualStyleBackColor = true;
+            btnAjouterArret.Location = new Point(15, 174);
+            btnAjouterArret.Margin = new Padding(3, 2, 3, 2);
+            btnAjouterArret.Name = "btnAjouterArret";
+            btnAjouterArret.Size = new Size(191, 22);
+            btnAjouterArret.TabIndex = 47;
+            btnAjouterArret.Text = "Ajouter l'arret";
+            btnAjouterArret.UseVisualStyleBackColor = true;
+            btnAjouterArret.Click += btnAjouterArret_Click;
             // 
-            // button1
+            // nudHeuresEcartArret
             // 
-            button1.Location = new Point(15, 174);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(191, 22);
-            button1.TabIndex = 47;
-            button1.Text = "Ajouter l'arret";
-            button1.UseVisualStyleBackColor = true;
+            nudHeuresEcartArret.Location = new Point(20, 129);
+            nudHeuresEcartArret.Margin = new Padding(2);
+            nudHeuresEcartArret.Name = "nudHeuresEcartArret";
+            nudHeuresEcartArret.Size = new Size(80, 23);
+            nudHeuresEcartArret.TabIndex = 43;
             // 
-            // numericUpDown1
+            // cmbArrets
             // 
-            numericUpDown1.Location = new Point(15, 118);
-            numericUpDown1.Margin = new Padding(2);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(80, 23);
-            numericUpDown1.TabIndex = 43;
+            cmbArrets.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbArrets.FormattingEnabled = true;
+            cmbArrets.Location = new Point(35, 42);
+            cmbArrets.Margin = new Padding(3, 2, 3, 2);
+            cmbArrets.Name = "cmbArrets";
+            cmbArrets.Size = new Size(154, 23);
+            cmbArrets.TabIndex = 44;
+            cmbArrets.SelectedIndexChanged += cmbArrets_SelectedIndexChanged;
             // 
-            // comboBox1
+            // nudMinEcartArret
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(35, 42);
-            comboBox1.Margin = new Padding(3, 2, 3, 2);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(154, 23);
-            comboBox1.TabIndex = 44;
-            // 
-            // numericUpDown2
-            // 
-            numericUpDown2.Location = new Point(129, 118);
-            numericUpDown2.Margin = new Padding(2);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(77, 23);
-            numericUpDown2.TabIndex = 44;
+            nudMinEcartArret.Location = new Point(134, 129);
+            nudMinEcartArret.Margin = new Padding(2);
+            nudMinEcartArret.Name = "nudMinEcartArret";
+            nudMinEcartArret.Size = new Size(77, 23);
+            nudMinEcartArret.TabIndex = 44;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 15F);
-            label5.Location = new Point(97, 112);
+            label5.Location = new Point(102, 123);
             label5.Margin = new Padding(1, 0, 1, 0);
             label5.Name = "label5";
             label5.Size = new Size(26, 28);
@@ -315,7 +287,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10F);
-            label6.Location = new Point(30, 74);
+            label6.Location = new Point(35, 85);
             label6.Margin = new Padding(1, 0, 1, 0);
             label6.Name = "label6";
             label6.Size = new Size(151, 38);
@@ -332,15 +304,6 @@
             lstArrets.Name = "lstArrets";
             lstArrets.Size = new Size(202, 214);
             lstArrets.TabIndex = 69;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(111, 512);
-            label3.Name = "label3";
-            label3.Size = new Size(657, 15);
-            label3.TabIndex = 68;
-            label3.Text = "__________________________________________________________________________________________________________________________________";
             // 
             // label2
             // 
@@ -368,11 +331,7 @@
             panel1.Controls.Add(lblNbPassageAjout);
             panel1.Controls.Add(lblHeurePremierAjout);
             panel1.Controls.Add(nudNbPassageAjout);
-            panel1.Controls.Add(nudFreqHeureAjout);
             panel1.Controls.Add(lblHeure1er);
-            panel1.Controls.Add(nudFreqAjoutMin);
-            panel1.Controls.Add(lblHeureFreq);
-            panel1.Controls.Add(lblFrequenceAjout);
             panel1.Location = new Point(108, 166);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
@@ -399,7 +358,7 @@
             // 
             lblNbPassageAjout.AutoSize = true;
             lblNbPassageAjout.Font = new Font("Segoe UI", 11F);
-            lblNbPassageAjout.Location = new Point(23, 143);
+            lblNbPassageAjout.Location = new Point(23, 101);
             lblNbPassageAjout.Margin = new Padding(1, 0, 1, 0);
             lblNbPassageAjout.Name = "lblNbPassageAjout";
             lblNbPassageAjout.Size = new Size(149, 20);
@@ -419,19 +378,11 @@
             // 
             // nudNbPassageAjout
             // 
-            nudNbPassageAjout.Location = new Point(11, 171);
+            nudNbPassageAjout.Location = new Point(11, 129);
             nudNbPassageAjout.Margin = new Padding(2);
             nudNbPassageAjout.Name = "nudNbPassageAjout";
             nudNbPassageAjout.Size = new Size(190, 23);
             nudNbPassageAjout.TabIndex = 41;
-            // 
-            // nudFreqHeureAjout
-            // 
-            nudFreqHeureAjout.Location = new Point(10, 106);
-            nudFreqHeureAjout.Margin = new Padding(2);
-            nudFreqHeureAjout.Name = "nudFreqHeureAjout";
-            nudFreqHeureAjout.Size = new Size(80, 23);
-            nudFreqHeureAjout.TabIndex = 36;
             // 
             // lblHeure1er
             // 
@@ -444,44 +395,15 @@
             lblHeure1er.TabIndex = 40;
             lblHeure1er.Text = "H";
             // 
-            // nudFreqAjoutMin
+            // btnModifierLigne
             // 
-            nudFreqAjoutMin.Location = new Point(124, 106);
-            nudFreqAjoutMin.Margin = new Padding(2);
-            nudFreqAjoutMin.Name = "nudFreqAjoutMin";
-            nudFreqAjoutMin.Size = new Size(77, 23);
-            nudFreqAjoutMin.TabIndex = 37;
-            // 
-            // lblHeureFreq
-            // 
-            lblHeureFreq.AutoSize = true;
-            lblHeureFreq.Font = new Font("Segoe UI", 15F);
-            lblHeureFreq.Location = new Point(93, 100);
-            lblHeureFreq.Margin = new Padding(1, 0, 1, 0);
-            lblHeureFreq.Name = "lblHeureFreq";
-            lblHeureFreq.Size = new Size(26, 28);
-            lblHeureFreq.TabIndex = 39;
-            lblHeureFreq.Text = "H";
-            // 
-            // lblFrequenceAjout
-            // 
-            lblFrequenceAjout.AutoSize = true;
-            lblFrequenceAjout.Font = new Font("Segoe UI", 11F);
-            lblFrequenceAjout.Location = new Point(18, 78);
-            lblFrequenceAjout.Margin = new Padding(1, 0, 1, 0);
-            lblFrequenceAjout.Name = "lblFrequenceAjout";
-            lblFrequenceAjout.Size = new Size(156, 20);
-            lblFrequenceAjout.TabIndex = 38;
-            lblFrequenceAjout.Text = "Fréquence de passage";
-            // 
-            // btnAjouter
-            // 
-            btnAjouter.Location = new Point(356, 626);
-            btnAjouter.Name = "btnAjouter";
-            btnAjouter.Size = new Size(194, 32);
-            btnAjouter.TabIndex = 64;
-            btnAjouter.Text = "Modifier la ligne";
-            btnAjouter.UseVisualStyleBackColor = true;
+            btnModifierLigne.Location = new Point(356, 528);
+            btnModifierLigne.Name = "btnModifierLigne";
+            btnModifierLigne.Size = new Size(194, 32);
+            btnModifierLigne.TabIndex = 64;
+            btnModifierLigne.Text = "Modifier la ligne";
+            btnModifierLigne.UseVisualStyleBackColor = true;
+            btnModifierLigne.Click += btnModifierLigne_Click;
             // 
             // lblCouleurAjout
             // 
@@ -524,14 +446,14 @@
             cmbNomLigne.Name = "cmbNomLigne";
             cmbNomLigne.Size = new Size(168, 23);
             cmbNomLigne.TabIndex = 83;
+            cmbNomLigne.SelectedIndexChanged += cmbNomLigne_SelectedIndexChanged;
             // 
             // AdministrerModifLigne
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(913, 682);
+            ClientSize = new Size(913, 582);
             Controls.Add(cmbNomLigne);
-            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(checkBox10);
             Controls.Add(checkBox9);
@@ -545,31 +467,28 @@
             Controls.Add(btnCouleur);
             Controls.Add(panel2);
             Controls.Add(lstArrets);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
-            Controls.Add(btnAjouter);
+            Controls.Add(btnModifierLigne);
             Controls.Add(lblCouleurAjout);
             Controls.Add(lblNomLigne);
             Controls.Add(lblAjouterLigne);
             Controls.Add(btnRetourModifLigne);
             Margin = new Padding(2);
-            MaximumSize = new Size(929, 721);
-            MinimumSize = new Size(929, 721);
+            MaximumSize = new Size(929, 621);
+            MinimumSize = new Size(929, 621);
             Name = "AdministrerModifLigne";
             Text = "AdministrerModifLigne";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudHeuresEcartArret).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudMinEcartArret).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudMin1erAjout).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudHeure1erAjout).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNbPassageAjout).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudFreqHeureAjout).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudFreqAjoutMin).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -577,7 +496,6 @@
         #endregion
 
         private Button btnRetourModifLigne;
-        private Label label8;
         private Label label7;
         private CheckBox checkBox10;
         private CheckBox checkBox9;
@@ -590,16 +508,14 @@
         private CheckBox checkBox2;
         private Button btnCouleur;
         private Panel panel2;
-        private CheckBox checkBox1;
-        private Button button1;
-        private NumericUpDown numericUpDown1;
-        private ComboBox comboBox1;
-        private NumericUpDown numericUpDown2;
+        private Button btnAjouterArret;
+        private NumericUpDown nudHeuresEcartArret;
+        private ComboBox cmbArrets;
+        private NumericUpDown nudMinEcartArret;
         private Label label5;
         private Label label4;
         private Label label6;
         private ListBox lstArrets;
-        private Label label3;
         private Label label2;
         private Label label1;
         private Panel panel1;
@@ -608,12 +524,8 @@
         private Label lblNbPassageAjout;
         private Label lblHeurePremierAjout;
         private NumericUpDown nudNbPassageAjout;
-        private NumericUpDown nudFreqHeureAjout;
         private Label lblHeure1er;
-        private NumericUpDown nudFreqAjoutMin;
-        private Label lblHeureFreq;
-        private Label lblFrequenceAjout;
-        private Button btnAjouter;
+        private Button btnModifierLigne;
         private Label lblCouleurAjout;
         private Label lblNomLigne;
         private Label lblAjouterLigne;

@@ -36,10 +36,6 @@
             nudHeure1erAjout = new NumericUpDown();
             nudMin1erAjout = new NumericUpDown();
             lblHeurePremierAjout = new Label();
-            lblFrequenceAjout = new Label();
-            nudFreqAjoutMin = new NumericUpDown();
-            nudFreqHeureAjout = new NumericUpDown();
-            lblHeureFreq = new Label();
             lblHeure1er = new Label();
             nudNbPassageAjout = new NumericUpDown();
             lblNbPassageAjout = new Label();
@@ -47,7 +43,6 @@
             panel1 = new Panel();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
             lstArrets = new ListBox();
             panel2 = new Panel();
             btnAjouterArret = new Button();
@@ -69,12 +64,9 @@
             checkBox9 = new CheckBox();
             checkBox10 = new CheckBox();
             label7 = new Label();
-            label8 = new Label();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             ((System.ComponentModel.ISupportInitialize)nudHeure1erAjout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudMin1erAjout).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudFreqAjoutMin).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudFreqHeureAjout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudNbPassageAjout).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -161,44 +153,6 @@
             lblHeurePremierAjout.TabIndex = 35;
             lblHeurePremierAjout.Text = "Heure du 1er passage";
             // 
-            // lblFrequenceAjout
-            // 
-            lblFrequenceAjout.AutoSize = true;
-            lblFrequenceAjout.Font = new Font("Segoe UI", 11F);
-            lblFrequenceAjout.Location = new Point(18, 78);
-            lblFrequenceAjout.Margin = new Padding(1, 0, 1, 0);
-            lblFrequenceAjout.Name = "lblFrequenceAjout";
-            lblFrequenceAjout.Size = new Size(156, 20);
-            lblFrequenceAjout.TabIndex = 38;
-            lblFrequenceAjout.Text = "Fréquence de passage";
-            // 
-            // nudFreqAjoutMin
-            // 
-            nudFreqAjoutMin.Location = new Point(124, 106);
-            nudFreqAjoutMin.Margin = new Padding(2);
-            nudFreqAjoutMin.Name = "nudFreqAjoutMin";
-            nudFreqAjoutMin.Size = new Size(77, 23);
-            nudFreqAjoutMin.TabIndex = 37;
-            // 
-            // nudFreqHeureAjout
-            // 
-            nudFreqHeureAjout.Location = new Point(10, 106);
-            nudFreqHeureAjout.Margin = new Padding(2);
-            nudFreqHeureAjout.Name = "nudFreqHeureAjout";
-            nudFreqHeureAjout.Size = new Size(80, 23);
-            nudFreqHeureAjout.TabIndex = 36;
-            // 
-            // lblHeureFreq
-            // 
-            lblHeureFreq.AutoSize = true;
-            lblHeureFreq.Font = new Font("Segoe UI", 15F);
-            lblHeureFreq.Location = new Point(93, 100);
-            lblHeureFreq.Margin = new Padding(1, 0, 1, 0);
-            lblHeureFreq.Name = "lblHeureFreq";
-            lblHeureFreq.Size = new Size(26, 28);
-            lblHeureFreq.TabIndex = 39;
-            lblHeureFreq.Text = "H";
-            // 
             // lblHeure1er
             // 
             lblHeure1er.AutoSize = true;
@@ -212,7 +166,7 @@
             // 
             // nudNbPassageAjout
             // 
-            nudNbPassageAjout.Location = new Point(11, 171);
+            nudNbPassageAjout.Location = new Point(11, 132);
             nudNbPassageAjout.Margin = new Padding(2);
             nudNbPassageAjout.Name = "nudNbPassageAjout";
             nudNbPassageAjout.Size = new Size(190, 23);
@@ -222,7 +176,7 @@
             // 
             lblNbPassageAjout.AutoSize = true;
             lblNbPassageAjout.Font = new Font("Segoe UI", 11F);
-            lblNbPassageAjout.Location = new Point(23, 143);
+            lblNbPassageAjout.Location = new Point(23, 104);
             lblNbPassageAjout.Margin = new Padding(1, 0, 1, 0);
             lblNbPassageAjout.Name = "lblNbPassageAjout";
             lblNbPassageAjout.Size = new Size(149, 20);
@@ -231,7 +185,7 @@
             // 
             // btnAjouter
             // 
-            btnAjouter.Location = new Point(358, 614);
+            btnAjouter.Location = new Point(358, 510);
             btnAjouter.Name = "btnAjouter";
             btnAjouter.Size = new Size(194, 32);
             btnAjouter.TabIndex = 43;
@@ -247,11 +201,7 @@
             panel1.Controls.Add(lblNbPassageAjout);
             panel1.Controls.Add(lblHeurePremierAjout);
             panel1.Controls.Add(nudNbPassageAjout);
-            panel1.Controls.Add(nudFreqHeureAjout);
             panel1.Controls.Add(lblHeure1er);
-            panel1.Controls.Add(nudFreqAjoutMin);
-            panel1.Controls.Add(lblHeureFreq);
-            panel1.Controls.Add(lblFrequenceAjout);
             panel1.Location = new Point(110, 154);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
@@ -275,15 +225,6 @@
             label2.Size = new Size(657, 15);
             label2.TabIndex = 46;
             label2.Text = "__________________________________________________________________________________________________________________________________";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(113, 500);
-            label3.Name = "label3";
-            label3.Size = new Size(657, 15);
-            label3.TabIndex = 47;
-            label3.Text = "__________________________________________________________________________________________________________________________________";
             // 
             // lstArrets
             // 
@@ -324,7 +265,7 @@
             // 
             // nudArretHeures
             // 
-            nudArretHeures.Location = new Point(15, 118);
+            nudArretHeures.Location = new Point(20, 132);
             nudArretHeures.Margin = new Padding(2);
             nudArretHeures.Name = "nudArretHeures";
             nudArretHeures.Size = new Size(80, 23);
@@ -342,7 +283,7 @@
             // 
             // nudArretMinutes
             // 
-            nudArretMinutes.Location = new Point(129, 118);
+            nudArretMinutes.Location = new Point(134, 132);
             nudArretMinutes.Margin = new Padding(2);
             nudArretMinutes.Name = "nudArretMinutes";
             nudArretMinutes.Size = new Size(77, 23);
@@ -352,7 +293,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 15F);
-            label5.Location = new Point(97, 112);
+            label5.Location = new Point(102, 126);
             label5.Margin = new Padding(1, 0, 1, 0);
             label5.Name = "label5";
             label5.Size = new Size(26, 28);
@@ -375,7 +316,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10F);
-            label6.Location = new Point(30, 74);
+            label6.Location = new Point(35, 88);
             label6.Margin = new Padding(1, 0, 1, 0);
             label6.Name = "label6";
             label6.Size = new Size(151, 38);
@@ -505,16 +446,6 @@
             label7.Text = "Jours de passage";
             label7.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(362, 534);
-            label8.Name = "label8";
-            label8.Size = new Size(171, 60);
-            label8.TabIndex = 59;
-            label8.Text = "Nombre d'arrêts : // \r\nTemps de trajet (Ligne) : // \r\nTemps de trajet (Journée) : // \r\nBus nécessaires (minimum) : //";
-            label8.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // mySqlCommand1
             // 
             mySqlCommand1.CacheAge = 0;
@@ -526,8 +457,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(913, 682);
-            Controls.Add(label8);
+            ClientSize = new Size(913, 582);
             Controls.Add(label7);
             Controls.Add(checkBox10);
             Controls.Add(checkBox9);
@@ -541,7 +471,6 @@
             Controls.Add(btnCouleur);
             Controls.Add(panel2);
             Controls.Add(lstArrets);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -552,14 +481,12 @@
             Controls.Add(lblAjouterLigne);
             Controls.Add(btnRetourAjoutLigne);
             Margin = new Padding(2);
-            MaximumSize = new Size(929, 721);
-            MinimumSize = new Size(929, 721);
+            MaximumSize = new Size(929, 621);
+            MinimumSize = new Size(929, 621);
             Name = "AdministrerAjouterLigne";
             Text = "AdministrerAjouterLigne";
             ((System.ComponentModel.ISupportInitialize)nudHeure1erAjout).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudMin1erAjout).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudFreqAjoutMin).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudFreqHeureAjout).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudNbPassageAjout).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -581,10 +508,6 @@
         private NumericUpDown nudHeure1erAjout;
         private NumericUpDown nudMin1erAjout;
         private Label lblHeurePremierAjout;
-        private Label lblFrequenceAjout;
-        private NumericUpDown nudFreqAjoutMin;
-        private NumericUpDown nudFreqHeureAjout;
-        private Label lblHeureFreq;
         private Label lblHeure1er;
         private NumericUpDown nudNbPassageAjout;
         private Label lblNbPassageAjout;
@@ -592,7 +515,6 @@
         private Panel panel1;
         private Label label1;
         private Label label2;
-        private Label label3;
         private ListBox lstArrets;
         private Panel panel2;
         private Button btnAjouterArret;
@@ -614,7 +536,6 @@
         private CheckBox checkBox9;
         private CheckBox checkBox10;
         private Label label7;
-        private Label label8;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
     }
 }

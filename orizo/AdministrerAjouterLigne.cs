@@ -52,7 +52,6 @@ namespace orizo
                 if (!BD.AjouterLigneArret(ligne.Id, arret.Id, i + 1, arret.Ecart))
                 {
                     MessageBox.Show($"Erreur lors de l'ajout de l'arrêt {arret.Nom} à la ligne {ligne.Nom}", "Alerte");
-
                 }
             }
         }
