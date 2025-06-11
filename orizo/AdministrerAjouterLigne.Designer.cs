@@ -42,7 +42,6 @@
             btnAjouter = new Button();
             panel1 = new Panel();
             label1 = new Label();
-            label2 = new Label();
             lstArrets = new ListBox();
             panel2 = new Panel();
             btnAjouterArret = new Button();
@@ -54,16 +53,6 @@
             label6 = new Label();
             btnCouleur = new Button();
             colorDialog1 = new ColorDialog();
-            checkBox2 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox5 = new CheckBox();
-            checkBox6 = new CheckBox();
-            checkBox7 = new CheckBox();
-            checkBox8 = new CheckBox();
-            checkBox9 = new CheckBox();
-            checkBox10 = new CheckBox();
-            label7 = new Label();
             mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             ((System.ComponentModel.ISupportInitialize)nudHeure1erAjout).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudMin1erAjout).BeginInit();
@@ -185,9 +174,9 @@
             // 
             // btnAjouter
             // 
-            btnAjouter.Location = new Point(358, 510);
+            btnAjouter.Location = new Point(358, 401);
             btnAjouter.Name = "btnAjouter";
-            btnAjouter.Size = new Size(194, 32);
+            btnAjouter.Size = new Size(225, 32);
             btnAjouter.TabIndex = 43;
             btnAjouter.Text = "Ajouter la ligne";
             btnAjouter.UseVisualStyleBackColor = true;
@@ -216,15 +205,6 @@
             label1.Size = new Size(657, 15);
             label1.TabIndex = 45;
             label1.Text = "__________________________________________________________________________________________________________________________________";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(110, 375);
-            label2.Name = "label2";
-            label2.Size = new Size(657, 15);
-            label2.TabIndex = 46;
-            label2.Text = "__________________________________________________________________________________________________________________________________";
             // 
             // lstArrets
             // 
@@ -335,117 +315,6 @@
             btnCouleur.UseVisualStyleBackColor = false;
             btnCouleur.Click += btnCouleur_Click;
             // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(270, 435);
-            checkBox2.Margin = new Padding(3, 2, 3, 2);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(46, 19);
-            checkBox2.TabIndex = 50;
-            checkBox2.Text = "Lun";
-            checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(322, 435);
-            checkBox3.Margin = new Padding(3, 2, 3, 2);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(47, 19);
-            checkBox3.TabIndex = 51;
-            checkBox3.Text = "Mar";
-            checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(378, 435);
-            checkBox4.Margin = new Padding(3, 2, 3, 2);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(47, 19);
-            checkBox4.TabIndex = 52;
-            checkBox4.Text = "Mer";
-            checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(433, 435);
-            checkBox5.Margin = new Padding(3, 2, 3, 2);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(43, 19);
-            checkBox5.TabIndex = 53;
-            checkBox5.Text = "Jeu";
-            checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            checkBox6.AutoSize = true;
-            checkBox6.Location = new Point(484, 435);
-            checkBox6.Margin = new Padding(3, 2, 3, 2);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Size = new Size(45, 19);
-            checkBox6.TabIndex = 54;
-            checkBox6.Text = "Ven";
-            checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            checkBox7.AutoSize = true;
-            checkBox7.Location = new Point(270, 477);
-            checkBox7.Margin = new Padding(3, 2, 3, 2);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Size = new Size(84, 19);
-            checkBox7.TabIndex = 55;
-            checkBox7.Text = "Jours fériés";
-            checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            checkBox8.AutoSize = true;
-            checkBox8.Location = new Point(510, 477);
-            checkBox8.Margin = new Padding(3, 2, 3, 2);
-            checkBox8.Name = "checkBox8";
-            checkBox8.Size = new Size(122, 19);
-            checkBox8.TabIndex = 56;
-            checkBox8.Text = "Vacances scolaires";
-            checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            checkBox9.AutoSize = true;
-            checkBox9.Location = new Point(537, 435);
-            checkBox9.Margin = new Padding(3, 2, 3, 2);
-            checkBox9.Name = "checkBox9";
-            checkBox9.Size = new Size(49, 19);
-            checkBox9.TabIndex = 57;
-            checkBox9.Text = "Sam";
-            checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox10
-            // 
-            checkBox10.AutoSize = true;
-            checkBox10.Location = new Point(595, 435);
-            checkBox10.Margin = new Padding(3, 2, 3, 2);
-            checkBox10.Name = "checkBox10";
-            checkBox10.Size = new Size(48, 19);
-            checkBox10.TabIndex = 58;
-            checkBox10.Text = "Dim";
-            checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 11F);
-            label7.Location = new Point(383, 401);
-            label7.Margin = new Padding(1, 0, 1, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(121, 20);
-            label7.TabIndex = 49;
-            label7.Text = "Jours de passage";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // mySqlCommand1
             // 
             mySqlCommand1.CacheAge = 0;
@@ -457,21 +326,10 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(913, 582);
-            Controls.Add(label7);
-            Controls.Add(checkBox10);
-            Controls.Add(checkBox9);
-            Controls.Add(checkBox8);
-            Controls.Add(checkBox7);
-            Controls.Add(checkBox6);
-            Controls.Add(checkBox5);
-            Controls.Add(checkBox4);
-            Controls.Add(checkBox3);
-            Controls.Add(checkBox2);
+            ClientSize = new Size(913, 482);
             Controls.Add(btnCouleur);
             Controls.Add(panel2);
             Controls.Add(lstArrets);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(btnAjouter);
@@ -481,8 +339,8 @@
             Controls.Add(lblAjouterLigne);
             Controls.Add(btnRetourAjoutLigne);
             Margin = new Padding(2);
-            MaximumSize = new Size(929, 621);
-            MinimumSize = new Size(929, 621);
+            MaximumSize = new Size(929, 521);
+            MinimumSize = new Size(929, 521);
             Name = "AdministrerAjouterLigne";
             Text = "AdministrerAjouterLigne";
             ((System.ComponentModel.ISupportInitialize)nudHeure1erAjout).EndInit();
@@ -514,7 +372,6 @@
         private Button btnAjouter;
         private Panel panel1;
         private Label label1;
-        private Label label2;
         private ListBox lstArrets;
         private Panel panel2;
         private Button btnAjouterArret;
@@ -526,16 +383,6 @@
         private Label label6;
         private Button btnCouleur;
         private ColorDialog colorDialog1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
-        private CheckBox checkBox5;
-        private CheckBox checkBox6;
-        private CheckBox checkBox7;
-        private CheckBox checkBox8;
-        private CheckBox checkBox9;
-        private CheckBox checkBox10;
-        private Label label7;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
     }
 }

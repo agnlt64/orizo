@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             btnRetourModifLigne = new Button();
-            label7 = new Label();
-            checkBox10 = new CheckBox();
-            checkBox9 = new CheckBox();
-            checkBox8 = new CheckBox();
-            checkBox7 = new CheckBox();
-            checkBox6 = new CheckBox();
-            checkBox5 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox2 = new CheckBox();
             btnCouleur = new Button();
             panel2 = new Panel();
             btnAjouterArret = new Button();
@@ -49,7 +39,6 @@
             label4 = new Label();
             label6 = new Label();
             lstArrets = new ListBox();
-            label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
             nudMin1erAjout = new NumericUpDown();
@@ -83,117 +72,6 @@
             btnRetourModifLigne.Text = "<-";
             btnRetourModifLigne.UseVisualStyleBackColor = true;
             btnRetourModifLigne.Click += btnRetourModifLigne_Click;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 11F);
-            label7.Location = new Point(382, 413);
-            label7.Margin = new Padding(1, 0, 1, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(121, 20);
-            label7.TabIndex = 72;
-            label7.Text = "Jours de passage";
-            label7.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // checkBox10
-            // 
-            checkBox10.AutoSize = true;
-            checkBox10.Location = new Point(593, 447);
-            checkBox10.Margin = new Padding(3, 2, 3, 2);
-            checkBox10.Name = "checkBox10";
-            checkBox10.Size = new Size(48, 19);
-            checkBox10.TabIndex = 81;
-            checkBox10.Text = "Dim";
-            checkBox10.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            checkBox9.AutoSize = true;
-            checkBox9.Location = new Point(536, 447);
-            checkBox9.Margin = new Padding(3, 2, 3, 2);
-            checkBox9.Name = "checkBox9";
-            checkBox9.Size = new Size(49, 19);
-            checkBox9.TabIndex = 80;
-            checkBox9.Text = "Sam";
-            checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            checkBox8.AutoSize = true;
-            checkBox8.Location = new Point(508, 489);
-            checkBox8.Margin = new Padding(3, 2, 3, 2);
-            checkBox8.Name = "checkBox8";
-            checkBox8.Size = new Size(122, 19);
-            checkBox8.TabIndex = 79;
-            checkBox8.Text = "Vacances scolaires";
-            checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            checkBox7.AutoSize = true;
-            checkBox7.Location = new Point(268, 489);
-            checkBox7.Margin = new Padding(3, 2, 3, 2);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Size = new Size(84, 19);
-            checkBox7.TabIndex = 78;
-            checkBox7.Text = "Jours fériés";
-            checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox6
-            // 
-            checkBox6.AutoSize = true;
-            checkBox6.Location = new Point(482, 447);
-            checkBox6.Margin = new Padding(3, 2, 3, 2);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Size = new Size(45, 19);
-            checkBox6.TabIndex = 77;
-            checkBox6.Text = "Ven";
-            checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(431, 447);
-            checkBox5.Margin = new Padding(3, 2, 3, 2);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(43, 19);
-            checkBox5.TabIndex = 76;
-            checkBox5.Text = "Jeu";
-            checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(376, 447);
-            checkBox4.Margin = new Padding(3, 2, 3, 2);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(47, 19);
-            checkBox4.TabIndex = 75;
-            checkBox4.Text = "Mer";
-            checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(320, 447);
-            checkBox3.Margin = new Padding(3, 2, 3, 2);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(47, 19);
-            checkBox3.TabIndex = 74;
-            checkBox3.Text = "Mar";
-            checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(268, 447);
-            checkBox2.Margin = new Padding(3, 2, 3, 2);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(46, 19);
-            checkBox2.TabIndex = 73;
-            checkBox2.Text = "Lun";
-            checkBox2.UseVisualStyleBackColor = true;
             // 
             // btnCouleur
             // 
@@ -305,15 +183,6 @@
             lstArrets.Size = new Size(202, 214);
             lstArrets.TabIndex = 69;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(108, 387);
-            label2.Name = "label2";
-            label2.Size = new Size(657, 15);
-            label2.TabIndex = 67;
-            label2.Text = "__________________________________________________________________________________________________________________________________";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -397,9 +266,9 @@
             // 
             // btnModifierLigne
             // 
-            btnModifierLigne.Location = new Point(356, 528);
+            btnModifierLigne.Location = new Point(356, 412);
             btnModifierLigne.Name = "btnModifierLigne";
-            btnModifierLigne.Size = new Size(194, 32);
+            btnModifierLigne.Size = new Size(225, 32);
             btnModifierLigne.TabIndex = 64;
             btnModifierLigne.Text = "Modifier la ligne";
             btnModifierLigne.UseVisualStyleBackColor = true;
@@ -452,22 +321,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(913, 582);
+            ClientSize = new Size(913, 482);
             Controls.Add(cmbNomLigne);
-            Controls.Add(label7);
-            Controls.Add(checkBox10);
-            Controls.Add(checkBox9);
-            Controls.Add(checkBox8);
-            Controls.Add(checkBox7);
-            Controls.Add(checkBox6);
-            Controls.Add(checkBox5);
-            Controls.Add(checkBox4);
-            Controls.Add(checkBox3);
-            Controls.Add(checkBox2);
             Controls.Add(btnCouleur);
             Controls.Add(panel2);
             Controls.Add(lstArrets);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(btnModifierLigne);
@@ -476,8 +334,8 @@
             Controls.Add(lblAjouterLigne);
             Controls.Add(btnRetourModifLigne);
             Margin = new Padding(2);
-            MaximumSize = new Size(929, 621);
-            MinimumSize = new Size(929, 621);
+            MaximumSize = new Size(929, 521);
+            MinimumSize = new Size(929, 521);
             Name = "AdministrerModifLigne";
             Text = "AdministrerModifLigne";
             panel2.ResumeLayout(false);
@@ -496,16 +354,6 @@
         #endregion
 
         private Button btnRetourModifLigne;
-        private Label label7;
-        private CheckBox checkBox10;
-        private CheckBox checkBox9;
-        private CheckBox checkBox8;
-        private CheckBox checkBox7;
-        private CheckBox checkBox6;
-        private CheckBox checkBox5;
-        private CheckBox checkBox4;
-        private CheckBox checkBox3;
-        private CheckBox checkBox2;
         private Button btnCouleur;
         private Panel panel2;
         private Button btnAjouterArret;
@@ -516,7 +364,6 @@
         private Label label4;
         private Label label6;
         private ListBox lstArrets;
-        private Label label2;
         private Label label1;
         private Panel panel1;
         private NumericUpDown nudMin1erAjout;
