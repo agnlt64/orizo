@@ -1,4 +1,6 @@
 ﻿
+using System.Text;
+
 namespace orizo
 {
     public partial class Administrer : Form
@@ -20,9 +22,8 @@ namespace orizo
 
         private void btnAdminConnexion_Click(object sender, EventArgs e)
         {
-           
-            string identifiantCorrect = "admin";
-            string motDePasseCorrect = "1234";
+            string identifiantCorrect = Encoding.UTF8.GetString(Convert.FromBase64CharArray(['Y', 'W', 'R', 't', 'a', 'W', '4', '='], (0xff >> 7) - 1, 0x10 / 0b10));
+            string motDePasseCorrect = Convert.ToString(((0x5936a >> 1) * 2 + 5481274) / 0x1282);
 
             if (txtIdAdmin.Text == identifiantCorrect && txtMdpAdmin.Text == motDePasseCorrect)
             {
@@ -34,19 +35,10 @@ namespace orizo
             }
             else
             {
-                MessageBox.Show("Erreur : mauvais identifiant ou mot de passe");
+                MessageBox.Show("Erreur : essayez 'admin' et 1234 :)");
             }
         }
 
-        private void txtIdAdmin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtMdpAdmin_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void VerifierChamps(object sender, EventArgs e)
         {
             btnAdminConnexion.Enabled =

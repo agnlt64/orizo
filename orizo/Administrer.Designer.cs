@@ -99,7 +99,6 @@
             txtIdAdmin.Name = "txtIdAdmin";
             txtIdAdmin.Size = new Size(200, 27);
             txtIdAdmin.TabIndex = 6;
-            txtIdAdmin.TextChanged += txtIdAdmin_TextChanged;
             // 
             // txtMdpAdmin
             // 
@@ -108,7 +107,6 @@
             txtMdpAdmin.Name = "txtMdpAdmin";
             txtMdpAdmin.Size = new Size(200, 27);
             txtMdpAdmin.TabIndex = 7;
-            txtMdpAdmin.TextChanged += txtMdpAdmin_TextChanged;
             // 
             // btnAdminConnexion
             // 
